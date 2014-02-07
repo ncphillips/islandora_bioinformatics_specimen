@@ -2,7 +2,7 @@
 
 /**
  * @file
- * testsp.install
+ * islandora_bioinformatics_specimen.install
  */
 
 function islandora_bioinformatics_specimen_install() {

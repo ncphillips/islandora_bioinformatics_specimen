@@ -16,9 +16,9 @@ function islandora_bionformatics_specimen_islandora_required_objects(IslandoraTu
   $datastream = $content_model->constructDatastream('DS-COMPOSITE-MODEL', 'X');
   $datastream->mimetype = 'text/xml';
   $datastream->setContentFromFile("$module_path/xml/specimen_ds_composite_model.xml", FALSE);
-  $test_sp_content_model->ingestDatastream($datastream);
+  $content_model->ingestDatastream($datastream);
   return array(
-    'test_sp' => array(
+    'islandora_bionformatics_specimen' => array(
       'title' => 'Bioinformatics Specimen',
       'objects' => array(
           $content_model,
