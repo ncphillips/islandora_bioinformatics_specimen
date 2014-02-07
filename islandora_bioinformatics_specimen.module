@@ -6,7 +6,7 @@
 /**
  * * Implements hook_islandora_required_objects()
  * */
-function islandora_bionformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
+function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
   $module_path = drupal_get_path('module', 'islandora_bionformatics_specimen');
   $content_model = $connection->repository->constructObject('bioinformatics:specimen');
   $content_model->owner = 'fedoraAdmin';
