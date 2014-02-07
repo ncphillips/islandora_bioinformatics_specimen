@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * testsp.install
+ */
+
+function islandora_bioinformatics_specimen_install() {
+  module_load_include('inc', 'islandora', 'include/solution_packs');
+  islandora_install_solution_pack('islandora_bioinformatics_specimen');
+}
