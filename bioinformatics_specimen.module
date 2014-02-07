@@ -1,0 +1,29 @@
+<?php
+
+/** namespace is 'bioinformatics:exampleCM' instead of 'islandora:exampleCM' */
+
+
+/**
+ * * Implements hook_islandora_required_objects()
+ * */
+function islandora_bionformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
+  $module_path = drupal_get_path('module', 'islandora_bionformatics_specimen');
+  $content_model = $connection->repository->constructObject('bioinformatics:specimen');
+  $content_model->owner = 'fedoraAdmin';
+  $content_model->label = 'Bioinformatics Specimen Content Model';
+  $content_model->models = 'fedora-system:ContentModel-3.0';
+  // DS-COMPOSITE-MODEL Datastream.
+  $datastream = $content_model->constructDatastream('DS-COMPOSITE-MODEL', 'X');
+  $datastream->mimetype = 'text/xml';
+  $datastream->setContentFromFile("$module_path/xml/specimen_ds_composite_model.xml", FALSE);
+  $test_sp_content_model->ingestDatastream($datastream);
+  return array(
+    'test_sp' => array(
+      'title' => 'Bioinformatics Specimen',
+      'objects' => array(
+          $content_model,
+      ),
+    ),
+  );
+}
+
