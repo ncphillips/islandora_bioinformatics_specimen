@@ -1,7 +1,6 @@
 name = "Islandora Bioinformatics Specimen"
 description = "A solution pack for keeping track of biological specimens."
 dependencies[] = islandora
-dependencies[] = islandora_bioinformatics_base
 package = Islandora Bioinformatics
 version = 7.x-dev
 core = 7.x
