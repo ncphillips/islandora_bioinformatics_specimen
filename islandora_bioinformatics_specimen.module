@@ -31,7 +31,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
     'Specimen Form' => array(
-      'form_file' => "$module_path/xml/specimen_form.xml",
+      'form_file' => "$module_path/xml/islandora_bioinformatics_specimen_form.xml",
     ),
   );
 }
