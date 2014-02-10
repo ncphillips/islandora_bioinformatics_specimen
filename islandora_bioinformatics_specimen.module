@@ -27,3 +27,24 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
   );
 }
 
+function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
+  $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
+  return array(
+    'Islandora Specimen Form' => array(
+      'form_file' => "$module_path/xml/specimen_form.xml",
+    ),
+  );
+}
+
+function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_associations() {
+  return array(
+    'islandora_bioinformatics_specimen_form' => array(
+      'content_model' => 'bioinformatics:specimen',
+      'form_name' => 'Islandora Specimen Form',
+      'dsid' => 'EML', 
+      'title_field' => array('titleInfo', 'title'),
+      'transform' => '',
+      'template' => FALSE,
+    ),
+  );
+}
