@@ -41,7 +41,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
   return array(
     'islandora_bioinformatics_specimen_form' => array(
       'content_model' => 'bioinformatics:specimen',
-      'form_name' => 'Islandora Specimen Form',
+      'form_name' => 'Specimen Form',
       'dsid' => 'EML',
       'title_field' => array('taxonomy', 'species'),
       'transform' => '',
