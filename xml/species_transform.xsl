@@ -7,7 +7,7 @@
     <xsl:template match="/">
         <eml:eml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://nis.lternet.edu/schemas/EML/eml-2.1.0/eml.xsd"
-            xmlns:eml="eml://ecoinformatics.org/eml-2.1.0" packageId="ppound.3.1" system="knb">
+            xmlns:eml="eml://ecoinformatics.org/eml-2.1.0">
             <dataset>
                 <shortName><xsl:value-of select="/specimen:specimen/specimen:taxonomy/specimen:species"/></shortName>
                 <coverage>
@@ -42,6 +42,34 @@
                             <taxonRankValue><xsl:value-of select="/specimen:specimen/specimen:taxonomy/specimen:species"/></taxonRankValue>
                         </taxonomicClassification>
                     </taxonomicCoverage>
+                    <geographicCoverage>
+                        <geographicDescription>
+                            <xsl:value-of select="/specimen:specimen/specimen:collection_info/specimen:site" />
+                        </geographicDescription>
+                        <!-- a single point should have identical values in north/south and east/west -->
+                        <!-- see http://knb.ecoinformatics.org/software/eml/eml-2.1.1/eml-coverage.html#boundingCoordinates -->
+                        <boundingCoordinates>
+                            <westBoundingCoordinate>
+                                <xsl:value-of select="/specimen:specimen/specimen:collection_info/specimen:longitude" />
+                            </westBoundingCoordinate>
+                            <eastBoundingCoordinate>
+                                <xsl:value-of select="/specimen:specimen/specimen:collection_info/specimen:longitude" />
+                            </eastBoundingCoordinate>
+                            <northBoundingCoordinate>
+                                <xsl:value-of select="/specimen:specimen/specimen:collection_info/specimen:latitude" />
+                            </northBoundingCoordinate>
+                            <southBoundingCoordinate>
+                                <xsl:value-of select="/specimen:specimen/specimen:collection_info/specimen:latitude" />
+                            </southBoundingCoordinate>
+                        </boundingCoordinates>
+                    </geographicCoverage>
+                    <temporalCoverage>
+                        <singleDateTime>
+                            <calendarDate>
+                                <xsl:value-of select="/specimen:specimen/specimen:collection_info"/>
+                            </calendarDate>
+                        </singleDateTime>
+                    </temporalCoverage>
                 </coverage>
             </dataset>
         </eml:eml>
