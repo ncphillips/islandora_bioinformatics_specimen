@@ -36,6 +36,10 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
   );
 }
 
+islandora_bioinformatics_specimen_transform.xsl
+specimen_ds_composite_model.xml
+specimen_form_schema.xsd
+
 function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_associations() {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
