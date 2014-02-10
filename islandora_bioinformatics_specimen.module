@@ -18,7 +18,7 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
   $datastream->setContentFromFile("$module_path/xml/specimen_ds_composite_model.xml", FALSE);
   $content_model->ingestDatastream($datastream);
   return array(
-    'islandora_bioformatics_specimen' => array(
+    'islandora_bioinformatics_specimen' => array(
       'title' => 'Bioinformatics Specimen',
       'objects' => array(
           $content_model,
@@ -37,6 +37,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
 }
 
 function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_associations() {
+  $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
     'islandora_bioinformatics_specimen_form' => array(
       'content_model' => 'bioinformatics:specimen',
@@ -44,6 +45,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
       'dsid' => 'EML', 
       'title_field' => array('titleInfo', 'title'),
       'transform' => '',
+      'self_transform' => "$module_path/xml/islandora_bioinformatics_specimen_transform.xsl",
       'template' => FALSE,
     ),
   );
