@@ -43,7 +43,13 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
       'content_model' => 'bioinformatics:specimen',
       'form_name' => 'Specimen Form',
       'dsid' => 'EML',
-      'title_field' => array('taxonomy', 'species'),
+      'title_field' => array(
+        'dataset',
+        'species',
+        'taxonomicCoverage',
+        'taxonomicClassificationSpecies',
+        'taxonRankValue'
+      ),
       'transform' => '',
       'template' => FALSE,
     ),
