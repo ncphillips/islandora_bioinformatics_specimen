@@ -31,7 +31,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
     'Specimen Form' => array(
-      'form_file' => "$module_path/xml/islandora_bioinformatics_specimen_form.xml",
+      'form_file' => "$module_path/xml/specimen_form.xml",
     ),
   );
 }
@@ -45,20 +45,19 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
       'dsid' => 'EML',
       'title_field' => array('taxonomy', 'species'),
       'transform' => '',
-      'self_transform' => "$module_path/xml/islandora_bioinformatics_specimen_transform.xsl",
       'template' => FALSE,
     ),
   );
 }
 
-//function islandora_bioinformatics_specimenCModel_islandora_ingest_steps(array $configuration){
-//  return array(
-//    'islandora_bioinformatics_specimen_file_upload' => array(
-//      'weight' => 10,
-//      'type' => 'form',
-//      'form_id' => 'islandora_bioinformatics_specimen_upload_form',
-//      'module' => 'islandora_bioinformatics_specimen',
-//      'file' => 'includes/islandora_bioinformatics_specimen_upload.form.inc'
-//    )
-//  );
-//}
+function islandora_bioinformatics_specimenCModel_islandora_ingest_steps(array $configuration){
+  return array(
+    'islandora_bioinformatics_specimen_file_upload' => array(
+      'weight' => 10,
+      'type' => 'form',
+      'form_id' => 'islandora_bioinformatics_specimen_upload_form',
+      'module' => 'islandora_bioinformatics_specimen',
+      'file' => 'includes/islandora_bioinformatics_specimen_upload.form.inc'
+    )
+  );
+}
