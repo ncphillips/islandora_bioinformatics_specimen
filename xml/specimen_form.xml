@@ -2,7 +2,6 @@
 <definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3">
   <properties>
     <root_name>eml:eml</root_name>
-    <schema_uri>http://nis.lternet.edu/schemas/EML/eml-2.1.0/eml.xsd</schema_uri>
     <namespaces default="eml://ecoinformatics.org/eml-2.1.0">
       <namespace prefix="xsi">http://www.w3.org/2001/XMLSchema-instance</namespace>
       <namespace prefix="eml">eml://ecoinformatics.org/eml-2.1.0</namespace>
