@@ -45,7 +45,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
       'dsid' => 'EML',
       'title_field' => array(
         'dataset',
-        'species',
+        'coverage',
         'taxonomicCoverage',
         'taxonomicClassificationSpecies',
         'taxonRankValue'
