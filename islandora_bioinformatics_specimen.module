@@ -8,7 +8,7 @@
  * */
 function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
-  $content_model = $connection->repository->constructObject('islandora:specimen');
+  $content_model = $connection->repository->constructObject('islandora:specimenCM');
   $content_model->owner = 'fedoraAdmin';
   $content_model->label = 'Bioinformatics Specimen Content Model';
   $content_model->models = 'fedora-system:ContentModel-3.0';
@@ -40,7 +40,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
     'islandora_bioinformatics_specimen_form' => array(
-      'content_model' => 'islandora:specimen',
+      'content_model' => 'islandora:specimenCM',
       'form_name' => 'Specimen Form',
       'dsid' => 'EML',
       'title_field' => array(
@@ -52,7 +52,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
   );
 }
 
-function islandora_bioinformatics_specimen_islandora_specimen_islandora_ingest_steps(array $configuration){
+function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest_steps(array $configuration){
   echo "PLS RUN";
   return array(
     'islandora_bioinformatics_specimen_file_upload' => array(
