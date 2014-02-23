@@ -63,3 +63,36 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
     )
   );
 }
+
+
+function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
+
+  $islandora_object = $variables['islandora_object'];
+  // Thumbnail.
+  if (isset($islandora_object['IMG'])) {
+    $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/IMG/view");
+    $params = array(
+      'title' => $islandora_object->label,
+      'path' => $thumbnail_size_url,
+    );
+    $variables['islandora_thumbnail_img'] = theme('image', $params);
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ *
+ * We supply a pattern so we can overide templates at the theme level if needed.
+ * we can append a pid to a template and the new template file will be called
+ * (the pids colon should be replaced with a dash)
+ */
+function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path) {
+  return array(
+    'islandora_bioinformatics_specimen' => array(
+      'template' => 'theme/specimen_theme',
+      'pattern' => 'islandora_bioinformatics_specimen__',
+      'variables' => array('islandora_object' => NULL),
+    ),
+  );
+}
