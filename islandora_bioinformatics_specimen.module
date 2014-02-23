@@ -64,7 +64,17 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
   );
 }
 
-
+/**
+ * Implements hook_preprocess_theme().
+ * This is a Drupal hook, not supplied by islandora.
+ * Variables required for display are assembled here and passed to the template file
+ * defined in the theme function.  The function defines islandora_porcus, which
+ * expands to islandora-porcus.tpl.php.
+ * The isandora object has been added to the $variables array by 
+ * hook_CMODEL_PID_islandora_view_object(), whihc in this case is
+ * islandora_porcus_islandora_porcusCModel_islandora_view_object
+ * 
+ */
 function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
 
   $islandora_object = $variables['islandora_object'];
@@ -97,7 +107,13 @@ function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path
   );
 }
 
-
+/**
+ * Implements hook_CMODEL_PID_islandora_view_object().
+ * If an object's behavior is defined by the islandora_bioinformatics_specimen content model
+ * this hook takes the object being displayed and sends it to the theme function described by islandora_porcus_theme.
+ * A reference to the islandora object being displayed is added here as a member of
+ * the array whihc makes the seond argument to the theme function.
+ */
 function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_view_object($object, $page_number, $page_size) {
   $output = theme('islandora_bioinformatics_specimen', array('islandora_object' => $object));
   return array('' => $output);

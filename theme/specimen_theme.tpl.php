@@ -13,7 +13,6 @@ $path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
 ?>
 
 <div class="islandora-specimen-object islandora">
-  <button id="specimen_image">Bring Back That Pig!</button>
   <div class ="specimen_image">
     <?php print $variables['islandora_thumbnail_img'] ?>
   </div>
