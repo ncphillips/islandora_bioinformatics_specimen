@@ -98,3 +98,9 @@ function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path
     ),
   );
 }
+
+
+function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_view_object($object, $page_number, $page_size) {
+  $output = theme('islandora_bioinformatics_specimen', array('islandora_object' => $object));
+  return array('' => $output);
+}
