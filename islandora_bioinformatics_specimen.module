@@ -53,7 +53,6 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
 }
 
 function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest_steps(array $configuration){
-  echo "PLS RUN";
   return array(
     'islandora_bioinformatics_specimen_file_upload' => array(
       'weight' => 10,
