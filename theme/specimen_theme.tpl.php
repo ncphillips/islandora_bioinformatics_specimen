@@ -9,6 +9,8 @@
  */
 $islandora_content = $islandora_object['SPECIMEN']->content;
 $path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
+
+echo" GELLO I AM IN THEME";
 ?>
 
 <div class="islandora-specimen-object islandora">
