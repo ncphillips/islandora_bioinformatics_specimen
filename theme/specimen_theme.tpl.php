@@ -15,11 +15,13 @@ $path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
 <div class="islandora-specimen-object islandora">
   <div class ="specimen_image">
     <?php print $variables['islandora_thumbnail_img'] ?>
+    <?php print $variables['islandora_eml'] ?>
   </div>
   <div class="islandora-basic-image-content-wrapper clearfix">
     <?php if (isset($islandora_content)): ?>
       <div class="islandora-porcus-content">
         <?php print $islandora_content; ?>
+    
       </div>
     <?php endif; ?>
   </div>
