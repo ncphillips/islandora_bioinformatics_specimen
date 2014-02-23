@@ -35,7 +35,7 @@ function islandora_bioinformatics_specimen_upload_form(array $form, array &$form
  * @param array $form_state
  *   The drupal form state.
  */
-function islandora_porcus_upload_form_submit(array $form, array &$form_state) {
+function islandora_bioinformatics_specimen_upload_form_submit(array $form, array &$form_state) {
   $object = $form_state['islandora']['objects'][0];
   if (empty($object['IMG'])) {
     $ds = $object->constructDatastream('IMG', 'M');
