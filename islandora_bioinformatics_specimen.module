@@ -88,14 +88,10 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
     $variables['islandora_thumbnail_img'] = theme('image', $params);
   }
 
-  if (isset($islandora_object['EML'])) {
-    $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/EML/view");
-    $params = array(
-      'title' => $islandora_object->label,
-      'path' => $thumbnail_size_url,
-    );
-    $variables['islandora_eml'] = theme('image', $params);
-  }
+  // that up there is for the image, we'd basically do the same thing for the
+  // eml stream, but with something other than 'image'
+  // I'll probably leave this up to the front end
+
 }
 
 
