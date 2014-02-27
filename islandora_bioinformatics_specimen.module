@@ -1,7 +1,9 @@
 <?php
 
-/** namespace is 'bioinformatics:exampleCM' instead of 'islandora:exampleCM' */
-
+/**
+ * @file
+ * This is the specimen module.
+ */
 
 /**
  * Implements the required_objects() hook. This is responsible for creating the 
@@ -94,6 +96,7 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
 function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path) {
   return array(
     'islandora_bioinformatics_specimen' => array(
+      'file' => 'theme/theme.inc',
       'template' => 'theme/specimen_theme',
       'pattern' => 'islandora_bioinformatics_specimen__',
       'variables' => array('islandora_object' => NULL),
