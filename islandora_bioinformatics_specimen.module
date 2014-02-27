@@ -4,8 +4,10 @@
 
 
 /**
- * * Implements hook_islandora_required_objects()
- * */
+ * Implements the required_objects() hook. This is responsible for creating the 
+ * necessary objects in fedora when we install the solution pack. In the case
+ * of specimen, all we need to install is the DS-Composite-Model
+ */
 function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   $content_model = $connection->repository->constructObject('islandora:specimenCM');
@@ -27,6 +29,11 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
   );
 }
 
+/**
+  * Implements the form_builder_forms() hook. This is responsible for loading
+  * the form xml that we create in form builder. This will add the form into 
+  * the system as a built in form.
+  */
 function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
@@ -36,6 +43,11 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
   );
 }
 
+/**
+  * Implements the form_builder_form_associations() hook. This is responsible
+  * for associating the form that we create in the form_builder_form() hook
+  * with the content-model that we created in the required_objects() hook.
+  */
 function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_associations() {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
@@ -52,6 +64,10 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
   );
 }
 
+/**
+ * Creates an additional ingest step, which will be displayed after the initial
+ * form. For this module this means displaying an image upload form.
+ */
 function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest_steps(array $configuration){
   return array(
     'islandora_bioinformatics_specimen_file_upload' => array(
@@ -64,43 +80,16 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
   );
 }
 
-/**
- * Implements hook_preprocess_theme().
- * This is a Drupal hook, not supplied by islandora.
- * Variables required for display are assembled here and passed to the template file
- * defined in the theme function.  The function defines islandora_porcus, which
- * expands to islandora-porcus.tpl.php.
- * The isandora object has been added to the $variables array by 
- * hook_CMODEL_PID_islandora_view_object(), whihc in this case is
- * islandora_porcus_islandora_porcusCModel_islandora_view_object
- * 
- */
-function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
-
-  $islandora_object = $variables['islandora_object'];
-  // Thumbnail.
-  if (isset($islandora_object['IMG'])) {
-    $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/IMG/view");
-    $params = array(
-      'title' => $islandora_object->label,
-      'path' => $thumbnail_size_url,
-    );
-    $variables['islandora_thumbnail_img'] = theme('image', $params);
-  }
-
-  // that up there is for the image, we'd basically do the same thing for the
-  // eml stream, but with something other than 'image'
-  // I'll probably leave this up to the front end
-
-}
-
 
 /**
- * Implements hook_theme().
+ * This "registers" the theme so in the system. 
+ * 'template' points to a tpl file, which will be mostly under front-end
+ *    control
+ * 'pattern' I'm not sure what this does, but I don't think it really matters
+ *    too much.
  *
- * We supply a pattern so we can overide templates at the theme level if needed.
- * we can append a pid to a template and the new template file will be called
- * (the pids colon should be replaced with a dash)
+ *  'variables' This doesnt have too much functional purpose, it says what sort
+ *    of things should be in the $variables array
  */
 function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path) {
   return array(
@@ -113,11 +102,12 @@ function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path
 }
 
 /**
- * Implements hook_CMODEL_PID_islandora_view_object().
- * If an object's behavior is defined by the islandora_bioinformatics_specimen content model
- * this hook takes the object being displayed and sends it to the theme function described by islandora_porcus_theme.
- * A reference to the islandora object being displayed is added here as a member of
- * the array whihc makes the seond argument to the theme function.
+ * Here we populate the $variable array with what we want to send to the 
+ * template. After this point the front end takes over. We should be able
+ * The second argument in theme() is the contents of the $variable array that
+ * the front-end will use. In this case, I'm just passing them a single 
+ * islandora_object. We could also do tuque stuff in here, or any sort of 
+ * PHP
  */
 function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_view_object($object, $page_number, $page_size) {
   $output = theme('islandora_bioinformatics_specimen', array('islandora_object' => $object));
