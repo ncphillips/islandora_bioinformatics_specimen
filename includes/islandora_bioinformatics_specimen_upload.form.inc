@@ -1,6 +1,6 @@
 <?php
 
- /*
+ /**
   * @file
   * handles uploading an image file to a specimen as part of ingest
   */
