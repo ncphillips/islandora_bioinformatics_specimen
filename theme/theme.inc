@@ -1,3 +1,4 @@
+<?php
 function islandora_bioinformatics_specimen_preprocess_islandora_porcus(array &$variables) {
 
   $islandora_object = $variables['islandora_object'];
