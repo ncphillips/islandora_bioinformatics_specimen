@@ -2,7 +2,7 @@
 // here's where you can change the $variables array before the page is loaded
 
 
-function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
+function islandora_bioinformatics_specimen_preprocess_specimen_theme(array &$variables) {
   
   echo "LET'S SEE IF THIS IS EVEN RUNNING";
   $islandora_object = $variables['islandora_object'];
