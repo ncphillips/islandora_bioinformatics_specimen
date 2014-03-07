@@ -3,7 +3,7 @@
 
 echo "WHAT YOU KNOW ABOUT GREEN EGGS AND HAM?!";
 
-function islandora_bioinformatics_specimen_preprocess_specimen_theme(array &$variables) {
+function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
   
   echo "MOTHER OF GOD PLEASE WORK";
   $islandora_object = $variables['islandora_object'];
