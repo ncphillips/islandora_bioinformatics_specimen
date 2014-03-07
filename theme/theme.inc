@@ -1,6 +1,6 @@
 <?php
 // here's where you can change the $variables array before the page is loaded
-echo "abfiudpfafpbdfsbdf";
+require_once dirname(__FILE__) . '/../includes/utilities.inc';
 
 function islandora_bioinformatics_specimen_preprocess_specimen_theme(array &$variables) {
   
