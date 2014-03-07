@@ -4,6 +4,7 @@
 
 function islandora_bioinformatics_specimen_preprocess_specimen_theme(array &$variables) {
   
+  echo "MOTHER OF GOD PLEASE WORK";
   $islandora_object = $variables['islandora_object'];
   // Thumbnail.
   if (isset($islandora_object['TN'])) {
