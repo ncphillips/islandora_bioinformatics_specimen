@@ -15,4 +15,11 @@ function islandora_bioinformatics_specimen_preprocess_islandora_porcus(array &$v
     );
     $variables['islandora_thumbnail_img'] = theme('image', $params);
   }
+
+  // get some of the EML data
+  if (isset($islandora_object['EML'])){
+    $eml_data = url("islandora/object/{$islandora_object->id}/datastream/EML/view");
+    
+    $variables["EML_DATA"] = $eml_data;
+  }
 }
