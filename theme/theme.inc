@@ -1,6 +1,8 @@
 <?php
 // here's where you can change the $variables array before the page is loaded
 
+echo "WHAT YOU KNOW ABOUT GREEN EGGS AND HAM?!"
+
 function islandora_bioinformatics_specimen_preprocess_specimen_theme(array &$variables) {
   
   echo "MOTHER OF GOD PLEASE WORK";
