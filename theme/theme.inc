@@ -1,5 +1,6 @@
-// this is where the front end will need to implement preprocess_theme() and I think another one?
-// I can't remember off the top of my head.
+<?php
+// here's where you can change the $variables array before the page is loaded
+
 
 function islandora_bioinformatics_specimen_preprocess_islandora_porcus(array &$variables) {
 
