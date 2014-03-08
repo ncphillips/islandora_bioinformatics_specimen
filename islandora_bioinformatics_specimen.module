@@ -29,9 +29,12 @@ function develop(){
   // build the form
   $project_array = array();
   foreach ($result as $project){
-    echo $project["pid"]["value"];
+    $project_array[$project["pid"]["value"]] = $project["pid"]["value"];
   }
-  echo "hello?";
+  
+  echo "<pre>";
+  print_r($project_array);
+  echo "</pre>";
   
   $form['projects']=array(
       '#type'=>'select',
