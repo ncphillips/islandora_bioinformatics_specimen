@@ -96,7 +96,7 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
     'islandora_bioinformatics_specimen_project_relate' => array(
       'weight' => 15,
       'type' => 'form',
-      'form_id' => 'islandora_bioinformatics_specimen_project_relate_form',
+      'form_id' => 'islandora_bioinformatics_specimen_project_form',
       'module' => 'islandora_bioinformatics_specimen',
       'file' => 'islandora_bioinformatics_specimen_project_relate.form.inc'
     )
