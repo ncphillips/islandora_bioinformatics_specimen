@@ -11,7 +11,6 @@
  * of specimen, all we need to install is the DS-Composite-Model
  */
 function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
-  var_dump($connection);
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   $content_model = $connection->repository->constructObject('islandora:specimenCM');
   $content_model->owner = 'fedoraAdmin';

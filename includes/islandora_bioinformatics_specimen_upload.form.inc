@@ -52,7 +52,12 @@ function islandora_bioinformatics_specimen_upload_form_submit(array $form, array
 
 }
 
-
+  $tuque = new IslandoraTuque();
+  var_dump($tuque);
+// is it even possible to test these functions
 function islandora_bioinformatics_specimen_relate_form(array $form, array &$form_state){
-  
+  // i don't know where to get these bits of information. Hardcoding for now
+
+  $tuque = new IslandoraTuque();
+  var_dump($tuque);
 }
