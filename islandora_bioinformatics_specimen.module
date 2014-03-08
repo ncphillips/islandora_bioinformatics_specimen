@@ -18,7 +18,7 @@ function develop(){
                     WHERE {
                     ?pid <fedora-model:hasModel> <info:fedora/islandora:project_cmodel> .
                     }";
-  $result = $tuque->repository->ri->sparqlQuery($query, 'unlimited');
+  $result = $tuque->repository->ri->sparqlQuery($project_query, 'unlimited');
   
   // now result has an array of some format that will have pids of all projects
   
