@@ -1,5 +1,34 @@
 <?php
 
+/* DEVELOPMENT AREA */
+  
+  // connect to the fedora repo. Apparently this function can be called from anywhere and it will
+  // work.
+  $tuque = new IslandoraTuque();
+
+
+  // query to get all of the objects with a project content model
+  $project_query = "SELECT ?pid
+                    FROM <#ri>
+                    WHERE {
+                    ?pid <fedora-model:hasModel> <info:fedora/islandora:project_cmodel> .
+                    }";
+  $result = $tuque->repository->ri->sparqlQuery($query, 'unlimited');
+  
+  // now result has an array of some format that will have pids of all projects
+  
+  echo "<pre>";
+  print_r($result);
+  echo "</pre>";
+  
+
+
+
+
+
+
+
+
 /**
  * @file
  * This is the specimen module.
