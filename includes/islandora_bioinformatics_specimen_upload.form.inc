@@ -83,6 +83,7 @@ function islandora_bioinformatics_specimen_relate_form(array $form, array &$form
                     ?pid <fedora-model:hasModel> <info:fedora/islandora:projectCM> .
                     }";
 
+  echo $project_query;
   $result = $tuque->repository->ri->sparqlQuery($project_query, 'unlimited');
 
   var_dump($result);
