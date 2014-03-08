@@ -29,7 +29,7 @@ function develop(){
   // build the form
   $project_array = array();
   foreach ($result as $project){
-    echo $project;
+    echo $project["pid"]["value"];
   }
   echo "hello?";
   
