@@ -21,6 +21,20 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
   $datastream->mimetype = 'text/xml';
   $datastream->setContentFromFile("$module_path/xml/specimen_ds_composite_model.xml", FALSE);
   $content_model->ingestDatastream($datastream);
+
+  // Project Collection
+  $specimen_collection = $connection->repository->constructObject('islandora:specimen_collection');
+  $specimen_collection->owner = 'fedoraAdmin';
+  $specimen_collection->label = 'Specimen Collection';
+  $specimen_collection->models = 'islandora:collectionCModel';
+  $specimen_collection->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:root');
+  $datastream = $specimen_collection->constructDatastream('COLLECTION_POLICY', 'X');
+  $datastream->mimetype = 'text/xml';
+  $datastream->setContentFromFile("$module_path/xml/specimen_collection_policy.xml", FALSE);
+  $specimen_collection->ingestDatastream($datastream);
+
+
+
   return array(
     'islandora_bioinformatics_specimen' => array(
       'title' => 'Bioinformatics Specimen',
