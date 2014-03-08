@@ -51,3 +51,8 @@ function islandora_bioinformatics_specimen_upload_form_submit(array $form, array
   $ds->mimetype = $image_file->filemime;
 
 }
+
+
+function islandora_bioinformatics_specimen_relate_form(array $form, array &$form_state){
+  
+}
