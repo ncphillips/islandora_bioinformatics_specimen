@@ -26,6 +26,22 @@ function develop(){
   print_r($result);
   echo "</pre>";
   
+  // build the form
+  $project_array = array();
+  foreach ($result as $project){
+    echo $project->pid->value;
+  }
+  
+  $form['projects']=array(
+      '#type'=>'select',
+      '#title' => t('Projects'),
+      '#default_value' => array('1'=>'Joe'),
+      '#options' => array('1'=>'Joe','2'=>'Ed','3'=>'Sally','4'=>'Tom'),
+       '#multiple' => true,
+       '#attributes'=>array('size'=>4),
+       '#weight'=>8,
+  );
+  
   exit(-1);
 
 
