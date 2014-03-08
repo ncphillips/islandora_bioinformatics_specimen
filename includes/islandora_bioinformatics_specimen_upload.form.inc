@@ -80,7 +80,7 @@ function islandora_bioinformatics_specimen_relate_form(array $form, array &$form
   $project_query = "SELECT ?pid
                     FROM <#ri>
                     WHERE {
-                    ?pid <fedora-model:hasModel> <info:fedora/islandora:projectCM> .
+                    ?pid <fedora-model:hasModel> <info:fedora/islandora:project_cmodel> .
                     }";
 
   echo $project_query;
