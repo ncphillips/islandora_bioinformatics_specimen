@@ -143,7 +143,7 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
  */
 function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path) {
   
-  develop();
+  //develop();
   return array(
     'islandora_bioinformatics_specimen' => array(
       'file' => 'theme/theme.inc',
