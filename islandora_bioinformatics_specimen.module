@@ -26,6 +26,7 @@ function develop(){
   print_r($result);
   echo "</pre>";
   
+  exit(-1);
 
 
 }
