@@ -31,6 +31,7 @@ function develop(){
   foreach ($result as $project){
     echo $project->pid->value;
   }
+  echo "hello?";
   
   $form['projects']=array(
       '#type'=>'select',
