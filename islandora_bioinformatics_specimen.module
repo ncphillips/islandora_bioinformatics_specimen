@@ -1,6 +1,11 @@
 <?php
 
-/* DEVELOPMENT AREA */
+
+// I'm just going to do development in here. Because that way I can make sure that it
+// gets called fairly often
+function develop(){
+  
+  /* DEVELOPMENT AREA */
   
   // connect to the fedora repo. Apparently this function can be called from anywhere and it will
   // work.
@@ -23,8 +28,7 @@
   
 
 
-
-
+}
 
 
 
@@ -137,6 +141,8 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest
  *    of things should be in the $variables array
  */
 function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path) {
+  
+  develop();
   return array(
     'islandora_bioinformatics_specimen' => array(
       'file' => 'theme/theme.inc',
