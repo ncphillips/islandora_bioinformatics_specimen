@@ -51,26 +51,3 @@ function islandora_bioinformatics_specimen_upload_form_submit(array $form, array
   $ds->mimetype = $image_file->filemime;
 
 }
-
-
-function islandora_bioinformatics_specimen_relate_form(array $form, array &$form_state){
-  // i don't know where to get these bits of information. Hardcoding for now
-
-  $tuque = new IslandoraTuque();
-
-
-  // query to get all of the objects with a project content model
-
-  $project_query = "SELECT ?pid
-                    FROM <#ri>
-                    WHERE {
-                    ?pid <fedora-model:hasModel> <info:fedora/islandora:project_cmodel> .
-                    }";
-
-  $result = $tuque->repository->ri->sparqlQuery($query, 'unlimited');
-  
-  // now result has an array of some format that will have pids of all projects
-  
-}
-
-
