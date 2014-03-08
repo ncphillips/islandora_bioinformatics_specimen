@@ -86,3 +86,4 @@ function islandora_bioinformatics_specimen_relate_form(array $form, array &$form
   $result = $tuque->repository->ri->sparqlQuery($query, 'unlimited');
 
   var_dump($result);
+  exit();
