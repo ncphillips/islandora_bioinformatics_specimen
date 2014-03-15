@@ -6,6 +6,26 @@
  */
 
 /**
+ * @author ncphillips ncphillips@upei.ca
+ * 
+ */
+function islandora_bioinformatics_specimen_menu(){
+  return array(
+      'islandora/object/%project_object/specimen' => array(
+        'title' => 'Specimen',
+        'type' => MENU_LOCAL_TASK,
+        'description' => 'Specimen which are a part of this project.',
+        'page callback' => 'islandora_project_specimen',
+        'page arguments' => array(2),
+        'access callback' => 'islandora_object_access_callback',
+        'access arguments' => array(ISLANDORA_VIEW_OBJECTS, 2),
+        'file' => 'includes/projects_specimen.inc',
+      )
+    )
+}
+
+
+/**
  * Implements the required_objects() hook. This is responsible for creating the 
  * necessary objects in fedora when we install the solution pack. In the case
  * of specimen, all we need to install is the DS-Composite-Model
