@@ -17,13 +17,19 @@ function islandora_bioinformatics_specimen_project_form(array $form, array &$for
   
   // now result has an array of some format that will have pids of all projects
   
-  // build an key->value array to pass to the drupal form api
+  
+  // i have no idea how to write a SPARQL or ITQL query that would get the label
+  // or if that's even possible. So I'm going to try to screw around with Tuque 
+  // to try to figure it out
+
   $project_array = array();
   foreach ($result as $project){
-    $project_array[$project["pid"]["value"]] = $project["pid"]["value"];
+    // label should contain whatever we've selected as a label for these objects?
+    $project_array[$project["pid"]["value"]] = islandora_object_load($project["pid"]["value"])->label;
   }
-  
-  
+ 
+ 
+
   $form['projects']=array(
       '#type'=>'select',
       '#title' => t('Projects'),
@@ -36,3 +42,4 @@ function islandora_bioinformatics_specimen_project_form(array $form, array &$for
   return $form;
 
 }
+
