@@ -21,7 +21,7 @@ function islandora_bioinformatics_specimen_menu(){
         'access arguments' => array(ISLANDORA_VIEW_OBJECTS, 2),
         'file' => 'includes/projects_specimen.inc',
       )
-    )
+    );
 }
 
 
