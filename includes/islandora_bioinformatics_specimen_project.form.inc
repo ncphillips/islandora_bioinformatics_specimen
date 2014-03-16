@@ -48,8 +48,6 @@ function islandora_bioinformatics_specimen_project_form_submit(array $form, arra
 
   $specimen_object = $form_state['islandora']['objects'][0];
 
-  echo "<pre>";
   var_dump($form_state);
-  echo "</pre>";
   exit(0);
 }
