@@ -54,4 +54,4 @@ function islandora_bioinformatics_specimen_project_form_submit(array $form, arra
   foreach ($project_ids as $id){
   	$specimen_object->relationships->add($id, 'isPartOf', 'islandora:project_cmodel');
   }
-
+}
