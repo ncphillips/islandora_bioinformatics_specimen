@@ -51,6 +51,8 @@ function islandora_bioinformatics_specimen_project_form_submit(array $form, arra
   $project_ids = array_filter($form_state['values']['form']);
   
   echo $project_ids;
+  
+  var_dump($form_state['values']);
   foreach ($project_ids as $id){
   	$specimen_object->relationships->add($id, 'isPartOf', 'islandora:project_cmodel');
   	echo $id;
