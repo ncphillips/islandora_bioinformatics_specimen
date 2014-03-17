@@ -57,5 +57,4 @@ function islandora_bioinformatics_specimen_project_form_submit(array $form, arra
   echo "<pre>";
   var_dump($specimen_object);
   echo "</pre>";
-  exit(0);
 }
