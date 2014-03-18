@@ -67,7 +67,7 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
   $content_model->ingestDatastream($datastream);
   
   //Create relationship with LabObject
-  $genesequence_cmodel->relationships->add(FEDORA_MODEL_URI, 'hasModel', 'islandora:lab_object_cmodel');
+  $content_model->relationships->add(FEDORA_MODEL_URI, 'hasModel', 'islandora:lab_object_cmodel');
 
   // Project Collection
   $specimen_collection = $connection->repository->constructObject('islandora:specimen_collection');
