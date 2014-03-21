@@ -1,7 +1,19 @@
 <?php
-// here's where you can change the $variables array before the page is loaded
 
+/**
+ * @file
+ * This file, at least for the time being, contains the preprocessing stuff.
+ * 
+ */
 
+/**
+ * The preprocess hook. It is responsible for putting anything that the template
+ * might need into an array called variables. Doesn't technically return 
+ * this $variables array. This must just be included before theme stuff
+ *
+ * @param variables
+ * Reference to the variables array that we'll populate
+ */
 function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
   
   $islandora_object = $variables['islandora_object'];
@@ -38,6 +50,17 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
 }
 
 
+/**
+ * This is responsible for taking a specific SimpleXMLElement and returning an
+ * array with the correct taxonomy information. This should be able to be
+ * put directly into the variables array
+ *
+ * @param taxon_container
+ * A SimpleXMLElement corresponding the the <taxonmicClassification> xml block
+ *
+ * @return taxonomy
+ * A simple array with rankNames as indices and rankValues as values
+ */
 function parse_taxonomy($taxon_container){
 
   $taxonomy = array();
