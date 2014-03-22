@@ -74,8 +74,8 @@
                   <value>coverage</value>
                 </create>
                 <read>
-                  <path>self::node()</path>
-                  <context>parent</context>
+                  <path>/eml:eml/eml:dataset/eml:coverage</path>
+                  <context>document</context>
                 </read>
                 <update>NULL</update>
                 <delete>NULL</delete>
@@ -105,8 +105,8 @@
                       <value>taxonomicCoverage</value>
                     </create>
                     <read>
-                      <path>self::node()</path>
-                      <context>parent</context>
+                      <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage</path>
+                      <context>document</context>
                     </read>
                     <update>NULL</update>
                     <delete>NULL</delete>
@@ -135,7 +135,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>self::node()</path>
+                          <path>eml:taxonomicClassification</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
