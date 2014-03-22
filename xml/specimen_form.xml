@@ -198,8 +198,8 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[taxonRankName='phylum']/eml:taxonRankValue</path>
-                              <context>document</context>
+                              <path>eml:taxonRankValue</path>
+                              <context>parent</context>
                             </read>
                             <update>
                               <path>self::node()</path>
@@ -300,7 +300,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[taxonRankName='subphylum']/eml:taxonRankValue</path>
+                              <path>eml:taxonRankValue</path>
                               <context>parent</context>
                             </read>
                             <update>
