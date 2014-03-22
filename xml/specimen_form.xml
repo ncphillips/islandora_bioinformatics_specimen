@@ -135,8 +135,8 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
-                          <context>parent</context>
+                          <path>self::node()</path>
+                          <context>document</context>
                         </read>
                         <update>NULL</update>
                         <delete>NULL</delete>
@@ -237,7 +237,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
+                          <path>self::node()</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
@@ -339,7 +339,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
+                          <path>self::node()</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
@@ -441,7 +441,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
+                          <path>self::node()</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
@@ -543,7 +543,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
+                          <path>self::node()</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
@@ -645,7 +645,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
+                          <path>self::node()</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
@@ -747,7 +747,7 @@
                           <value>taxonomicClassification</value>
                         </create>
                         <read>
-                          <path>eml:taxonomicClassification</path>
+                          <path>self::node()</path>
                           <context>parent</context>
                         </read>
                         <update>NULL</update>
