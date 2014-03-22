@@ -946,8 +946,8 @@
                               <value>eastBoundingCoordinate</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:geographicDescription</path>
-                              <context>document</context>
+                              <path>self::node()</path>
+                              <context>parent</context>
                             </read>
                             <update>NULL</update>
                             <delete>NULL</delete>
@@ -979,8 +979,8 @@
                               <value>westBoundingCoordinate</value>
                             </create>
                             <read>
-                              <path>self::node()</path>
-                              <context>parent</context>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:westBoundingCoordinate</path>
+                              <context>document</context>
                             </read>
                             <update>NULL</update>
                             <delete>NULL</delete>
