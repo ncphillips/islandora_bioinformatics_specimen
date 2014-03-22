@@ -1,3 +1,4 @@
+
 <?xml version="1.0"?>
 <definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3">
   <properties>
@@ -204,11 +205,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -306,11 +307,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -408,11 +409,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -510,11 +511,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -612,11 +613,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -714,11 +715,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -817,11 +818,11 @@
                             </read>
                             <update>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </update>
                             <delete>
                               <path>self::node()</path>
-                              <context>parent</context>
+                              <context>self</context>
                             </delete>
                           </actions>
                         </properties>
@@ -1330,3 +1331,4 @@
     </children>
   </form>
 </definition>
+
