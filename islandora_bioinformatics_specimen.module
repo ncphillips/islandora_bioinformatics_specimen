@@ -87,6 +87,7 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
       'title' => 'Bioinformatics Specimen',
       'objects' => array(
           $content_model,
+          $specimen_collection,
       ),
     ),
   );
