@@ -198,7 +198,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>self::node()</path>
+                              <path>eml:taxonRankValue</path>
                               <context>parent</context>
                             </read>
                             <update>
