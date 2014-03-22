@@ -136,7 +136,7 @@
                         </create>
                         <read>
                           <path>self::node()</path>
-                          <context>document</context>
+                          <context>parent</context>
                         </read>
                         <update>NULL</update>
                         <delete>NULL</delete>
@@ -1089,7 +1089,7 @@
                           <value>calendarDate</value>
                         </create>
                         <read>
-                          <path>/eml:eml/eml:dataset/eml:coverage/eml:temporalCoverage/eml:calendarDate</path>
+                          <path>/eml:eml/eml:dataset/eml:coverage/eml:temporalCoverage/eml:singleDateTime/eml:calendarDate</path>
                           <context>document</context>
                         </read>
                         <update>
@@ -1189,7 +1189,10 @@
                   <prefix>NULL</prefix>
                   <value>methods</value>
                 </create>
-                <read>NULL</read>
+                <read>
+                  <path>/eml:eml/eml:dataset/eml:methods</path>
+                  <context>document</context>
+                </read>
                 <update>NULL</update>
                 <delete>NULL</delete>
               </actions>
@@ -1216,7 +1219,10 @@
                       <prefix>NULL</prefix>
                       <value>methodStep</value>
                     </create>
-                    <read>NULL</read>
+                    <read>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                    </read>
                     <update>NULL</update>
                     <delete>NULL</delete>
                   </actions>
@@ -1243,7 +1249,10 @@
                           <prefix>NULL</prefix>
                           <value>description</value>
                         </create>
-                        <read>NULL</read>
+                        <read>
+                          <path>self::node()</path>
+                          <context>parent</context>
+                        </read>
                         <update>NULL</update>
                         <delete>NULL</delete>
                       </actions>
@@ -1270,7 +1279,10 @@
                               <prefix>NULL</prefix>
                               <value>section</value>
                             </create>
-                            <read>NULL</read>
+                            <read>
+                              <path>self::node()</path>
+                              <context>parent</context>
+                            </read>
                             <update>NULL</update>
                             <delete>NULL</delete>
                           </actions>
@@ -1298,9 +1310,18 @@
                                   <prefix>NULL</prefix>
                                   <value>title</value>
                                 </create>
-                                <read>NULL</read>
-                                <update>NULL</update>
-                                <delete>NULL</delete>
+                                <read>
+                                  <path>eml:title</path>
+                                  <context>parent</context>
+                                </read>
+                                <update>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </update>
+                                <delete>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </delete>
                               </actions>
                             </properties>
                             <children/>
@@ -1327,9 +1348,18 @@
                                   <prefix>NULL</prefix>
                                   <value>para</value>
                                 </create>
-                                <read>NULL</read>
-                                <update>NULL</update>
-                                <delete>NULL</delete>
+                                <read>
+                                  <path>eml:para</path>
+                                  <context>parent</context>
+                                </read>
+                                <update>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </update>
+                                <delete>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </delete>
                               </actions>
                             </properties>
                             <children/>
