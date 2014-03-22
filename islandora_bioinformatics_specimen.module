@@ -56,7 +56,7 @@ function specimen_object_load($object_id) {
  */
 function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
-  $content_model = $connection->repository->constructObject('islandora:specimenCM');
+  $content_model = $connection->repository->constructObject('islandora:specimen_cmodel');
   $content_model->owner = 'fedoraAdmin';
   $content_model->label = 'Bioinformatics Specimen Content Model';
   $content_model->models = 'fedora-system:ContentModel-3.0';
@@ -115,7 +115,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
   $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
   return array(
     'islandora_bioinformatics_specimen_form' => array(
-      'content_model' => 'islandora:specimenCM',
+      'content_model' => 'islandora:specimen_cmodel',
       'form_name' => 'Specimen Form',
       'dsid' => 'EML',
       'title_field' => array(
@@ -131,7 +131,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
  * Creates an additional ingest step, which will be displayed after the initial
  * form. For this module this means displaying an image upload form.
  */
-function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_ingest_steps(array $configuration){
+function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_ingest_steps(array $configuration){
   return array(
     'islandora_bioinformatics_specimen_file_upload' => array(
       'weight' => 10,
@@ -181,7 +181,7 @@ function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path
  * islandora_object. We could also do tuque stuff in here, or any sort of 
  * PHP
  */
-function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_view_object($object, $page_number, $page_size) {
+function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_view_object($object, $page_number, $page_size) {
   $output = theme('islandora_bioinformatics_specimen', array('islandora_object' => $object));
   return array('' => $output);
 }
