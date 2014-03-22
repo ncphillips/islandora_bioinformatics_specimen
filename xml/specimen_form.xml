@@ -198,8 +198,8 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>eml:taxonRankValue</path>
-                              <context>parent</context>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[0]/eml:taxonRankValue</path>
+                              <context>document</context>
                             </read>
                             <update>
                               <path>self::node()</path>
@@ -300,8 +300,8 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>eml:taxonRankValue</path>
-                              <context>parent</context>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[1]/eml:taxonRankValue</path>
+                              <context>document</context>
                             </read>
                             <update>
                               <path>self::node()</path>
