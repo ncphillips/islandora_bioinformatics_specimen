@@ -18,8 +18,8 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
   
   $islandora_object = $variables['islandora_object'];
   // Thumbnail.
-  if (isset($islandora_object['TN'])) {
-    $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/TN/view");
+  if (isset($islandora_object['IMG'])) {
+    $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/IMG/view");
     $params = array(
       'title' => $islandora_object->label,
       'path' => $thumbnail_size_url,
@@ -43,9 +43,13 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
     // so essentially it should only loop once
     foreach ($obj->children($ns) as $dataset){
       $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage->taxonomicClassification);
+      $geography = parse_geography($dataset->coverage->geographicCoverage);
+      $methods = parse_methods($dataset->methods->methodStep->description->section);
     }
 
-    $variables['taxonomy'] = $taxonomy; 
+    $variables['taxonomy'] = $taxonomy;
+    $variables['geography'] = $geography; 
+    $variables['methods'] = $methods;
   }
 }
 
@@ -77,3 +81,63 @@ function parse_taxonomy($taxon_container){
   }
   return $taxonomy;
 }
+
+function parse_geography($taxon_container){
+
+  $geography = array();
+
+  foreach($taxon_container as $rank){
+    // i'd rather deal with strings than objects
+    $west = "west";
+    $westCoor = (string) $rank->boundingCoordinates->westBoundingCoordinate;
+
+    $north = "north";
+    $northCoor = (string) $rank->boundingCoordinates->northBoundingCoordinate;
+
+    $site = "siteName";
+    $siteName = (string) $rank->geographicDescription;
+    
+
+    // only add a val and name if the val has been filled out
+    if ($westCoor){
+      $geography[$west] = $westCoor;
+    }
+
+    if ($northCoor){
+      $geography[$north] = $northCoor;
+    }
+
+    if ($siteName){
+      $geography[$site] = $siteName;
+    }
+
+
+  }
+  return $geography;
+}
+
+function parse_methods($taxon_container){
+
+  $methods = array();
+
+  foreach($taxon_container as $rank){
+    // i'd rather deal with strings than objects
+    $methodTitle = "title";
+    $methodTitleValue = (string) $rank->title;
+
+    $methodPara = "para";
+    $methodParaValue = (string) $rank->para;
+
+    // only add a val and name if the val has been filled out
+    if ($methodParaValue){
+      $methods[$methodPara] = $methodParaValue;
+    }
+
+    if ($methodTitleValue){
+      $methods[$methodTitle] = $methodTitleValue;
+    }
+
+  }
+  return $methods;
+}
+
