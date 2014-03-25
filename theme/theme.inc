@@ -125,12 +125,12 @@ function parse_methods($taxon_container) {
     $method_title = "title";
     $method_title_value = (string) $rank->title;
 
-    $methodPara = "para";
+    $method_para = "para";
     $method_para_value = (string) $rank->para;
 
     // only add a val and name if the val has been filled out
     if ($method_para_value) {
-      $methods[$methodPara] = $method_para_value;
+      $methods[$method_para] = $method_para_value;
     }
 
     if ($method_title_value) {
