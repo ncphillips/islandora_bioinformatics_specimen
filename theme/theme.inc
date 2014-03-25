@@ -42,9 +42,9 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
     // this is not being done the ideal way. There really should only be one child
     // so essentially it should only loop once
     foreach ($obj->children($ns) as $dataset) {
-      $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage->taxonomicClassification);
-      $geography = parse_geography($dataset->coverage->geographicCoverage);
-      $methods = parse_methods($dataset->methods->methodStep->description->section);
+      $taxonomy = parse_taxonomy($dataset->coverage->taxonomic_coverage->taxonomic_classification);
+      $geography = parse_geography($dataset->coverage->geographic_coverage);
+      $methods = parse_methods($dataset->methods->method_step->description->section);
     }
 
     $variables['taxonomy'] = $taxonomy;
@@ -82,33 +82,33 @@ function parse_taxonomy($taxon_container) {
   return $taxonomy;
 }
 
-function parse_geography($taxon_container){
+function parse_geography($taxon_container) {
 
   $geography = array();
 
-  foreach($taxon_container as $rank){
+  foreach ($taxon_container as $rank) {
     // i'd rather deal with strings than objects
     $west = "west";
-    $westCoor = (string) $rank->boundingCoordinates->westBoundingCoordinate;
+    $west_coor = (string) $rank->bounding_coordinates->west_bounding_coordinate;
 
     $north = "north";
-    $northCoor = (string) $rank->boundingCoordinates->northBoundingCoordinate;
+    $north_coor = (string) $rank->bounding_coordinates->north_bounding_coordinate;
 
     $site = "siteName";
-    $siteName = (string) $rank->geographicDescription;
+    $site_name = (string) $rank->geographic_description;
     
 
     // only add a val and name if the val has been filled out
-    if ($westCoor){
-      $geography[$west] = $westCoor;
+    if ($west_coor) {
+      $geography[$west] = $west_coor;
     }
 
-    if ($northCoor){
-      $geography[$north] = $northCoor;
+    if ($north_coor) {
+      $geography[$north] = $north_coor;
     }
 
-    if ($siteName){
-      $geography[$site] = $siteName;
+    if ($site_name) {
+      $geography[$site] = $site_name;
     }
 
 
@@ -116,25 +116,25 @@ function parse_geography($taxon_container){
   return $geography;
 }
 
-function parse_methods($taxon_container){
+function parse_methods($taxon_container) {
 
   $methods = array();
 
-  foreach($taxon_container as $rank){
+  foreach ($taxon_container as $rank) {
     // i'd rather deal with strings than objects
-    $methodTitle = "title";
-    $methodTitleValue = (string) $rank->title;
+    $method_title = "title";
+    $method_title_value = (string) $rank->title;
 
     $methodPara = "para";
-    $methodParaValue = (string) $rank->para;
+    $method_para_value = (string) $rank->para;
 
     // only add a val and name if the val has been filled out
-    if ($methodParaValue){
-      $methods[$methodPara] = $methodParaValue;
+    if ($method_para_value) {
+      $methods[$methodPara] = $method_para_value;
     }
 
-    if ($methodTitleValue){
-      $methods[$methodTitle] = $methodTitleValue;
+    if ($method_title_value) {
+      $methods[$method_title] = $method_title_value;
     }
 
   }

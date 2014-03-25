@@ -37,7 +37,7 @@ function islandora_bioinformatics_specimen_upload_form(array $form, array &$form
  */
 function islandora_bioinformatics_specimen_upload_form_submit(array $form, array &$form_state) {
   $image_file = file_load($form_state['values']['file']);
-  if (!empty($image_file)) {	//check if a file has been uploaded
+  if (!empty($image_file)) {  //check if a file has been uploaded
   
     $object = $form_state['islandora']['objects'][0];
     if (empty($object['IMG'])) {
