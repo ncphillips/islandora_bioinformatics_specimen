@@ -28,7 +28,7 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
   }
 
   // get some of the EML data
-  if (isset($islandora_object['EML'])){
+  if (isset($islandora_object['EML'])) {
     
     // namespace needs to be set for children() calls
     $ns = "eml://ecoinformatics.org/eml-2.1.0";
@@ -41,7 +41,7 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
 
     // this is not being done the ideal way. There really should only be one child
     // so essentially it should only loop once
-    foreach ($obj->children($ns) as $dataset){
+    foreach ($obj->children($ns) as $dataset) {
       $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage->taxonomicClassification);
       $geography = parse_geography($dataset->coverage->geographicCoverage);
       $methods = parse_methods($dataset->methods->methodStep->description->section);
@@ -65,17 +65,17 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
  * @return taxonomy
  * A simple array with rankNames as indices and rankValues as values
  */
-function parse_taxonomy($taxon_container){
+function parse_taxonomy($taxon_container) {
 
   $taxonomy = array();
 
-  foreach($taxon_container as $rank){
+  foreach ($taxon_container as $rank) {
     // i'd rather deal with strings than objects
     $rv = (string) $rank->taxonRankValue;
     $rn = (string) $rank->taxonRankName;
 
     // only add a val and name if the val has been filled out
-    if ($rv){
+    if ($rv) {
       $taxonomy[$rn] = $rv;
     }
   }

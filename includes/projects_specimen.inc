@@ -1,4 +1,4 @@
-/**
+/*
  * @file
  * Contains a function which returns a list of specimen associated with a project.
  */

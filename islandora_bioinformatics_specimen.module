@@ -9,7 +9,7 @@
  * @author ncphillips ncphillips@upei.ca
  * 
  */
-function islandora_bioinformatics_specimen_menu(){
+function islandora_bioinformatics_specimen_menu() {
   return array(
       'islandora/object/%project_object/specimen' => array(
         'title' => 'Specimen',
@@ -39,7 +39,7 @@ function islandora_bioinformatics_specimen_menu(){
 function specimen_object_load($object_id) {
   $object = islandora_object_load($object_id);
   if ($object) {
-    if (in_array('islandora:specimen_cmodel', $object->models)){
+    if (in_array('islandora:specimen_cmodel', $object->models)) {
       return $object;
     }
     return NULL;
@@ -132,7 +132,7 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
  * Creates an additional ingest step, which will be displayed after the initial
  * form. For this module this means displaying an image upload form.
  */
-function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_ingest_steps(array $configuration){
+function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_ingest_steps(array $configuration) {
   return array(
     'islandora_bioinformatics_specimen_file_upload' => array(
       'weight' => 10,

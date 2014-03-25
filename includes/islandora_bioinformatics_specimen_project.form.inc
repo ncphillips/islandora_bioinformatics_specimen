@@ -1,6 +1,15 @@
 <?php 
 
-function islandora_bioinformatics_specimen_project_form(array $form, array &$form_state){
+/*
+*
+* @file islandora_bioinformatics_specimen_project.form.inc
+*
+*
+*
+*
+*/
+
+function islandora_bioinformatics_specimen_project_form(array $form, array &$form_state) {
   
   // connect to the fedora repo. Apparently this function can be called from anywhere and it will
   // work.
@@ -23,27 +32,27 @@ function islandora_bioinformatics_specimen_project_form(array $form, array &$for
   // to try to figure it out
 
   $project_array = array();
-  foreach ($result as $project){
+  foreach ($result as $project) {
     // label should contain whatever we've selected as a label for these objects?
     $project_array[$project["pid"]["value"]] = islandora_object_load($project["pid"]["value"])->label;
   }
  
  
 
-  $form['projects']=array(
-      '#type'=>'select',
+  $form['projects'] = array(
+      '#type' => 'select',
       '#title' => t('Projects'),
       '#options' => $project_array,
-       '#multiple' => true,
-       '#attributes'=>array('size'=>4),
-       '#weight'=>8,
+       '#multiple' => TRUE,
+       '#attributes' => array('size' => 4),
+       '#weight' => 8,
   );
   
   return $form;
 
 }
 
-function islandora_bioinformatics_specimen_project_form_submit(array $form, array &$form_state){
+function islandora_bioinformatics_specimen_project_form_submit(array $form, array &$form_state) {
   $tuque = new IslandoraTuque();
 
   $specimen_object = $form_state['islandora']['objects'][0];
@@ -51,8 +60,7 @@ function islandora_bioinformatics_specimen_project_form_submit(array $form, arra
   $project_ids = array_filter($form_state['values']['projects']);
   
   
-  foreach ($project_ids as $id){
-  	$specimen_object->relationships->add($id, 'isPartOf', 'islandora:project_cmodel');
-  	
+  foreach ($project_ids as $id) {
+    $specimen_object->relationships->add($id, 'isPartOf', 'islandora:project_cmodel');
   }
 }
