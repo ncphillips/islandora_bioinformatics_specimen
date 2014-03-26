@@ -8,7 +8,7 @@
  * function.  Elements such as labels and buttons can be added here
  */
 //$islandora_content = $islandora_object['SPECIMEN']->content;
-//$path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
+//$path = drupal_get_path('module', 'islandora_lab_object_specimen');
 
 echo "<pre>";
 //print_r($variables['taxonomy']);
