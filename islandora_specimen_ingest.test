@@ -32,7 +32,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   public function setUp() {
     parent::setUp(array(
       'islandora',
-      'islandora_bioinformatics_specimen',
+      'islandora_lab_object_specimen',
       'islandora_basic_collection',
       )
     );
