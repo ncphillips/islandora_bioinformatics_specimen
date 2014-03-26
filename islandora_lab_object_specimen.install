@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * islandora_lab_object_specimen.install
+ */
+
+function islandora_lab_object_specimen_install() {
+  module_load_include('inc', 'islandora', 'includes/solution_packs');
+  islandora_install_solution_pack('islandora_lab_object_specimen');
+}
