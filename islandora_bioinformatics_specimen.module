@@ -20,14 +20,15 @@ function islandora_bioinformatics_specimen_menu() {
         'access callback' => 'islandora_object_access_callback',
         'access arguments' => array(ISLANDORA_VIEW_OBJECTS, 2),
         'file' => 'includes/projects_specimen.inc',
-      ),
+        ),
       
       'sponge/classes' => array(
         'title' => "Autocomplete Sponge Classes",
         'page callback' => "_sponge_class_autocomplete",
         'access arguments' => true,
         'type' => MENU_CALLBACK
-    ))
+      ),
+    );
 }
 
 /**
