@@ -189,6 +189,8 @@ function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_v
 
 
 function sponge_class_menu(){
+  echo "hi";
+  exit(0);
   $items['sponge/classes'] = array(
     'title' => "Autocomplete Sponge Classes",
     'page callback' => "_sponge_class_autocomplete",
