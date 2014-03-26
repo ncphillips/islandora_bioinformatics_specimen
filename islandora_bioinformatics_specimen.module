@@ -116,3 +116,19 @@ function islandora_bioinformatics_specimen_islandora_specimenCM_islandora_view_o
   $output = theme('islandora_bioinformatics_specimen', array('islandora_object' => $object));
   return array('' => $output);
 }
+
+function sponge_class_menu(){
+  $items['sponge/classes'] = array(
+    'title' => "Autocomplete Sponge Classes",
+    'page callback' => "_sponge_class_autocomplete",
+    'access arguments' => true,
+    'type' => MENU_CALLBACK
+  );
+  return $items;
+}
+
+function _sponge_class_autocomplete($string){
+  $matches = array();
+  $matches['Calcerea'] = 'Calcerea';
+  drupal_json_output($matches);
+}
