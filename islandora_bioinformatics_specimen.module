@@ -199,6 +199,12 @@ function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_v
 
 function _sponge_class_autocomplete($string){
   $matches = array();
+  
+  // mad hardcoding skills
   $matches['Calcerea'] = 'Calcerea';
+  $matches['Hexactinellida'] = 'Hexactinellida';
+  $matches['Demospongiae'] = 'Demospongiae';
+  $matches['Homoscleromorpha'] = 'Homoscleromorpha';
+
   drupal_json_output($matches);
 }
