@@ -1,4 +1,4 @@
-islandora_bioinformatics_specimen
+islandora_lab_object_specimen
 =================================
 
-The Base Solution pack for the Islandora Bioinformatic Suite
+A Lab Object subclass for storing information about a specimen being stored in the lab.
