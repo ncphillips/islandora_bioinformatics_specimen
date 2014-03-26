@@ -22,7 +22,7 @@ function islandora_bioinformatics_specimen_menu() {
         'file' => 'includes/projects_specimen.inc',
       ),
       
-      'sponge/classes' = array(
+      'sponge/classes' => array(
         'title' => "Autocomplete Sponge Classes",
         'page callback' => "_sponge_class_autocomplete",
         'access arguments' => true,
