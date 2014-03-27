@@ -9,7 +9,7 @@
  * @author ncphillips ncphillips@upei.ca
  * 
  */
-function islandora_bioinformatics_specimen_menu() {
+function islandora_lab_object_specimen_menu() {
   return array(
       'islandora/object/%project_object/specimen' => array(
         'title' => 'Specimen',
@@ -61,8 +61,8 @@ function specimen_object_load($object_id) {
  * necessary objects in fedora when we install the solution pack. In the case
  * of specimen, all we need to install is the DS-Composite-Model
  */
-function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraTuque $connection) {
-  $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
+function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque $connection) {
+  $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
   $content_model = $connection->repository->constructObject('islandora:specimen_cmodel');
   $content_model->owner = 'fedoraAdmin';
   $content_model->label = 'Bioinformatics Specimen Content Model';
@@ -90,7 +90,7 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
 
 
   return array(
-    'islandora_bioinformatics_specimen' => array(
+    'islandora_lab_object_specimen' => array(
       'title' => 'Bioinformatics Specimen',
       'objects' => array(
           $content_model,
@@ -105,8 +105,8 @@ function islandora_bioinformatics_specimen_islandora_required_objects(IslandoraT
   * the form xml that we create in form builder. This will add the form into 
   * the system as a built in form.
   */
-function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
-  $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
+function islandora_lab_object_specimen_islandora_xml_form_builder_forms() {
+  $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
   return array(
     'Specimen Form' => array(
       'form_file' => "$module_path/xml/specimen_form.xml",
@@ -119,10 +119,10 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_forms() {
   * for associating the form that we create in the form_builder_form() hook
   * with the content-model that we created in the required_objects() hook.
   */
-function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_associations() {
-  $module_path = drupal_get_path('module', 'islandora_bioinformatics_specimen');
+function islandora_lab_object_specimen_islandora_xml_form_builder_form_associations() {
+  $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
   return array(
-    'islandora_bioinformatics_specimen_form' => array(
+    'islandora_lab_object_specimen_form' => array(
       'content_model' => 'islandora:specimen_cmodel',
       'form_name' => 'Specimen Form',
       'dsid' => 'EML',
@@ -139,21 +139,21 @@ function islandora_bioinformatics_specimen_islandora_xml_form_builder_form_assoc
  * Creates an additional ingest step, which will be displayed after the initial
  * form. For this module this means displaying an image upload form.
  */
-function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_ingest_steps(array $configuration) {
+function islandora_lab_object_specimen_islandora_specimen_cmodel_islandora_ingest_steps(array $configuration) {
   return array(
-    'islandora_bioinformatics_specimen_file_upload' => array(
+    'islandora_lab_object_specimen_file_upload' => array(
       'weight' => 10,
       'type' => 'form',
-      'form_id' => 'islandora_bioinformatics_specimen_upload_form',
-      'module' => 'islandora_bioinformatics_specimen',
-      'file' => 'includes/islandora_bioinformatics_specimen_upload.form.inc'
+      'form_id' => 'islandora_lab_object_specimen_upload_form',
+      'module' => 'islandora_lab_object_specimen',
+      'file' => 'includes/islandora_lab_object_specimen_upload.form.inc'
     ),
-    'islandora_bioinformatics_specimen_project_relate' => array(
+    'islandora_lab_object_specimen_project_relate' => array(
       'weight' => 15,
       'type' => 'form',
-      'form_id' => 'islandora_bioinformatics_specimen_project_form',
-      'module' => 'islandora_bioinformatics_specimen',
-      'file' => 'includes/islandora_bioinformatics_specimen_project.form.inc'
+      'form_id' => 'islandora_lab_object_specimen_project_form',
+      'module' => 'islandora_lab_object_specimen',
+      'file' => 'includes/islandora_lab_object_specimen_project.form.inc'
     )
   );
 }
@@ -169,13 +169,13 @@ function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_i
  *  'variables' This doesnt have too much functional purpose, it says what sort
  *    of things should be in the $variables array
  */
-function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path) {
+function islandora_lab_object_specimen_theme($existing, $type, $theme, $path) {
   
   return array(
-    'islandora_bioinformatics_specimen' => array(
+    'islandora_lab_object_specimen' => array(
       'file' => 'theme/theme.inc',
       'template' => 'theme/specimen-theme',
-      'pattern' => 'islandora_bioinformatics_specimen__',
+      'pattern' => 'islandora_lab_object_specimen__',
       'variables' => array('islandora_object' => NULL),
     ),
   );
@@ -189,8 +189,8 @@ function islandora_bioinformatics_specimen_theme($existing, $type, $theme, $path
  * islandora_object. We could also do tuque stuff in here, or any sort of 
  * PHP
  */
-function islandora_bioinformatics_specimen_islandora_specimen_cmodel_islandora_view_object($object, $page_number, $page_size) {
-  $output = theme('islandora_bioinformatics_specimen', array('islandora_object' => $object));
+function islandora_lab_object_specimen_islandora_specimen_cmodel_islandora_view_object($object, $page_number, $page_size) {
+  $output = theme('islandora_lab_object_specimen', array('islandora_object' => $object));
   return array('' => $output);
 }
 

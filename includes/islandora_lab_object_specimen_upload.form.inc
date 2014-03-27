@@ -5,7 +5,7 @@
   * handles uploading an image file to a specimen as part of ingest
   */
 
-function islandora_bioinformatics_specimen_upload_form(array $form, array &$form_state) {
+function islandora_lab_object_specimen_upload_form(array $form, array &$form_state) {
 
   // sets the max upload size to whatever php has defined.
   $upload_size = min((int) ini_get('post_max_size'), (int) ini_get('upload_max_filesize'));
@@ -35,7 +35,7 @@ function islandora_bioinformatics_specimen_upload_form(array $form, array &$form
  * @param array $form_state
  *   The drupal form state.
  */
-function islandora_bioinformatics_specimen_upload_form_submit(array $form, array &$form_state) {
+function islandora_lab_object_specimen_upload_form_submit(array $form, array &$form_state) {
   $image_file = file_load($form_state['values']['file']);
   if (!empty($image_file)) {  //check if a file has been uploaded
   

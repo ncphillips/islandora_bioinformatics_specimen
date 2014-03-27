@@ -2,14 +2,14 @@
 
 /*
 *
-* @file islandora_bioinformatics_specimen_project.form.inc
+* @file islandora_lab_object_specimen_project.form.inc
 *
 *
 *
 *
 */
 
-function islandora_bioinformatics_specimen_project_form(array $form, array &$form_state) {
+function islandora_lab_object_specimen_project_form(array $form, array &$form_state) {
   
   // connect to the fedora repo. Apparently this function can be called from anywhere and it will
   // work.
@@ -52,7 +52,7 @@ function islandora_bioinformatics_specimen_project_form(array $form, array &$for
 
 }
 
-function islandora_bioinformatics_specimen_project_form_submit(array $form, array &$form_state) {
+function islandora_lab_object_specimen_project_form_submit(array $form, array &$form_state) {
   $tuque = new IslandoraTuque();
 
   $specimen_object = $form_state['islandora']['objects'][0];
