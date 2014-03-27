@@ -6,22 +6,11 @@
  */
 
 /**
- * @author ncphillips ncphillips@upei.ca
+ * @author Brent Mitton
  * 
  */
 function islandora_lab_object_specimen_menu() {
   return array(
-      'islandora/object/%project_object/specimen' => array(
-        'title' => 'Specimen',
-        'type' => MENU_LOCAL_TASK,
-        'description' => 'Specimen which are a part of this project.',
-        'page callback' => 'islandora_project_specimen',
-        'page arguments' => array(2),
-        'access callback' => 'islandora_object_access_callback',
-        'access arguments' => array(ISLANDORA_VIEW_OBJECTS, 2),
-        'file' => 'includes/projects_specimen.inc',
-        ),
-      
       'sponge/classes' => array(
         'title' => "Autocomplete Sponge Classes",
         'page callback' => "_sponge_class_autocomplete",
@@ -29,31 +18,6 @@ function islandora_lab_object_specimen_menu() {
         'type' => MENU_CALLBACK
       ),
     );
-}
-
-/**
-   * @author ncphillips <ncphillips@upei.ca>
-   * 
-   * @param $object_id
-   * This is the PID of an object.
-   * 
-   * @return $object
-   * If $object_id references a Fedora Object with the specimen cmodel, then the object
-   * is returned, else return Null. If $object_id does not reference a Fedora Object,
-   * return Null or False.
-   * 
-   */
-function specimen_object_load($object_id) {
-  $object = islandora_object_load($object_id);
-  if ($object) {
-    if (in_array('islandora:specimen_cmodel', $object->models)) {
-      return $object;
-    }
-    return NULL;
-  }
-  else {
-    return $object;
-  }
 }
 
 /**
