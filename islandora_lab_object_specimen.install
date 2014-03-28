@@ -8,7 +8,8 @@
 function islandora_lab_object_specimen_install() {
   module_load_include('inc', 'islandora', 'includes/solution_packs');
   islandora_install_solution_pack('islandora_lab_object_specimen');
-
+  drupal_install_schema('islandora_lab_object_specimen');
+  _islandora_lab_object_specimen_default_insert('Test');
 }
 
 function islandora_lab_object_specimen_schema(){
@@ -29,7 +30,10 @@ function islandora_lab_object_specimen_schema(){
   return $schema;
 }
 
-
+function islandora_lab_object_specimen_default_insert($class_name){
+  $sql = "INSERT INTO {labobject_sponge_class} (class) VALUES ('%s')";
+  db_query($sql, $class_name);
+}
 
 
 
