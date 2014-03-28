@@ -10,7 +10,7 @@ function islandora_lab_object_specimen_install() {
   islandora_install_solution_pack('islandora_lab_object_specimen');
 
 
-  switch $GLOBALS['db_type']{
+  switch ($GLOBALS['db_type']){
     case 'mysqli':
       db_query("CREATE  TABLE {labobect_specimen_spongeclass} (
                 class VARCHAR(50) NOT NULL ,
