@@ -9,12 +9,25 @@ function islandora_lab_object_specimen_install() {
   module_load_include('inc', 'islandora', 'includes/solution_packs');
   islandora_install_solution_pack('islandora_lab_object_specimen');
 
-      // this should be wrapped in something to make sure we're on the correct
-      // DBMS? Maybe? I guess maybe islandora might only allow mysql
-      db_query("CREATE  TABLE {labobject_specimen_spongeclass} (
-                class VARCHAR(50) NOT NULL ,
-                PRIMARY KEY (class) )/*!40100 DEFAULT CHARACTER SET utf8 */;");
-  
+}
+
+function islandora_lab_object_specimen_schema(){
+  $schema["sponge_class"] = array(
+    'description' => "Holds autocomplete data for sponge classes",
+    'fields' => array(
+      'class' => array(
+        'description' => "The taxonomic class for porifera's",
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        ),
+      ),
+      'unique keys' => array(
+        'class' => array('class'),
+      ),
+      'primary key' => array('class'),
+  );
+  return $schema;
 }
 
 
