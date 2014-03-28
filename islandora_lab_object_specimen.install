@@ -13,7 +13,7 @@ function islandora_lab_object_specimen_install() {
       // DBMS? Maybe? I guess maybe islandora might only allow mysql
       db_query("CREATE  TABLE {labobect_specimen_spongeclass} (
                 class VARCHAR(50) NOT NULL ,
-                PRIMARY KEY (`class`) )");
+                PRIMARY KEY (`class`) )/*!40100 DEFAULT CHARACTER SET utf8 */;");
   
 }
 
