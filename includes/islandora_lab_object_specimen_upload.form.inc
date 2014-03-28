@@ -28,7 +28,7 @@ function islandora_lab_object_specimen_upload_form(array $form, array &$form_sta
 }
 
 /**
- * Adds the uploaded file into the ingestable objects 'IMG' datastream.
+ * Adds the uploaded file into the ingestable objects 'TN' datastream.
  *
  * @param array $form
  *   The drupal form.
@@ -40,12 +40,12 @@ function islandora_lab_object_specimen_upload_form_submit(array $form, array &$f
   if (!empty($image_file)) {  //check if a file has been uploaded
   
     $object = $form_state['islandora']['objects'][0];
-    if (empty($object['IMG'])) {
-    $ds = $object->constructDatastream('IMG', 'M');
+    if (empty($object['TN'])) {
+    $ds = $object->constructDatastream('TN', 'M');
     $object->ingestDatastream($ds);
     }
     else {
-    $ds = $object['IMG'];
+    $ds = $object['TN'];
     }
 
     $image_path = drupal_realpath($image_file->uri);
