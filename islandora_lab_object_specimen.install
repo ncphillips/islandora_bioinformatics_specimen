@@ -29,7 +29,7 @@ function islandora_lab_object_specimen_schema(){
   return $schema;
 }
 
-function islandora_lab_object_specimen_default_insert($class_name){
+function _islandora_lab_object_specimen_default_insert($class_name){
   $sql = "INSERT INTO {labobject_sponge_class} (class) VALUES ('%s')";
   db_query($sql, $class_name);
 }
