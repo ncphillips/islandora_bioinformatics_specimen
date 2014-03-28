@@ -12,8 +12,7 @@ function islandora_lab_object_specimen_install() {
 }
 
 function islandora_lab_object_specimen_schema(){
-  echo "come on now";
-  exit(0);
+
   $schema["sponge_class"] = array(
     'description' => "Holds autocomplete data for sponge classes",
     'fields' => array(
