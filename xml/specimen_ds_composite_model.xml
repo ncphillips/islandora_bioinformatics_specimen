@@ -9,10 +9,5 @@
     <form MIME="image/png" />
   </dsTypeModel>
   <dsTypeModel ID="EML"> <form MIME="text/xml" /> </dsTypeModel>
-  <dsTypeModel ID="IMG"> 
-    <form MIME="image/png" /> 
-    <form MIME="image/jpeg" /> 
-    <form MIME="image/jpg" /> 
-  </dsTypeModel>
   <dsTypeModel ID="POLICY" optional="true"> <form MIME="text/xml" /> </dsTypeModel>
 </dsCompositeModel>
