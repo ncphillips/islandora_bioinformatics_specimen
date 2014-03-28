@@ -165,10 +165,14 @@ function _sponge_class_autocomplete($string){
   $matches = array();
   
   // mad hardcoding skills
-  $matches['Calcerea'] = 'Calcerea';
-  $matches['Hexactinellida'] = 'Hexactinellida';
-  $matches['Demospongiae'] = 'Demospongiae';
-  $matches['Homoscleromorpha'] = 'Homoscleromorpha';
+  $result = db_select('labobject_sponge_class', 'c')
+    ->fields('c', array('class'))
+    ->condition('class', '%' . db_like($string) . '%', 'LIKE')
+    ->execute();
+  // save the query to matches
+  foreach ($result as $row) {
+    $matches[$row->class] = check_plain($row->class);
+  }
 
   drupal_json_output($matches);
 }
