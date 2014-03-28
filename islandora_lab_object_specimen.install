@@ -13,7 +13,7 @@ function islandora_lab_object_specimen_install() {
 
 function islandora_lab_object_specimen_schema(){
 
-  $schema["sponge_class"] = array(
+  $schema["labobject_sponge_class"] = array(
     'description' => "Holds autocomplete data for sponge classes",
     'fields' => array(
       'class' => array(
@@ -21,10 +21,8 @@ function islandora_lab_object_specimen_schema(){
         'type' => 'varchar',
         'length' => 50,
         'not null' => TRUE,
+        'default' => "",
         ),
-      ),
-      'unique keys' => array(
-        'class' => array('class'),
       ),
       'primary key' => array('class'),
   );
