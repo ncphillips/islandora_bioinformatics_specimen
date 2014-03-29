@@ -54,9 +54,9 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
 
   // set up the relationship between projects and specimens
   $project_cm = islandora_object_load("islandora:project_cmodel");
-  $project_cm->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_hasPart', 'islandora:specimen_cmodel');
-  $content_model->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_isPartOf', 'islandora:project_cmodel');
 
+  add_hasPart($project_cm, "islandora:specimen_cmodel");
+  add_isPartOf($content_model, "islandora:project_cmodel");
 
 
   return array(
@@ -70,6 +70,32 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   );
 }
 
+/**
+ * @param $cmodel
+ * An islandora object for the cmodel that we're going to add the rel to
+ * @param $rel_to
+ * A pid, that will be added in the relationship
+ * @author Brent Mitton
+ *
+ * This function simply checks to make sure a relationship doesnt exist before adding it
+ */
+function add_hasPart($cmodel, $rel_to){
+  if (!islandora_object_has_relationship($cmodel, '', 'datarel_hasPart', $rel_to, FALSE))
+    $cmodel->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_hasPart', $rel_to);
+}
+
+/**
+ * @param $cmodel
+ * An islandora object for the cmodel that we're going to add the rel to
+ * @param $rel_to
+ * A pid that will be added in the relationship
+ * @author Brent Mitton
+ * This function simply checks to make sure a relationship doesnt exist before adding it
+ */
+function add_isPartOf($cmodel, $rel_to){
+  if (!islandora_object_has_relationship($cmodel, '', 'datarel_isPartOf', $rel_to, FALSE))
+    $cmodel->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_isPartOf', $rel_to);
+}
 /**
   * Implements the form_builder_forms() hook. This is responsible for loading
   * the form xml that we create in form builder. This will add the form into 
