@@ -53,13 +53,9 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
 
 
   // set up the relationship between projects and specimens
-  echo "hi";
   $project_cm = islandora_object_load("islandora:project_cmodel");
-  echo "hello";
   $project_cm->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_hasPart', 'islandora:specimen_cmodel');
-  echo "howdy";
   $content_model->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_isPartOf', 'islandora:project_cmodel');
-  echo "how are you?";
 
 
 
