@@ -58,7 +58,7 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   $project_cm = islandora_object_load("islandora:project_cmodel");
 
   add_hasPart($project_cm, "islandora:specimen_cmodel");
-  //add_isPartOf($content_model, "islandora:project_cmodel");
+  add_isPartOf($content_model, "islandora:project_cmodel");
 
 
   return array(
