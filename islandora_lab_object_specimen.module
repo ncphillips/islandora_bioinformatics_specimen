@@ -26,6 +26,8 @@ function islandora_lab_object_specimen_menu() {
  * of specimen, all we need to install is the DS-Composite-Model
  */
 function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque $connection) {
+  module_load_include('inc', 'islandora', 'islandora.rules');
+
   $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
   $content_model = $connection->repository->constructObject('islandora:specimen_cmodel');
   $content_model->owner = 'fedoraAdmin';
