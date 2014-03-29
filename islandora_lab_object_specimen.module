@@ -26,7 +26,6 @@ function islandora_lab_object_specimen_menu() {
  * of specimen, all we need to install is the DS-Composite-Model
  */
 function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque $connection) {
-  module_load_include('inc', 'islandora', 'islandora.rules');
   module_load_include('inc', 'islandora_bioinformatics_base', 'base_functions');
 
   $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
@@ -58,8 +57,8 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   // set up the relationship between projects and specimens
   $project_cm = islandora_object_load("islandora:project_cmodel");
 
-  add_hasPart($project_cm, "islandora:specimen_cmodel");
-  add_isPartOf($content_model, "islandora:project_cmodel");
+  //add_hasPart($project_cm, "islandora:specimen_cmodel");
+  //add_isPartOf($content_model, "islandora:project_cmodel");
 
 
   return array(
