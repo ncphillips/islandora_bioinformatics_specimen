@@ -17,6 +17,15 @@ function islandora_lab_object_specimen_install() {
 
 }
 
+/**
+ * @author Brent Mitton
+ * @return
+ * returns a database schema
+ *
+ * My understanding of this hook is that it is used both when the sp is
+ * installed and uninstalled. Upon install it will create the db table defined
+ * and on uninstallation it will remove it.
+ */
 function islandora_lab_object_specimen_schema(){
 
   $schema["labobject_sponge_class"] = array(
@@ -35,6 +44,13 @@ function islandora_lab_object_specimen_schema(){
   return $schema;
 }
 
+/**
+ * @author Brent Mitton
+ * @param $class_name
+ * For sponge classes this is simply the name of the class of sponge (there are
+ * four).
+ * So it just adds them in. I use this for autocompleting.
+ */
 function _islandora_lab_object_specimen_default_insert($class_name){
   $sql = "INSERT INTO {labobject_sponge_class} (class) VALUES ('$class_name')";
   db_query($sql);

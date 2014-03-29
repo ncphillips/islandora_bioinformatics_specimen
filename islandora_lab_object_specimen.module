@@ -173,7 +173,6 @@ function islandora_lab_object_specimen_islandora_specimen_cmodel_islandora_view_
 function _sponge_class_autocomplete($string){
   $matches = array();
   
-  // mad hardcoding skills
   $result = db_select('labobject_sponge_class', 'c')
     ->fields('c', array('class'))
     ->condition('class', '%' . db_like($string) . '%', 'LIKE')
