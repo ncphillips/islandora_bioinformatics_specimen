@@ -1151,7 +1151,7 @@
                                                             <schema/>
                                                             <type>element</type>
                                                             <prefix>NULL</prefix>
-                                                            <value>taxonomicClassification</value>
+                                                            <value>boundingAltitudes</value>
                                                         </create>
                                                         <read>
                                                             <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:boundingAltitudes</path>
