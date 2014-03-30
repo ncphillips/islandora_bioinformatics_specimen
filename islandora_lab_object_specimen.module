@@ -100,7 +100,7 @@ function islandora_lab_object_specimen_islandora_xml_form_builder_form_associati
       'form_name' => 'Specimen Form',
       'dsid' => 'EML',
       'title_field' => array(
-        'dataset',
+        'dataset', 'coverage', 'taxonomicCoverage', ''
       ),
       'transform' => '',
       'template' => FALSE,
@@ -184,3 +184,32 @@ function _sponge_class_autocomplete($string){
 
   drupal_json_output($matches);
 }
+
+
+
+
+function our_thing($form, &$form_state, $project, $relatedpeople){
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
