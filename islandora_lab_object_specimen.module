@@ -104,18 +104,34 @@ function islandora_lab_object_specimen_islandora_xml_form_builder_form_associati
   $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
 
 
-  return array(
-    'islandora_lab_object_specimen_form' => array(
-      'content_model' => 'islandora:specimen_cmodel',
-      'form_name' => 'Specimen Form',
+  $form_assoc = array(
+    'islandora_lab_object_specimen_general_form' =>array(
+      'content_model' => "islandora:specimen_cmodel",
+      'form_name' => "General Specimen Form",
       'dsid' => 'EML',
-      'title_field' => array(
-        'dataset', 'coverage', 'taxonomicCoverage', ''
-      ),
+      'title_field' => array('specimen_title'),
       'transform' => '',
       'template' => FALSE,
     ),
+    'islandora_lab_object_specimen_sponge_form' =>array(
+        'content_model' => "islandora:specimen_cmodel",
+        'form_name' => "Sponge Form",
+        'dsid' => 'EML',
+        'title_field' => array('specimen_title'),
+        'transform' => '',
+        'template' => FALSE,
+    ),
+    'islandora_lab_object_specimen_bacteria_form' =>array(
+        'content_model' => "islandora:specimen_cmodel",
+        'form_name' => "Bacteria Form",
+        'dsid' => 'EML',
+        'title_field' => array('specimen_title'),
+        'transform' => '',
+        'template' => FALSE,
+    ),
   );
+  return $form_assoc;
+
 }
 
 /**
