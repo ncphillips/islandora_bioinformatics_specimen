@@ -188,11 +188,6 @@ function _sponge_class_autocomplete($string){
 
 
 
-function our_thing($form, &$form_state, $project, $relatedpeople){
-
-}
-
-
 
 
 
