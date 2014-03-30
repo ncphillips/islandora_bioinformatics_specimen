@@ -80,11 +80,19 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   */
 function islandora_lab_object_specimen_islandora_xml_form_builder_forms() {
   $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
-  return array(
-    'Specimen Form' => array(
+  $forms = array(
+    'General Specimen Form' => array(
       'form_file' => "$module_path/xml/specimen_form.xml",
     ),
+    'Sponge Form' => array(
+      'form_file' => "$module_path/xml/sponge_form.xml",
+    ),
+    'Bacteria Form' => array(
+      'form_file' => "$module_path/xml/bacteria_form.xml"
+    ),
   );
+
+  return $forms;
 }
 
 /**
