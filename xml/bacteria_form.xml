@@ -53,6 +53,42 @@
                 </properties>
                 <children/>
             </element>
+            <element name="specimen_title">
+                <properties>
+                    <type>textfield</type>
+                    <access>TRUE</access>
+                    <collapsed>FALSE</collapsed>
+                    <collapsible>FALSE</collapsible>
+                    <description>A descriptive name for the specimen, used as a label for the specimen throughout the site.</description>
+                    <disabled>FALSE</disabled>
+                    <executes_submit_callback>FALSE</executes_submit_callback>
+                    <multiple>FALSE</multiple>
+                    <required>TRUE</required>
+                    <resizable>FALSE</resizable>
+                    <title>Specimen Identifier</title>
+                    <tree>TRUE</tree>
+                    <actions>
+                        <create>
+                            <path>self::node()</path>
+                            <context>document</context>
+                            <schema/>
+                            <type>element</type>
+                            <prefix>NULL</prefix>
+                            <value>specimen_title</value>
+                        </create>
+                        <read>
+                            <path>/eml:eml/eml:specimen_title</path>
+                            <context>document</context>
+                        </read>
+                        <update>
+                            <path>self::node()</path>
+                            <context>self</context>
+                        </update>
+                        <delete>NULL</delete>
+                    </actions>
+                </properties>
+                <children/>
+            </element>
             <element name="dataset">
                 <properties>
                     <type>markup</type>
