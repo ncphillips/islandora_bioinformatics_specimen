@@ -19,7 +19,7 @@ function islandora_lab_object_specimen_menu() {
       ),
 
       'islandora/object/%islandora_object/test_ingest_specimen' => array(
-        'title' => 'Ingest specimen',
+        'title' => 'Ingest Specimen',
         'page callback' => 'rel_lab_object_specimen_ingest',
         'page arguments' => array(2),
         'access callback' => TRUE,
