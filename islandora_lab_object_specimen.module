@@ -225,7 +225,7 @@ function _sponge_class_autocomplete($string){
 */
 
 function rel_lab_object_specimen_ingest($parent) {
-  $tuque = new Islandora();
+  $tuque = new IslandoraTuque();
   
   //create the object to be ingested
   $object = $tuque->repository->constructObject('islandora');
@@ -246,26 +246,3 @@ function rel_lab_object_specimen_ingest($parent) {
   
   return drupal_get_form('islandora_ingest_form', $configuration);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
