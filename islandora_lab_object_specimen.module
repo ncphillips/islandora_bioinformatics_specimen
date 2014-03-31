@@ -219,12 +219,32 @@ function _sponge_class_autocomplete($string){
   drupal_json_output($matches);
 }
 
-function rel_lab_object_specimen_ingest($object) {
-  echo $object->id;
-  echo '<pre>';
-  var_dump($object);
-  echo '</pre>';
-  dpm($object);
+/**
+* @author Quintin Dawson qdawson@upei.ca
+* This function should create a new specimen object and create a relationship between it and the $parent object
+*/
+
+function rel_lab_object_specimen_ingest($parent) {
+  $tuque = new Islandora();
+  
+  //create the object to be ingested
+  $object = $tuque->repository->constructObject('islandora');
+  $object->owner = 'fedoraAdmin';
+  //$object->label = "";
+  $object->models = 'islandora:specimen_cmodel';
+  
+  $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:person_collection');
+  $tuque->repository->ingestObject($object);
+
+  
+  $configuration = array(
+    'collection' => $parent,
+    'models' => array('islandora:specimen_cmodel'),
+    'objects' => array($object),
+    'parent' => $parent->id,  
+  );
+  
+  return drupal_get_form('islandora_ingest_form', $configuration)
 }
 
 
