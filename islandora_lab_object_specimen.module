@@ -244,7 +244,7 @@ function rel_lab_object_specimen_ingest($parent) {
     'parent' => $parent->id,  
   );
   
-  return drupal_get_form('islandora_ingest_form', $configuration)
+  return drupal_get_form('islandora_ingest_form', $configuration);
 }
 
 
