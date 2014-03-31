@@ -220,7 +220,8 @@ function _sponge_class_autocomplete($string){
 }
 
 function rel_lab_object_specimen_ingest($object) {
-  dpm('test');
+  echo 'test';
+  dpm($object);
 }
 
 
