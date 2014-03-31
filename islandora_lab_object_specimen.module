@@ -230,7 +230,7 @@ function rel_lab_object_specimen_ingest($parent) {
   //create the object to be ingested
   $object = $tuque->repository->constructObject('islandora');
   $object->owner = 'fedoraAdmin';
-  //$object->label = "";
+  $object->label = "New Object";
   $object->models = 'islandora:specimen_cmodel';
   
   $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:person_collection');
