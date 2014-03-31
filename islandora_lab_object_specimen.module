@@ -227,8 +227,9 @@ function _sponge_class_autocomplete($string){
 function rel_lab_object_specimen_ingest(AbstractObject $parent) {
   //dpm($parent);
   echo '<pre>';
-  var_dump($parent->models);
+  var_dump($parent['COLLECTION_POLICY']);
   echo '</pre>';
+  
   
   /*
   $tuque = new IslandoraTuque();
