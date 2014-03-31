@@ -224,7 +224,9 @@ function _sponge_class_autocomplete($string){
 * This function should create a new specimen object and create a relationship between it and the $parent object
 */
 
-function rel_lab_object_specimen_ingest(AbstractObject $parent, AbstractObject $collection) {
+function rel_lab_object_specimen_ingest(AbstractObject $parent) {
+  dpm($parent);
+  /*
   $tuque = new IslandoraTuque();
   
   //create the object to be ingested
@@ -247,4 +249,6 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent, AbstractObject $
   return drupal_get_form('islandora_ingest_form', $configuration);
   
   //find how to set the $collection varaible in the original example at https://github.com/Islandora/islandora_solution_pack_collection/blob/7.x/includes/ingest.form.inc and reproduce
+  
+  */
 }
