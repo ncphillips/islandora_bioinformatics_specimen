@@ -236,6 +236,7 @@ function rel_lab_object_specimen_ingest($parent) {
   $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:person_collection');
   $tuque->repository->ingestObject($object);
 
+  module_load_include('inc', 'islandora', 'includes/ingest.form');
   
   $configuration = array(
     'collection' => $parent,
