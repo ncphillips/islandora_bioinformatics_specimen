@@ -227,7 +227,7 @@ function _sponge_class_autocomplete($string){
 function rel_lab_object_specimen_ingest(AbstractObject $parent) {
   //dpm($parent);
   echo '<pre>';
-  var_dump($parent);
+  var_dump($parent->models);
   echo '</pre>';
   
   /*
