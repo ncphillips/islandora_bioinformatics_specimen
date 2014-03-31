@@ -81,8 +81,8 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     $specimen_datastream_dc['mimetype'] = 'text/xml';
 
     $specimen_datastream_mads = array(); //Init the MADS datastream
-    $specimen_datastream_mads['dsid'] = 'MADS'; //dsid comes from the ds composite model in the xml directory
-    $specimen_datastream_mads['path'] = 'fixtures/example_specimen_mads.xml'; //Path to the file containing the datastream
+    $specimen_datastream_mads['dsid'] = 'EML'; //dsid comes from the ds composite model in the xml directory
+    $specimen_datastream_mads['path'] = 'fixtures/example_specimen_eml.xml'; //Path to the file containing the datastream
     $specimen_datastream_mads['control_group'] = 'M'; //M - managed by Fedora, X - in line XML
     $specimen_datastream_mads['mimetype'] = 'text/xml';
 
@@ -101,23 +101,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     //Ingest the object with its properties array and datastreams array.
     $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
 
-    /*
-        Test solr indexing
-
-        *May be inconsistent due to timing issues.
-    */
-
-    //May need to explicitly add a relationship.
-
-    //Purge when finished.
-    
-    //deleteObject($pid, $button = NULL,$safety = TRUE) function IslandoraWebTestCase
 
     $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
 
-    //Test every role with every use case. (Make sure anon can't delete objects, but admins can etc.)
-  
-    //As for clicking links and such, manage permissions in the collection test group has a bunch of link clicking
-    //methods to look at.
-
-
+  }
