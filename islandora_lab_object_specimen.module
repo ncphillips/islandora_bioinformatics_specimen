@@ -219,6 +219,9 @@ function _sponge_class_autocomplete($string){
   drupal_json_output($matches);
 }
 
+function rel_lab_object_specimen_ingest($object) {
+  echo 'test';
+}
 
 
 
