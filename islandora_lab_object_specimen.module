@@ -236,16 +236,24 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent) {
   $tuque = new IslandoraTuque();
   
   //create the object to be ingested
+  
   //$object = $tuque->repository->constructObject('islandora');
   $object = $tuque->repository->constructObject('fake:pid');
+  
   $object->owner = 'fedoraAdmin';
   $object->label = "New Object";
   $object->models = 'islandora:specimen_cmodel';
   
-  $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:person_collection');
-  $object->relationships->add(FEDORA_RELS_EXT_URI, 'hasModel', $parent->id);
-  $tuque->repository->ingestObject($object);
+  $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:specimen_collection');
   
+  //form a relationship between the parent object and the object being ingested
+  $object->relationships->add(FEDORA_RELS_EXT_URI, 'hasModel', $parent->id);
+  
+  //ingest the object
+  //$tuque->repository->ingestObject($object);
+  
+  
+  //generate the $configuration array
   $configuration = array(
     'collection' => $parent,    //this was $collection
     'models' => array('islandora:specimen_cmodel'),
