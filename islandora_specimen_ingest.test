@@ -105,3 +105,4 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
 
   }
+}
