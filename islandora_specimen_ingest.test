@@ -42,7 +42,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   * Creates an administrative user and attempts to ingest a project
   */
 
-  public function testIngestSpecimen) {
+  public function testIngestSpecimen() {
     
 
     //Creates an admin user
