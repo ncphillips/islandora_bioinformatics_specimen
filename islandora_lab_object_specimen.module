@@ -89,14 +89,11 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
 function islandora_lab_object_specimen_islandora_xml_form_builder_forms() {
   $module_path = drupal_get_path('module', 'islandora_lab_object_specimen');
   $forms = array(
-    'General Specimen Form' => array(
-      'form_file' => "$module_path/xml/specimen_form.xml",
+    'Microbial Form' => array(
+      'form_file' => "$module_path/xml/microbial_form.xml",
     ),
-    'Sponge Form' => array(
-      'form_file' => "$module_path/xml/sponge_form.xml",
-    ),
-    'Bacteria Form' => array(
-      'form_file' => "$module_path/xml/bacteria_form.xml"
+    'Invertebrate Form' => array(
+      'form_file' => "$module_path/xml/invertebrate_form.xml"
     ),
   );
 
@@ -113,27 +110,19 @@ function islandora_lab_object_specimen_islandora_xml_form_builder_form_associati
 
 
   $form_assoc = array(
-    'islandora_lab_object_specimen_general_form' =>array(
-      'content_model' => "islandora:specimen_cmodel",
-      'form_name' => "General Specimen Form",
-      'dsid' => 'EML',
-      'title_field' => array('specimen_title'),
-      'transform' => '',
-      'template' => FALSE,
-    ),
-    'islandora_lab_object_specimen_sponge_form' =>array(
+    'islandora_lab_object_specimen_invertebrate_form' =>array(
         'content_model' => "islandora:specimen_cmodel",
-        'form_name' => "Sponge Form",
+        'form_name' => "Invertebrate Form",
         'dsid' => 'EML',
-        'title_field' => array('specimen_title'),
+        'title_field' => array('lab_identifier'),
         'transform' => '',
         'template' => FALSE,
     ),
-    'islandora_lab_object_specimen_bacteria_form' =>array(
+    'islandora_lab_object_specimen_microbial_form' =>array(
         'content_model' => "islandora:specimen_cmodel",
-        'form_name' => "Bacteria Form",
+        'form_name' => "Microbial Form",
         'dsid' => 'EML',
-        'title_field' => array('specimen_title'),
+        'title_field' => array('lab_identifier'),
         'transform' => '',
         'template' => FALSE,
     ),
