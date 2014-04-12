@@ -101,6 +101,7 @@ function islandora_lab_object_specimen_upload_form_submit(array $form, array &$f
 function associate_image($image_files, array $form, array &$form_state){
 
   foreach ($image_files as $img){
+    echo "HEY";
     if (!empty($img)) {  //check if a file has been uploaded
 
       $object = $form_state['islandora']['objects'][0];
