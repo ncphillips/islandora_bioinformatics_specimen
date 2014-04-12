@@ -10,20 +10,70 @@ function islandora_lab_object_specimen_upload_form(array $form, array &$form_sta
   // sets the max upload size to whatever php has defined.
   $upload_size = min((int) ini_get('post_max_size'), (int) ini_get('upload_max_filesize'));
   $extensions = array('png', 'jpg', 'jpeg');
-  $form = array();
 
-  $form['file'] = array(
-    '#title' => t('Specimen Image File'),
-    '#type' => 'managed_file',
-    '#required' => FALSE,
-    '#description' => t('Select an image to associate with the specimen.'),
-    '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
-    '#upload_location' => 'temporary://',
-    '#upload_validators' => array(
-      'file_validate_extensions' => $extensions,
-      'file_validate_size' => array($upload_size * 1024 * 1024),
+  $form = array(
+    "image1" => array(
+      '#title' => t('Specimen Image #1'),
+      '#type' => 'managed_file',
+      '#required' => FALSE,
+      '#description' => t('Select an image to associate with the specimen.'),
+      '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
+      '#upload_location' => 'temporary://',
+      '#upload_validators' => array(
+        'file_validate_extensions' => $extensions,
+        'file_validate_size' => array($upload_size * 1024 * 1024),
+      ),
     ),
-  );
+    "image2" => array(
+        '#title' => t('Specimen Image #2'),
+        '#type' => 'managed_file',
+        '#required' => FALSE,
+        '#description' => t('Select an image to associate with the specimen.'),
+        '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
+        '#upload_location' => 'temporary://',
+        '#upload_validators' => array(
+            'file_validate_extensions' => $extensions,
+            'file_validate_size' => array($upload_size * 1024 * 1024),
+        ),
+    ),
+    "image3" => array(
+        '#title' => t('Specimen Image #3'),
+        '#type' => 'managed_file',
+        '#required' => FALSE,
+        '#description' => t('Select an image to associate with the specimen.'),
+        '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
+        '#upload_location' => 'temporary://',
+        '#upload_validators' => array(
+            'file_validate_extensions' => $extensions,
+            'file_validate_size' => array($upload_size * 1024 * 1024),
+        ),
+    ),
+    "image4" => array(
+        '#title' => t('Specimen Image #4'),
+        '#type' => 'managed_file',
+        '#required' => FALSE,
+        '#description' => t('Select an image to associate with the specimen.'),
+        '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
+        '#upload_location' => 'temporary://',
+        '#upload_validators' => array(
+            'file_validate_extensions' => $extensions,
+            'file_validate_size' => array($upload_size * 1024 * 1024),
+        ),
+    ),
+    "image5" => array(
+        '#title' => t('Specimen Image #5'),
+        '#type' => 'managed_file',
+        '#required' => FALSE,
+        '#description' => t('Select an image to associate with the specimen.'),
+        '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
+        '#upload_location' => 'temporary://',
+        '#upload_validators' => array(
+            'file_validate_extensions' => $extensions,
+            'file_validate_size' => array($upload_size * 1024 * 1024),
+        ),
+    ));
+
+
   return $form;
 }
 
