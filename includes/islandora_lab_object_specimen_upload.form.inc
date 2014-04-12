@@ -16,7 +16,7 @@ function islandora_lab_object_specimen_upload_form(array $form, array &$form_sta
       '#title' => t('Specimen Image #1'),
       '#type' => 'managed_file',
       '#required' => FALSE,
-      '#description' => t('Select an image to associate with the specimen.'),
+      '#description' => t('Select an image to associate with the specimen. This image will be used as the thumbnail for the specimen.'),
       '#default_value' => isset($form_state['values']['files']) ? $form_state['values']['files'] : NULL,
       '#upload_location' => 'temporary://',
       '#upload_validators' => array(
