@@ -86,21 +86,38 @@ function islandora_lab_object_specimen_upload_form(array $form, array &$form_sta
  *   The drupal form state.
  */
 function islandora_lab_object_specimen_upload_form_submit(array $form, array &$form_state) {
-  $image_file = file_load($form_state['values']['file']);
-  if (!empty($image_file)) {  //check if a file has been uploaded
-  
-    $object = $form_state['islandora']['objects'][0];
-    if (empty($object['TN'])) {
-    $ds = $object->constructDatastream('TN', 'M');
-    $object->ingestDatastream($ds);
-    }
-    else {
-    $ds = $object['TN'];
+  $image_files[0] = file_load($form_state['values']['image1']);
+  $image_files[1] = file_load($form_state['values']['image2']);
+  $image_files[2] = file_load($form_state['values']['image3']);
+  $image_files[3] = file_load($form_state['values']['image4']);
+  $image_files[4] = file_load($form_state['values']['image5']);
+
+  associate_image($image_files, $form, $form_state);
+}
+
+/**
+ * Allows for association of multiple images with the TN datastream.
+ */
+function associate_image($image_files, array $form, array &$form_state){
+
+  foreach ($image_files as $img){
+    if (!empty($img)) {  //check if a file has been uploaded
+
+      $object = $form_state['islandora']['objects'][0];
+      if (empty($object['TN'])) {
+        $ds = $object->constructDatastream('TN', 'M');
+        $object->ingestDatastream($ds);
+      }
+      else {
+        $ds = $object['TN'];
+      }
+
+      $image_path = drupal_realpath($img->uri);
+      $ds->setContentFromFile($image_path, FALSE);
+      $ds->label = $img->filename;
+      $ds->mimetype = $img->filemime;
     }
 
-    $image_path = drupal_realpath($image_file->uri);
-    $ds->setContentFromFile($image_path, FALSE);
-    $ds->label = $image_file->filename;
-    $ds->mimetype = $image_file->filemime;
   }
+
 }
