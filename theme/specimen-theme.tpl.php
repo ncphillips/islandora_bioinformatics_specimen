@@ -47,7 +47,8 @@ echo "</pre>";*/
 <div class="specimen-info">
   <table>
     <tbody>
-      <tr><td><?php if (isset($variables['islandora_thumbnail_img'])): ?><?php print $variables['islandora_thumbnail_img'] ?><?php endif; ?></td></tr>
+      <tr><td><img src="<?php print $variables['img_url'] ?>" width="300"></td></tr>
+      <!--<tr><td><?php if (isset($variables['islandora_thumbnail_img'])): ?><?php print $variables['islandora_thumbnail_img'] ?><?php endif; ?></td></tr>-->
     </tbody>
   </table>
 </div>
