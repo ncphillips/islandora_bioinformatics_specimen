@@ -102,10 +102,11 @@ function associate_image($image_files, array $form, array &$form_state){
 
   foreach ($image_files as $img){
     echo "HEY";
+    $i = 0;
     if (!empty($img)) {  //check if a file has been uploaded
 
       $object = $form_state['islandora']['objects'][0];
-      $ds = $object->constructDatastream('TN', 'M');
+      $ds = $object->constructDatastream('TN'.$i++, 'M');
       $object->ingestDatastream($ds);
 
 
