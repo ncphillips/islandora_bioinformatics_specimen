@@ -99,14 +99,14 @@ function islandora_lab_object_specimen_upload_form_submit(array $form, array &$f
  * Allows for association of multiple images with the TN datastream.
  */
 function associate_image($image_files, array $form, array &$form_state){
+  $i = 0;
 
   foreach ($image_files as $img){
     print_r ($image_files);
-    $i = 0;
     if (!empty($img)) {  //check if a file has been uploaded
 
       $object = $form_state['islandora']['objects'][0];
-      $ds = $object->constructDatastream('TN'.$i++, 'M');
+      $ds = $object->constructDatastream('TN'. $i++, 'M');
       $object->ingestDatastream($ds);
 
 
