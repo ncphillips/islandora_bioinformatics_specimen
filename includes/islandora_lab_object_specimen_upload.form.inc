@@ -104,13 +104,9 @@ function associate_image($image_files, array $form, array &$form_state){
     if (!empty($img)) {  //check if a file has been uploaded
 
       $object = $form_state['islandora']['objects'][0];
-      if (empty($object['TN'])) {
-        $ds = $object->constructDatastream('TN', 'M');
-        $object->ingestDatastream($ds);
-      }
-      else {
-        $ds = $object['TN'];
-      }
+      $ds = $object->constructDatastream('TN', 'M');
+      $object->ingestDatastream($ds);
+
 
       $image_path = drupal_realpath($img->uri);
       $ds->setContentFromFile($image_path, FALSE);
