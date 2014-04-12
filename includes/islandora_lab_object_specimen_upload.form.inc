@@ -97,6 +97,13 @@ function islandora_lab_object_specimen_upload_form_submit(array $form, array &$f
 
 /**
  * Allows for association of multiple images with the TN datastream.
+ *
+ * @param $image_files
+ *  An array of image files
+ * @param $form
+ *  The drupal form
+ * @param $form_state
+ *  Reference to the drupal form state
  */
 function associate_image($image_files, array $form, array &$form_state){
   $i = 0;
