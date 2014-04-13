@@ -37,7 +37,7 @@ function islandora_lab_object_specimen_forms($form_id, $args){
      */
     case 'related_specimen_form':
       $cmodels = array('islandora:specimen_cmodel');
-      $relationships = array(FEDORA_RELS_EXT_URI => array('isPartOf',),);
+      $relationships = array(FEDORA_RELS_EXT_URI => array('isPartOf', 'isMemberOf',),);
 
       $args[] = $cmodels;
       $args[] = $relationships;
