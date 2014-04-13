@@ -99,8 +99,14 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     $specimen_datastreams[] = $specimen_datastream_relsext;
 
     //Ingest the object with its properties array and datastreams array.
-    $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
-
+    
+    try {
+      $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
+    }
+    catch(RepositoryException re)
+    {
+      echo re->$message;
+    }
 
     $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
 
