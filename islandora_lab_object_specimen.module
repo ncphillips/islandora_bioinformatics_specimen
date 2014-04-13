@@ -325,8 +325,8 @@ function specimen_EML_to_array($specimen_object){
       case "specimen_description":
         break;
       case "dataset":
-        $specimen_eml["genus"] = ($part->coverage->taxonomicCoverage[5]->taxonRankValue) ? $part->coverage->taxonomicCoverage[5]->taxonRankValue:"";
-        $specimen_eml["species"] = ($part->coverage->taxonomicCoverage[6]->taxonRankValue) ? $part->coverage->taxonomicCoverage[6]->taxonRankValue:"";;
+        $specimen_eml["genus"] = ($part->coverage->taxonomicCoverage->taxonomicClassification[5]->taxonRankValue) ? $part->coverage->taxonomicCoverage->taxonomicClassification[5]->taxonRankValue:"";
+        $specimen_eml["species"] = ($part->coverage->taxonomicCoverage->taxonomicClassification[6]->taxonRankValue) ? $part->coverage->taxonomicCoverage->taxonomicClassification[6]->taxonRankValue:"";;
         break;
     }
   }
