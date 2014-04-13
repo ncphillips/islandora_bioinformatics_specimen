@@ -47,14 +47,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
     //Creates an admin user
 
-    $user = $this->drupalCreateUser(array(
-      'view fedora repository objects',
-      'ingest fedora objects',
-      'administer site configuration',
-      'manage object properties',
-      'delete fedora objects and datastreams',
-      'create child collection',
-    ));
+    $user = $this->createAdminUser();
 
     //Logs them in.
 
