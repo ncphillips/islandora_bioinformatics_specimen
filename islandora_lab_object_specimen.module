@@ -278,7 +278,7 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
   $object = $form_state['object'];
   $specimens = $form_state['related_objects'];
 
-  $form['cmodel'] => array(
+  $form['cmodel'] = array(
     '#markup' => 'Specimen',
     '#prefix' => '<h1>',
     '#suffix' => '</h1>',
