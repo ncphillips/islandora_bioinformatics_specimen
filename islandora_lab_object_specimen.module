@@ -39,7 +39,7 @@ function islandora_lab_object_specimen_forms($form_id){
       $args[] = $cmodels;
       $args[] = $relationships;
 
-      $forms['related_people_form'] = array(
+      $forms['related_specimen_form'] = array(
         'callback' => 'related_islandora_objects_form',
         'callback arguments' => $args,
       );
