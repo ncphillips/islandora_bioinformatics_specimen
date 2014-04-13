@@ -368,10 +368,10 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent) {
 
   //create the object to be ingested
 
-  $collection =  $parent->getParents();
+  $collection =  $parent->getParents()[0];
     //dpm($parent);
     echo '<pre>';
-    echo $collection[0];
+    echo $collection;
     //var_dump($parent->models);
     //var_dump($parent['COLLECTION_POLICY']);
     //var_dump($parent['COLLECTION_POLICY']->content);
