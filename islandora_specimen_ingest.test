@@ -117,7 +117,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
       echo 'Caught exception: ',  $re->getMessage(), "\n";
     }
 
-    $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
+    $this->deleteObject('islandora:test_specimen', $button = NULL, $safety = TRUE);
 
   }
 }
