@@ -1,5 +1,8 @@
 <?php
 
+
+$testimen = islandora_object_load("islandora:640");
+specimen_EML_to_array($testimen);
 /**
  * @file
  * This is the specimen module.
@@ -29,6 +32,7 @@ function islandora_lab_object_specimen_menu() {
 }
 
 /**
+ * @author Brent Mitton
  * Implements the required_objects() hook. This is responsible for creating the 
  * necessary objects in fedora when we install the solution pack. In the case
  * of specimen, all we need to install is the DS-Composite-Model
@@ -82,6 +86,7 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
 
 
 /**
+ * @author Brent Mitton
   * Implements the form_builder_forms() hook. This is responsible for loading
   * the form xml that we create in form builder. This will add the form into 
   * the system as a built in form.
@@ -101,6 +106,7 @@ function islandora_lab_object_specimen_islandora_xml_form_builder_forms() {
 }
 
 /**
+ * @author Brent Mitton
   * Implements the form_builder_form_associations() hook. This is responsible
   * for associating the form that we create in the form_builder_form() hook
   * with the content-model that we created in the required_objects() hook.
@@ -132,6 +138,7 @@ function islandora_lab_object_specimen_islandora_xml_form_builder_form_associati
 }
 
 /**
+ * @author Brent Mitton
  * Creates an additional ingest step, which will be displayed after the initial
  * form. For this module this means displaying an image upload form.
  */
@@ -156,6 +163,7 @@ function islandora_lab_object_specimen_islandora_specimen_cmodel_islandora_inges
 
 
 /**
+ * @author Brent Mitton
  * This "registers" the theme so in the system. 
  * 'template' points to a tpl file, which will be mostly under front-end
  *    control
@@ -178,6 +186,7 @@ function islandora_lab_object_specimen_theme($existing, $type, $theme, $path) {
 }
 
 /**
+ * @author Brent Mitton
  * Here we populate the $variable array with what we want to send to the 
  * template. After this point the front end takes over. We should be able
  * The second argument in theme() is the contents of the $variable array that
@@ -207,6 +216,22 @@ function _sponge_class_autocomplete($string){
 
   drupal_json_output($matches);
 }
+
+function specimen_EML_to_array($specimen_object){
+  $ns = "eml://ecoinformatics.org/eml-2.1.0";
+
+  $specimen_xml = new SimpleXMLElement($specimen_object_object["EML"]->content);
+
+  $project_mads = array();
+
+  foreach ($specimen_xml->children($ns) as $part){
+
+    echo $part->getName();
+
+  }
+
+}
+
 
 /**
 * @author Quintin Dawson qdawson@upei.ca
