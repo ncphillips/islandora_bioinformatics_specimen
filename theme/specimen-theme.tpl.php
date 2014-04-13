@@ -10,36 +10,77 @@
 //$islandora_content = $islandora_object['SPECIMEN']->content;
 //$path = drupal_get_path('module', 'islandora_lab_object_specimen');
 
-echo "<pre>";
-//print_r($variables['taxonomy']);
-//print_r($variables['geography']);
-//print_r($variables['methods']);
-echo "</pre>";
+/*echo "<pre>";
+print_r($variables['taxonomy']);
+print_r($variables['geography']);
+print_r($variables['methods']);
+echo "</pre>";*/
 ?>
+<style>
+    .specimen-info {
+        width: 33%;
+        float: left;
+        position: relative;
+        top: 8px;
+    }
 
-<div class="islandora-specimen-object islandora">
-  <div class ="specimen_image">
-    <div class="m-btn-group">
-      <a href="/islandora/object/islandora%3A293/manage/overview/ingest" class="m-btn green">Add a Specimen</a>
-    </div>
+    .specimen-info-label {
+        font-weight: bold;
+        font-size: 14px;
+        width: 180px;
+    }
+
+    .specimen-info table {
+        border: none;
+    }
+
+    .specimen-info-heading {
+        font-weight: bold;
+        font-size: 14px;
+        width: 180px;
+        border: none;
+        background: none;
+        text-decoration:underline;
+    }
+</style>
+
+<div class="specimen-info">
+  <table>
+    <tbody>
+      <tr><td><img src="<?php print $variables['img_url'] ?>" width="300"></td></tr>
+      <!--<tr><td><?php if (isset($variables['islandora_thumbnail_img'])): ?><?php print $variables['islandora_thumbnail_img'] ?><?php endif; ?></td></tr>-->
+    </tbody>
+  </table>
+</div>
+<div class="specimen-info">
+  <table>
+    <tbody>
+      <tr><th class="specimen-info-heading">Taxonomic Information</th></tr>
+      <tr><td class="specimen-info-label">Phylum: </td><td><?php if (isset ($variables['taxonomy']['phylum'])):?><?php print $variables['taxonomy']['phylum'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Subphylum: </td><td><?php if (isset ($variables['taxonomy']['subphylum'])):?><?php print $variables['taxonomy']['subphylum'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Class: </td><td><?php if (isset ($variables['taxonomy']['class'])):?><?php print $variables['taxonomy']['class'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Order: </td><td><?php if (isset ($variables['taxonomy']['order'])):?><?php print $variables['taxonomy']['order'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Family: </td><td><?php if (isset ($variables['taxonomy']['family'])):?><?php print $variables['taxonomy']['family'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Genus: </td><td><?php if (isset ($variables['taxonomy']['genus'])):?><?php print $variables['taxonomy']['genus'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Species: </td><td><?php if (isset ($variables['taxonomy']['species'])):?><?php print $variables['taxonomy']['species'] ?></td></tr><?php endif; ?>
+    </tbody>
+  </table>
+</div>
+<div class="specimen-info">
+  <table>
+    <tbody>
+      <tr><th class="specimen-info-heading">Geographic Information</th></tr>
+      <tr><td class="specimen-info-label">Site Name: </td><td><?php if (isset ($variables['geography']['siteName'])):?><?php print $variables['geography']['siteName'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Location: </td><td><?php if (isset ($variables['geography']['north'])):?><?php print $variables['geography']['north'] ?>N, <?php print $variables['geography']['west'] ?>W</td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Depth: </td><td><?php if (isset ($variables['geography']['depth'])):?><?php print $variables['geography']['depth'] ?> <?php print $variables['geography']['unit'] ?></td></tr><?php endif; ?>
+      <tr><td class="specimen-info-label">Collection Date: </td><td><?php if (isset ($variables['temporal']['date'])):?><?php print $variables['temporal']['date'] ?></td></tr><?php endif; ?>
+    </tbody>
+  </table>
+</div>
+<div class="specimen-info">
     <table>
-    <tr>
-    <td><?php if (isset($variables['islandora_thumbnail_img'])): ?><?php print $variables['islandora_thumbnail_img'] ?><?php endif; ?></td>
-    <td><table style="width:300px">
-      <tr><th>Taxonomic Information</th></tr>
-      <tr><td>Phylum: <?php print $variables['taxonomy']['phylum'] ?></td></tr>
-      <tr><td>Subphylum: <?php print $variables['taxonomy']['subphylum'] ?></td></tr>
-      <tr><td>Class: <?php print $variables['taxonomy']['class'] ?></td></tr>
-      <tr><td>Order: <?php print $variables['taxonomy']['order'] ?></td></tr>
-      <tr><td>Family: <?php print $variables['taxonomy']['family'] ?></td></tr>
-      <tr><td>Genus: <?php print $variables['taxonomy']['genus'] ?></td></tr>
-      <tr><td>Species: <?php print $variables['taxonomy']['species'] ?></td></tr>
-    </table></td>
-    <td><table style="width:300px">
-      <tr><th>Geographical Information</th></tr>
-      <tr><td>Site Name: <?php print $variables['geography']['siteName'] ?></td></tr>
-      <tr><td>Location: <?php print $variables['geography']['north'] ?>N, <?php print $variables['geography']['west'] ?>W</td></tr>
-    </table></td>
+        <tbody>
+          <tr><th class="specimen-info-heading">Methods</th></tr>
+        </tbody>
     </table>
-  </div>
 </div>

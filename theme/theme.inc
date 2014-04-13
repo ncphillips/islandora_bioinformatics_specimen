@@ -1,7 +1,6 @@
 <?php
 
 /**
- * @file
  * This file, at least for the time being, contains the preprocessing stuff.
  * 
  */
@@ -14,7 +13,7 @@
  * @param variables
  * Reference to the variables array that we'll populate
  */
-function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_specimen(array &$variables) {
+function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(array &$variables) {
   
   $islandora_object = $variables['islandora_object'];
   // Thumbnail.
@@ -25,6 +24,7 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
       'path' => $thumbnail_size_url,
     );
     $variables['islandora_thumbnail_img'] = theme('image', $params);
+    $variables['img_url'] = $thumbnail_size_url;
   }
 
   // get some of the EML data
@@ -42,14 +42,16 @@ function islandora_bioinformatics_specimen_preprocess_islandora_bioinformatics_s
     // this is not being done the ideal way. There really should only be one child
     // so essentially it should only loop once
     foreach ($obj->children($ns) as $dataset) {
-      $taxonomy = parse_taxonomy($dataset->coverage->taxonomic_coverage->taxonomic_classification);
-      $geography = parse_geography($dataset->coverage->geographic_coverage);
-      $methods = parse_methods($dataset->methods->method_step->description->section);
+      $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage->taxonomicClassification);
+      $geography = parse_geography($dataset->coverage->geographicCoverage);
+      $methods = parse_methods($dataset->methods->methodStep->description->section);
+      $temporal = parse_temporal($dataset->coverage->temporalCoverage);
     }
 
     $variables['taxonomy'] = $taxonomy;
     $variables['geography'] = $geography; 
     $variables['methods'] = $methods;
+    $variables['temporal'] = $temporal;
   }
 }
 
@@ -89,13 +91,19 @@ function parse_geography($taxon_container) {
   foreach ($taxon_container as $rank) {
     // i'd rather deal with strings than objects
     $west = "west";
-    $west_coor = (string) $rank->bounding_coordinates->west_bounding_coordinate;
+    $west_coor = (string) $rank->boundingCoordinates->westBoundingCoordinate;
 
     $north = "north";
-    $north_coor = (string) $rank->bounding_coordinates->north_bounding_coordinate;
+    $north_coor = (string) $rank->boundingCoordinates->northBoundingCoordinate;
 
     $site = "siteName";
-    $site_name = (string) $rank->geographic_description;
+    $site_name = (string) $rank->geographicDescription;
+
+    $depth = "depth";
+    $depth_number = (string) $rank->boundingCoordinates->boundingAltitudes->altitudeMinimum;
+
+    $depth_unit = "unit";
+    $depth_unit_string = (string) $rank->boundingCoordinates->boundingAltitudes->altitudeUnits;
     
 
     // only add a val and name if the val has been filled out
@@ -111,6 +119,13 @@ function parse_geography($taxon_container) {
       $geography[$site] = $site_name;
     }
 
+    if ($depth_number) {
+        $geography[$depth] = $depth_number;
+    }
+
+    if ($depth_unit_string) {
+        $geography[$depth_unit] = $depth_unit_string;
+    }
 
   }
   return $geography;
@@ -141,3 +156,19 @@ function parse_methods($taxon_container) {
   return $methods;
 }
 
+function parse_temporal($taxon_container) {
+
+    $temporal = array();
+
+    foreach ($taxon_container as $rank) {
+        // i'd rather deal with strings than objects
+        $collection_date = "date";
+        $collection_date_value = (string) $rank->singleDateTime->calendarDate;
+
+        // only add a val and name if the val has been filled out
+        if ($collection_date_value) {
+            $temporal[$collection_date] = $collection_date_value;
+        }
+    }
+    return $temporal;
+}
