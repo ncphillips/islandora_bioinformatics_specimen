@@ -1,7 +1,6 @@
 <?php
 
 ini_set('display_errors', 1);
-specimen_EML_to_array($testimen);
 /**
  * @file
  * This is the specimen module.
