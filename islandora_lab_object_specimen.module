@@ -276,8 +276,7 @@ function specimen_EML_to_array($specimen_object){
       case "formtype":
         break;
       case "lab_identifier":
-        echo (string)$part;
-        exit();
+
         break;
       case "lab_location":
         break;
