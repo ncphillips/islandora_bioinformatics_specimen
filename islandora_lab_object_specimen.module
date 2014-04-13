@@ -378,6 +378,16 @@ function islandora_basic_collection_get_ingest_configuration(AbstractObject $col
   dpm($collection);
   dpm($collection->models);
   dpm($collection['COLLECTION_POLICY']);
+
+  $is_collection_object = in_array('islandora:collectionCModel', $collection->models);
+  $has_policy = isset($collection['COLLECTION_POLICY']);
+  if (!$is_collection_object || !$has_policy) {
+    return array();
+  }
+  else {
+    return array();
+  }
+
   /*
   $collection = $parent->getParents();
   $collection = $collection[0];
