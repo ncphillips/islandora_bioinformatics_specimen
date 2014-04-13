@@ -5,6 +5,15 @@
  * This is the specimen module.
  */
 
+
+function islandora_lab_object_specimen_forms($form_id){
+  return array(
+    'related_specimen_form' => array(
+      'callback' => 'related_islandora_objects_form',
+      'callback arguments' => array(array('islandora:specimen_cmodel'), array(FEDORA_MODEL_URI=>array('isPartOf')),)
+    )
+  );
+}
 /**
  * @author Brent Mitton
  * 
@@ -23,6 +32,11 @@ function islandora_lab_object_specimen_menu() {
         'page callback' => 'rel_lab_object_specimen_ingest',
         'page arguments' => array(2),
         'access callback' => TRUE,
+      ),
+
+      'islandora/objects/%islandora_objects/specimen' => array(
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array(2),
       )
 
     );
