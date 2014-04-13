@@ -31,7 +31,6 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
   public function setUp() {
 
-    $user = $this->createAdminUser();
 
     parent::setUp(array(
       'islandora',
