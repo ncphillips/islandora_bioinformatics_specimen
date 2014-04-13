@@ -264,6 +264,11 @@ function _sponge_class_autocomplete($string){
 }
 
 
+function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, &$form_state) {
+  echo "HELLLLLLLLO";
+  exit();
+}
+
 /**
  *
  * Takes a specimen object and returns an array of the EML data. I'm not sure what data
