@@ -103,9 +103,9 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     try {
       $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
     }
-    catch(RepositoryException re)
+    catch (RepositoryException $re)
     {
-      echo re->$message;
+      echo 'Caught exception: ',  $re->getMessage(), "\n";
     }
 
     $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
