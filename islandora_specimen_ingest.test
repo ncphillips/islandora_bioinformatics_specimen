@@ -47,9 +47,12 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
                                                   
 
   public function testIngestSpecimen() {
-    
+  
+   $user = $this->admin;
 
     //Creates an admin user
+
+    
 /*
     $user = $this->drupalCreateUser(array(
       'view fedora repository objects',
@@ -62,7 +65,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 */
     //Logs them in.
 
-    $user = $this->createAdminUser();
+    //$user = $this->createAdminUser();
 
     $this->drupalLogin($user);
 
