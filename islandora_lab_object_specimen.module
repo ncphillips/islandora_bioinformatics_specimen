@@ -264,6 +264,17 @@ function _sponge_class_autocomplete($string){
   drupal_json_output($matches);
 }
 
+
+/**
+ *
+ * Takes a specimen object and returns an array of the EML data. I'm not sure what data
+ * we are required to have in the array yet.
+ *
+ * @param $specimen_object
+ *  A specimen object
+ * @return array
+ *  a simple array containing specimen data
+ */
 function specimen_EML_to_array($specimen_object){
   $ns = "eml://ecoinformatics.org/eml-2.1.0";
 
@@ -276,7 +287,7 @@ function specimen_EML_to_array($specimen_object){
       case "formtype":
         break;
       case "lab_identifier":
-
+        $specimen_eml["identifier"] = ((string)$part) ? (string)$part:"";
         break;
       case "lab_location":
         break;
