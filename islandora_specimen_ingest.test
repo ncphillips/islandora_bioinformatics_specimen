@@ -50,7 +50,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     
 
     //Creates an admin user
-
+/*
     $user = $this->drupalCreateUser(array(
       'view fedora repository objects',
       'ingest fedora objects',
@@ -59,8 +59,10 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
       'delete fedora objects and datastreams',
       'create child collection',
     ));
-
+*/
     //Logs them in.
+
+    $user = createAdminUser();
 
     $this->drupalLogin($user);
 
@@ -110,7 +112,6 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     catch (RepositoryException $re)
     {
       echo 'Caught exception: ',  $re->getMessage(), "\n";
-      exit();
     }
 
     $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
