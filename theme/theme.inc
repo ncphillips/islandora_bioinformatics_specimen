@@ -27,6 +27,46 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     $variables['img_url'] = $thumbnail_size_url;
   }
 
+  if (isset($islandora_object['TN1'])) {
+    $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/TN1/view");
+      $params = array(
+        'title' => $islandora_object->label,
+        'path' => $thumbnail_size_url,
+      );
+      $variables['islandora_thumbnail_img1'] = theme('image', $params);
+      $variables['img_url1'] = $thumbnail_size_url;
+    }
+
+    if (isset($islandora_object['TN2'])) {
+        $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/TN2/view");
+        $params = array(
+            'title' => $islandora_object->label,
+            'path' => $thumbnail_size_url,
+        );
+        $variables['islandora_thumbnail_img2'] = theme('image', $params);
+        $variables['img_url2'] = $thumbnail_size_url;
+    }
+
+    if (isset($islandora_object['TN3'])) {
+        $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/TN3/view");
+        $params = array(
+            'title' => $islandora_object->label,
+            'path' => $thumbnail_size_url,
+        );
+        $variables['islandora_thumbnail_img3'] = theme('image', $params);
+        $variables['img_url3'] = $thumbnail_size_url;
+    }
+
+    if (isset($islandora_object['TN4'])) {
+        $thumbnail_size_url = url("islandora/object/{$islandora_object->id}/datastream/TN4/view");
+        $params = array(
+            'title' => $islandora_object->label,
+            'path' => $thumbnail_size_url,
+        );
+        $variables['islandora_thumbnail_img4'] = theme('image', $params);
+        $variables['img_url4'] = $thumbnail_size_url;
+    }
+
   // get some of the EML data
   if (isset($islandora_object['EML'])) {
     
@@ -71,7 +111,8 @@ function parse_taxonomy($taxon_container) {
 
   $taxonomy = array();
 
-  foreach ($taxon_container as $rank) {
+  if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+  foreach ($taxon_container as $key => $rank) {
     // i'd rather deal with strings than objects
     $rv = (string) $rank->taxonRankValue;
     $rn = (string) $rank->taxonRankName;
@@ -80,7 +121,7 @@ function parse_taxonomy($taxon_container) {
     if ($rv) {
       $taxonomy[$rn] = $rv;
     }
-  }
+  }}
   return $taxonomy;
 }
 
@@ -88,7 +129,8 @@ function parse_geography($taxon_container) {
 
   $geography = array();
 
-  foreach ($taxon_container as $rank) {
+  if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+  foreach ($taxon_container as $key => $rank) {
     // i'd rather deal with strings than objects
     $west = "west";
     $west_coor = (string) $rank->boundingCoordinates->westBoundingCoordinate;
@@ -127,7 +169,7 @@ function parse_geography($taxon_container) {
         $geography[$depth_unit] = $depth_unit_string;
     }
 
-  }
+  }}
   return $geography;
 }
 
@@ -135,7 +177,8 @@ function parse_methods($taxon_container) {
 
   $methods = array();
 
-  foreach ($taxon_container as $rank) {
+  if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+  foreach ($taxon_container as $key => $rank) {
     // i'd rather deal with strings than objects
     $method_title = "title";
     $method_title_value = (string) $rank->title;
@@ -152,7 +195,7 @@ function parse_methods($taxon_container) {
       $methods[$method_title] = $method_title_value;
     }
 
-  }
+  }}
   return $methods;
 }
 
@@ -160,7 +203,8 @@ function parse_temporal($taxon_container) {
 
     $temporal = array();
 
-    foreach ($taxon_container as $rank) {
+    if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+    foreach ($taxon_container as $key => $rank) {
         // i'd rather deal with strings than objects
         $collection_date = "date";
         $collection_date_value = (string) $rank->singleDateTime->calendarDate;
@@ -169,6 +213,6 @@ function parse_temporal($taxon_container) {
         if ($collection_date_value) {
             $temporal[$collection_date] = $collection_date_value;
         }
-    }
+    }}
     return $temporal;
 }
