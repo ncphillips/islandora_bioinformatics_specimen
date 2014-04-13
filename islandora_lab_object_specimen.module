@@ -267,7 +267,7 @@ function _sponge_class_autocomplete($string){
 function specimen_EML_to_array($specimen_object){
   $ns = "eml://ecoinformatics.org/eml-2.1.0";
 
-  $specimen_xml = new SimpleXMLElement($specimen_object_object["EML"]->content);
+  $specimen_xml = new SimpleXMLElement($specimen_object["EML"]->content);
 
   $project_mads = array();
 
