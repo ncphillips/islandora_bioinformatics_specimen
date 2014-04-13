@@ -388,7 +388,11 @@ function rel_lab_object_load_ingest_configuration(AbstractObject $collection) {
   $object = $collection->repository->constructObject('islandora');
   $object->label = 'New Object';
 
-  islandora_basic_collection_add_to_collection($object, $collection);
+  $results = $object->relationships->get(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', $collection->id);
+  if (empty($results)) {
+    $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', $collection->id);
+  }
+
   $policy = new CollectionPolicy($collection['COLLECTION_POLICY']->content);
 
   return array(
