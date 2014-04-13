@@ -286,6 +286,8 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
       $params = array(
           'title' => "hey",
           'path' => $img_url,
+          'height' => '100px',
+          'width' => '100px',
       );
     }
 
