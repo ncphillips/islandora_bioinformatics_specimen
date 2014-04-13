@@ -400,7 +400,7 @@ function rel_lab_object_load_ingest_configuration(AbstractObject $collection) {
 
   return array(
     'collection' => $collection,
-    'models' => $policy->getContentModels(),
+    'models' => array_keys($policy->getContentModels()),
     'objects' => array($object),
     'parent' => $collection->id,
   );
