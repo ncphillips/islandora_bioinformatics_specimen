@@ -364,17 +364,18 @@ function specimen_EML_to_array($specimen_object){
 */
 
 function rel_lab_object_specimen_ingest(AbstractObject $parent) {
-  //dpm($parent);
-  echo '<pre>';
-  var_dump($parent);
-  //var_dump($parent->models);
-  //var_dump($parent['COLLECTION_POLICY']);
-  //var_dump($parent['COLLECTION_POLICY']->content);
-  echo '</pre>';
-
   $tuque = new IslandoraTuque();
 
   //create the object to be ingested
+
+  $collection =  $parent->getParents();
+    //dpm($parent);
+    echo '<pre>';
+    var_dump($collection);
+    //var_dump($parent->models);
+    //var_dump($parent['COLLECTION_POLICY']);
+    //var_dump($parent['COLLECTION_POLICY']->content);
+    echo '</pre>';
 
   $object = $tuque->repository->constructObject('islandora');
   //$object = $tuque->repository->constructObject('fake:pid');
@@ -390,8 +391,6 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent) {
 
   //ingest the object
   //$tuque->repository->ingestObject($object);
-
-    dpm($parent->getParents());
 
   //generate the $configuration array
   $configuration = array(
