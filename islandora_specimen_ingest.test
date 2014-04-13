@@ -105,7 +105,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     }
     catch (RepositoryException $re)
     {
-      echo 'Caught exception: ',  $re->getMessage(), " Damn it...\n"
+      echo 'Damn it... Caught exception: ',  $re->getMessage(), "\n"
       exit();
     }
 
