@@ -48,7 +48,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
   public function testIngestSpecimen() {
   
-   $user = $this->admin;
+   //$user = $this->admin;
 
     //Creates an admin user
 
@@ -65,7 +65,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 */
     //Logs them in.
 
-    //$user = $this->createAdminUser();
+    $user = $this->createAdminUser();
 
     $this->drupalLogin($user);
 
