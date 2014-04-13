@@ -273,7 +273,7 @@ function specimen_EML_to_array($specimen_object){
 
   foreach ($specimen_xml->children($ns) as $part){
 
-    echo $part->getName();
+   // echo $part->getName();
 
   }
 
