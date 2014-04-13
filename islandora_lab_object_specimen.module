@@ -269,12 +269,26 @@ function specimen_EML_to_array($specimen_object){
 
   $specimen_xml = new SimpleXMLElement($specimen_object["EML"]->content);
 
-  $project_mads = array();
+  $specimen_eml = array();
 
   foreach ($specimen_xml->children($ns) as $part){
-
+    switch ((string) $part->getName()){
+      case "formtype":
+        break;
+      case "lab_identifier":
+        echo (string)$part;
+        exit();
+        break;
+      case "lab_location":
+        break;
+      case "specimen_description":
+        break;
+      case "dataset":
+        break;
+    }
   }
 
+  return $specimen_eml;
 }
 
 
