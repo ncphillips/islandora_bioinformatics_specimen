@@ -247,7 +247,7 @@ function islandora_lab_object_specimen_islandora_specimen_cmodel_islandora_view_
 }
 
 
-function islandora_bioinformatics_base_form_related_specimen_form_alter(&$form, &$form_state) {
+function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, &$form_state) {
   echo "HEY NO";
   exit(0);
 }
