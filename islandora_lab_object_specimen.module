@@ -374,14 +374,6 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent) {
 
 
 function rel_lab_object_load_ingest_configuration(AbstractObject $collection) {
-  //create the object to be ingested
-  echo '<pre>';
-  echo var_dump($collection);
-  echo '</pre>';
-  dpm($collection);
-  dpm($collection->models);
-  dpm($collection['COLLECTION_POLICY']);
-
   $is_collection_object = in_array('islandora:collectionCModel', $collection->models);
   $has_policy = isset($collection['COLLECTION_POLICY']);
   if (!$is_collection_object || !$has_policy) {
