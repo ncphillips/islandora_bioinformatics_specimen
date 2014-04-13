@@ -32,7 +32,7 @@ function islandora_lab_object_specimen_forms($form_id, $args){
      * arguments set as:
      *
      *      $cmodels = array('islandora:specimen_cmodel');
-     *      $relationships = array(FEDORA_RELS_EXT_URI => array('isPartOf'),);
+     *      $relationships = array(FEDORA_RELS_EXT_URI => array('isPartOf', 'isMemberOf'),);
      */
     case 'related_specimen_form':
       $cmodels = array('islandora:specimen_cmodel');
@@ -51,11 +51,14 @@ function islandora_lab_object_specimen_forms($form_id, $args){
 }
 
 
-/**
- * @author Brent Mitton
- * 
- */
 function islandora_lab_object_specimen_menu() {
+  /**
+   * @author Brent Mitton
+   *
+   * Implements hook_menu().
+   *
+   * Defines a list of URLs provided for Specimen.
+   */
   return array(
       'sponge/classes' => array(
         'title' => "Autocomplete Sponge Classes",
@@ -275,6 +278,12 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
    */
   $object = $form_state['object'];
   $specimens = $form_state['related_objects'];
+
+  $form['cmodel'] => array(
+    '#markup' => 'Specimen',
+    '#prefix' => '<h1>',
+    '#suffix' => '</h1>',
+  );
 
   $header = array(
     'lab_id' => t("Lab ID"),
