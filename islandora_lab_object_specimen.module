@@ -364,16 +364,26 @@ function specimen_EML_to_array($specimen_object){
  */
 
 function rel_lab_object_specimen_ingest(AbstractObject $parent) {
-  $tuque = new IslandoraTuque();
+  $collection = islandora_object_load('islandora:specimen_collection');
+  if (($configuration = islandora_basic_collection_get_ingest_configuration($collection)) !== FALSE) {
+    //module_load_include('inc', 'islandora', 'includes/ingest.form');
+    return drupal_get_form('islandora_ingest_form', $configuration);
+  }
+  drupal_not_found();
+}
 
+
+function islandora_basic_collection_get_ingest_configuration(AbstractObject $collection) {
   //create the object to be ingested
+  dpm($collection);
 
-  $collection =  $parent->getParents();
+  /*
+  $collection = $parent->getParents();
   $collection = $collection[0];
 
   //dpm($parent);
   echo '<pre>';
-  echo $collection;
+  echo $collection;1
   //var_dump($parent->models);
   //var_dump($parent['COLLECTION_POLICY']);
   //var_dump($parent['COLLECTION_POLICY']->content);
@@ -404,10 +414,10 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent) {
     'objects' => array($object),
     'parent' => $parent->id,   //this was $collection->id
   );
-
+  */
   return drupal_get_form('Invertebrate Form', $configuration);
 
   //find how to set the $collection variable in the original example at https://github.com/Islandora/islandora_solution_pack_collection/blob/7.x/includes/ingest.form.inc and reproduce
-}
 
+}
 
