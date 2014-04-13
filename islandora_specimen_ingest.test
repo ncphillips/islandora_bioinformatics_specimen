@@ -44,12 +44,27 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   * Creates an administrative user and attempts to ingest a project
   */
 
+  protected function createBioinformaticsAdminUser() {
+    $roles = user_roles();
+    $index = array_search('administrator', $roles);
+    $user = $this->drupalCreateUser();
+    $user->roles[$index] = 'administrator';
+    $user->name = "SpecimenIngestTest_" . $this->configuration['admin_user'];
+    $user->pass = $this->configuration['admin_pass'];
+    $user = user_save($user);
+    $url = variable_get('islandora_base_url', $this->configuration['fedora_url']);
+    $connection = islandora_get_tuque_connection($user, $url);
+    $user->repository = $connection->repository;
+    return $user;
+  }
+                                                  
+
   public function testIngestSpecimen() {
     
 
     //Creates an admin user
 
-    //$user = $this->createAdminUser();
+    $user = $this->createBioinformaticsAdminUser();
 
     //Logs them in.
 
