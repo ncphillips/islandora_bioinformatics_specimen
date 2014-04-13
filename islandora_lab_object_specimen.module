@@ -301,7 +301,7 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
     '#type' => 'tableselect',
     '#header' => $header,
     '#options' => $options,
-    '#empty' => t('There are no specimens related to ' . $object->id . '.'),
+    '#empty' => t('There are no specimens related to ' . $object->label . '.'),
   );
 
   return $form;
