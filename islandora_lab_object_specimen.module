@@ -31,7 +31,7 @@ function islandora_lab_object_specimen_forms($form_id, $args){
      * arguments set as:
      *
      *      $cmodels = array('islandora:specimen_cmodel');
-     *      $relationships = array(FEDORA_RELS_EXT_URI => array('isPartOf'),);
+     *      $relationships = array(FEDORA_RELS_EXT_URI => array('isPartOf', 'isMemberOf'),);
      */
     case 'related_specimen_form':
       $cmodels = array('islandora:specimen_cmodel');
@@ -50,11 +50,14 @@ function islandora_lab_object_specimen_forms($form_id, $args){
 }
 
 
-/**
- * @author Brent Mitton
- * 
- */
 function islandora_lab_object_specimen_menu() {
+  /**
+   * @author Brent Mitton
+   *
+   * Implements hook_menu().
+   *
+   * Defines a list of URLs provided for Specimen.
+   */
   return array(
       'sponge/classes' => array(
         'title' => "Autocomplete Sponge Classes",
@@ -65,7 +68,7 @@ function islandora_lab_object_specimen_menu() {
 
       'islandora/object/%islandora_object/test_ingest_specimen' => array(
         'title' => 'Ingest Specimen',
-        'page callback' => 'rel_lab_object_specimen_ingest',
+        'page callback' => 'islandora_bioinformatics_specimen_lab_object_specimen_ingest',
         'page arguments' => array(2),
         'access callback' => TRUE,
       ),
@@ -275,6 +278,14 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
   $object = $form_state['object'];
   $specimens = $form_state['related_objects'];
 
+  $ahead['cmodel'] = array(
+    '#markup' => 'Specimen',
+    '#prefix' => '<h1>',
+    '#suffix' => '</h1>',
+  );
+
+  $form = $ahead + $form;
+
   $header = array(
     'lab_id' => t("Lab ID"),
     'type' => t("Specimen Type"),
@@ -348,48 +359,44 @@ function specimen_EML_to_array($specimen_object){
 
 
 /**
-* @author Quintin Dawson qdawson@upei.ca
-* This function should create a new specimen object and create a relationship between it and the $parent object
-*/
+ * @author Quintin Dawson qdawson@upei.ca
+ * This function should create a new specimen object and create a relationship between it and the $parent object
+ */
 
-function rel_lab_object_specimen_ingest(AbstractObject $parent) {
-  //dpm($parent);
-  echo '<pre>';
-  var_dump($parent);
-  //var_dump($parent->models);
-  //var_dump($parent['COLLECTION_POLICY']);
-  //var_dump($parent['COLLECTION_POLICY']->content);
-  echo '</pre>';
-
-  $tuque = new IslandoraTuque();
-  
-  //create the object to be ingested
-  
-  //$object = $tuque->repository->constructObject('islandora');
-  $object = $tuque->repository->constructObject('fake:pid');
-  
-  $object->owner = 'fedoraAdmin';
-  $object->label = "New Object";
-  $object->models = 'islandora:specimen_cmodel';
-  
-  $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:specimen_collection');
-  
-  //form a relationship between the parent object and the object being ingested
-  $object->relationships->add(FEDORA_RELS_EXT_URI, 'hasModel', $parent->id);
-  
-  //ingest the object
-  //$tuque->repository->ingestObject($object);
-  
-  
-  //generate the $configuration array
-  $configuration = array(
-    'collection' => $parent,    //this was $collection
-    'models' => array('islandora:specimen_cmodel'),
-    'objects' => array($object),
-    'parent' => $parent->id,   //this was $collection->id
-  );
-  
-  return drupal_get_form('islandora_ingest_form', $configuration);
-  
-  //find how to set the $collection varaible in the original example at https://github.com/Islandora/islandora_solution_pack_collection/blob/7.x/includes/ingest.form.inc and reproduce
+function islandora_bioinformatics_specimen_lab_object_specimen_ingest(AbstractObject $parent) {
+  $collection = islandora_object_load('islandora:specimen_collection');
+  if($collection !== FALSE) {
+    if (($configuration = islandora_bioinformatics_specimen_lab_object_load_ingest_configuration($collection)) !== FALSE) {
+      module_load_include('inc', 'islandora', 'includes/ingest.form');
+      return drupal_get_form('islandora_ingest_form', $configuration);
+    }
+  }
+  drupal_not_found();
 }
+
+
+function islandora_bioinformatics_specimen_lab_object_load_ingest_configuration(AbstractObject $collection) {
+  $is_collection_object = in_array('islandora:collectionCModel', $collection->models);
+  $has_policy = isset($collection['COLLECTION_POLICY']);
+  if (!$is_collection_object || !$has_policy) {
+    return array();
+  }
+
+  $object = $collection->repository->constructObject('islandora');
+  $object->label = 'New Object';
+
+  $results = $object->relationships->get(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', $collection->id);
+  if (empty($results)) {
+    $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', $collection->id);
+  }
+
+  $policy = new CollectionPolicy($collection['COLLECTION_POLICY']->content);
+
+  return array(
+    'collection' => $collection,
+    'models' => array_keys($policy->getContentModels()),
+    'objects' => array($object),
+    'parent' => $collection->id,
+  );
+}
+

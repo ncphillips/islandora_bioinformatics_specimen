@@ -30,6 +30,8 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   */
 
   public function setUp() {
+
+
     parent::setUp(array(
       'islandora',
       'islandora_lab_object_specimen',
@@ -42,11 +44,13 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   * Creates an administrative user and attempts to ingest a project
   */
 
+                                                  
+
   public function testIngestSpecimen() {
     
 
     //Creates an admin user
-
+/*
     $user = $this->drupalCreateUser(array(
       'view fedora repository objects',
       'ingest fedora objects',
@@ -55,8 +59,10 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
       'delete fedora objects and datastreams',
       'create child collection',
     ));
-
+*/
     //Logs them in.
+
+    $user = $this->createAdminUser();
 
     $this->drupalLogin($user);
 
@@ -99,8 +105,14 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     $specimen_datastreams[] = $specimen_datastream_relsext;
 
     //Ingest the object with its properties array and datastreams array.
-    $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
-
+    
+    try {
+      $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
+    }
+    catch (RepositoryException $re)
+    {
+      echo 'Caught exception: ',  $re->getMessage(), "\n";
+    }
 
     $this->deleteObject('test_specimen', $button = NULL, $safety = TRUE);
 
