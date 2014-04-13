@@ -286,8 +286,6 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
       $params = array(
           'title' => "hey",
           'path' => $img_url,
-          'height' => '100',
-          'width' => '100',
       );
     }
 
@@ -298,7 +296,7 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
       'lab_id' => $specimen_eml['identifier'],
       'genus' => $specimen_eml['genus'],
       'species' => $specimen_eml['species'],
-      '#attributes' => array("GELLO", "ELLLO"),
+      '#attributes' => array("style" => "img{max-height:100px;}"),
     );
   }
 
