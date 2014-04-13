@@ -285,7 +285,9 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
       'species' => $specimen_eml['species'],
     );
   }
-
+  echo "<pre>";
+  var_dump($specimen['TN']);
+  echo "</pre>";
   $form['table'] = array(
     '#type' => 'tableselect',
     '#header' => $header,
