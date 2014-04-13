@@ -9,7 +9,7 @@ specimen_EML_to_array($testimen);
  */
 
 
-function islandora_lab_object_specimen_forms($form_id){
+function islandora_lab_object_specimen_forms($form_id, $args){
   /**
    * @author Nolan Phillips ncphillips@upei.ca
    *
