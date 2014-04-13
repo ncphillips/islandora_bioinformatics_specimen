@@ -270,8 +270,8 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
 
 
   $header = array(
-    'tn' => "",
     'lab_id' => t("Lab ID"),
+    'type' => t("Specimen Type"),
     'genus' => t("Genus"),
     'species' => t("Species"),
   );
@@ -281,19 +281,12 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
   foreach($specimens as $specimen){
 
 
-    if (isset($specimen['TN'])){
-      $img_url = url("islandora/object/{$specimen->id}/datastream/TN/view");
-      $params = array(
-          'title' => "hey",
-          'path' => $img_url,
-      );
-    }
 
 
     $specimen_eml = specimen_EML_to_array($specimen);
     $options[$specimen->id] = array(
-      'tn' => theme('image_style', $params),
       'lab_id' => $specimen_eml['identifier'],
+      'type' => $specimen_eml['type'],
       'genus' => $specimen_eml['genus'],
       'species' => $specimen_eml['species'],
       '#attributes' => array("style" => "max-height: 100px;"),
@@ -330,6 +323,7 @@ function specimen_EML_to_array($specimen_object){
   foreach ($specimen_xml->children($ns) as $part){
     switch ((string) $part->getName()){
       case "formtype":
+        $specimen_eml["type"] = ((string)$part) ? (string)$part:"";
         break;
       case "lab_identifier":
         $specimen_eml["identifier"] = ((string)$part) ? (string)$part:"";
