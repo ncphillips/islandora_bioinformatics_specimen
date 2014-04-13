@@ -365,9 +365,11 @@ function specimen_EML_to_array($specimen_object){
 
 function islandora_bioinformatics_specimen_lab_object_specimen_ingest(AbstractObject $parent) {
   $collection = islandora_object_load('islandora:specimen_collection');
-  if (($configuration = islandora_bioinformatics_specimen_lab_object_load_ingest_configuration($collection)) !== FALSE) {
-    module_load_include('inc', 'islandora', 'includes/ingest.form');
-    return drupal_get_form('islandora_ingest_form', $configuration);
+  if($collection !== FALSE) {
+    if (($configuration = islandora_bioinformatics_specimen_lab_object_load_ingest_configuration($collection)) !== FALSE) {
+      module_load_include('inc', 'islandora', 'includes/ingest.form');
+      return drupal_get_form('islandora_ingest_form', $configuration);
+    }
   }
   drupal_not_found();
 }
