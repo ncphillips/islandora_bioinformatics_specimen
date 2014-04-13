@@ -376,14 +376,15 @@ function rel_lab_object_specimen_ingest(AbstractObject $parent) {
 function islandora_basic_collection_get_ingest_configuration(AbstractObject $collection) {
   //create the object to be ingested
   dpm($collection);
-
+  dpm($collection->models);
+  dpm($collection['COLLECTION_POLICY']);
   /*
   $collection = $parent->getParents();
   $collection = $collection[0];
 
   //dpm($parent);
   echo '<pre>';
-  echo $collection;1
+  echo $collection;
   //var_dump($parent->models);
   //var_dump($parent['COLLECTION_POLICY']);
   //var_dump($parent['COLLECTION_POLICY']->content);
