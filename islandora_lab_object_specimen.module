@@ -393,6 +393,7 @@ function islandora_lab_object_specimen_load_ingest_configuration(AbstractObject 
 
   return array(
     'collection' => $collection,
+    'collections' => array($collection, $parent),
     'models' => array('islandora:specimen_cmodel'),
     'objects' => array($object),
     'parent' => $parent->id,
