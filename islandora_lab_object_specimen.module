@@ -275,9 +275,15 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
    *
    * Alters the islandora_related_objects_base form to display specimen information.
    */
-  echo "wat";
+
+
   $object = $form_state['object'];
+  $object_id = $object->id;
   $specimens = $form_state['related_objects'];
+
+  $form['add'] = array(
+    '#markup' => l('Add Specimen',"islandora/object/$object_id/ingest/specimen")
+  );
 
   $header = array(
     'lab_id' => t("Lab ID"),
