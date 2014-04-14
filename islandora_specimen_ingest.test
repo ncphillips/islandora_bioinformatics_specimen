@@ -53,9 +53,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
                                                   
 
   public function testIngestSpecimen() {
-  
-  exit();
-
+ 
    //$user = $this->admin;
 
     //Creates an admin user
