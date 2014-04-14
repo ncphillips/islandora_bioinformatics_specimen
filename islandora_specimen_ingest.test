@@ -69,10 +69,11 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
     $this->drupalLogin($user);
 
-    $path = drupal_get_path('module','islandora'); 
+    $path = drupal_get_path('module','islandora_lab_object_specimen'); 
 
+    $message = "";
     $message = "Path is: $path\n";
-    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
+    file_put_contents("/tmp/test.txt", $message);
 
     //Create a specimen properties array for the construction and ingestion of a specimen object.
     $specimen_properties = array();   //init the array
