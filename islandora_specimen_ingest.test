@@ -17,9 +17,6 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
   public static function getInfo() {
    
-    $message = "Testing getInfo().\n";
-    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
-
     return array(
       'name' => 'Specimen Ingest/Deletion',
       'description' => 'Ingests a specimen and then deletes it.',
@@ -34,9 +31,6 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   */
 
   public function setUp() {
-
-    $message = "Testing setUp().\n";
-    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
   parent::setUp(array(
       'islandora',
@@ -70,15 +64,12 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     ));
 */
     //Logs them in.
-   
-    $message = "About to create the user.\n";
-    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
     //$user = $this->createAdminUser();
 
     $this->drupalLogin($user);
 
-    $path = drupal_get_path('module','isladora'); 
+    $path = drupal_get_path('module','islandora'); 
 
     $message = "Path is: $path\n";
     file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
@@ -124,9 +115,6 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     //Ingest the object with its properties array and datastreams array.
     
 
-    $message = "About to attempt ingesting the object.\n";
-    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
-
     try {
       $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
     }
@@ -134,9 +122,6 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     {
       echo 'Caught exception: ',  $re->getMessage(), "\n";
     }
-
-    $message = "Ingested the constructed object.\n";
-    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
     $this->deleteObject('islandora:test_specimen', $button = NULL, $safety = TRUE);
 
