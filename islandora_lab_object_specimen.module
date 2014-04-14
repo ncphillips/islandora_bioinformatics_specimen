@@ -392,11 +392,10 @@ function islandora_lab_object_specimen_load_ingest_configuration(AbstractObject 
   $policy = new CollectionPolicy($collection['COLLECTION_POLICY']->content);
 
   return array(
-    'collection' => $collection,
-    'collections' => array($collection, $parent),
+    'collection' => array($collection, $parent),
     'models' => array('islandora:specimen_cmodel'),
     'objects' => array($object),
-    'parent' => $parent->id,
+    'parent' => $collection->id,
   );
 }
 
