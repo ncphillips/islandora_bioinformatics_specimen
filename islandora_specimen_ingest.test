@@ -16,6 +16,10 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   */
 
   public static function getInfo() {
+   
+    $message = "Testing getInfo().\n";
+    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
+
     return array(
       'name' => 'Specimen Ingest/Deletion',
       'description' => 'Ingests a specimen and then deletes it.',
@@ -31,8 +35,10 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
   public function setUp() {
 
+    $message = "Testing setUp().\n";
+    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
-    parent::setUp(array(
+  parent::setUp(array(
       'islandora',
       'islandora_lab_object_specimen',
       'islandora_basic_collection',
