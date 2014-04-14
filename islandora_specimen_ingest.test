@@ -78,6 +78,8 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
     $this->drupalLogin($user);
 
+    $path = drupal_get_path('module','isladora_lab_object_specimen'); 
+
     $message = "Got the user logged in.\n";
     file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
@@ -97,19 +99,19 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     
     $specimen_datastream_dc = array(); //Init the Dublin Core datastream
     $specimen_datastream_dc['dsid'] = 'DC';  //dsid comes from the ds composite model in the xml directory
-    $specimen_datastream_dc['path'] = 'fixtures/example_specimen_dc.xml'; //Path to the file containing the datastream
+    $specimen_datastream_dc['path'] = $path.'/fixtures/example_specimen_dc.xml'; //Path to the file containing the datastream
     $specimen_datastream_dc['control_group'] = 'M'; //M - managed by Fedora, X - in line XML
     $specimen_datastream_dc['mimetype'] = 'text/xml';
 
     $specimen_datastream_mads = array(); //Init the MADS datastream
     $specimen_datastream_mads['dsid'] = 'EML'; //dsid comes from the ds composite model in the xml directory
-    $specimen_datastream_mads['path'] = 'fixtures/example_specimen_eml.xml'; //Path to the file containing the datastream
+    $specimen_datastream_mads['path'] = $path.'/fixtures/example_specimen_eml.xml'; //Path to the file containing the datastream
     $specimen_datastream_mads['control_group'] = 'M'; //M - managed by Fedora, X - in line XML
     $specimen_datastream_mads['mimetype'] = 'text/xml';
 
     $specimen_datastream_relsext = array(); //Init the RELS-EXT datastream
     $specimen_datastream_relsext['dsid'] = 'RELS-EXT'; //dsid comes from the ds composite model in the xml directory
-    $specimen_datastream_relsext['path'] = 'fixtures/example_specimen_relsext.rdf'; //Path to the file containing the datastream
+    $specimen_datastream_relsext['path'] = $path.'/fixtures/example_specimen_relsext.rdf'; //Path to the file containing the datastream
     $specimen_datastream_relsext['control_group'] = 'M'; //M - managed by Fedora, X - in line XML
     $specimen_datastream_relsext['mimetype'] = 'text/xml';
 
