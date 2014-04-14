@@ -66,14 +66,14 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     //Logs them in.
    
     $message = "About to create the user.\n";
-    file_put_contents("/tmp/test.txt", $message);
+    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
     $user = $this->createAdminUser();
 
     $this->drupalLogin($user);
 
     $message = "Got the user logged in.\n";
-    file_put_contents("/tmp/test.txt", $message);
+    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
     //Create a specimen properties array for the construction and ingestion of a specimen object.
     $specimen_properties = array();   //init the array
@@ -117,7 +117,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     
 
     $message = "About to attempt ingesting the object.\n";
-    file_put_contents("/tmp/test.txt", $message);
+    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
     try {
       $specimen_test_object = $this->ingestConstructedObject($specimen_properties, $specimen_datastreams);
@@ -128,7 +128,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
     }
 
     $message = "Ingested the constructed object.\n";
-    file_put_contents("/tmp/test.txt", $message);
+    file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
 
     //$this->deleteObject('islandora:test_specimen', $button = NULL, $safety = TRUE);
 
