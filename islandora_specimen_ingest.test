@@ -5,6 +5,9 @@
 * Attempts to ingest a specimen object and delete it.
 *
 * @author Dalton Mackenzie <demackenzie@upei.ca>
+*
+* IslandoraWebTestCase can be found in:
+* islandora/tests/islandora_web_test_case.inc
 */
 
 class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
@@ -41,39 +44,23 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
   }
 
   /**
-  * Creates an administrative user and attempts to ingest a project
-  */
-
-                                                  
+  * Creates an administrative user and attempts to ingest a specimen.
+  * The specimen object is then deleted.
+  */                                         
 
   public function testIngestSpecimen() {
  
-  $user = $this->admin;
+    //Gets the admin user
+    $user = $this->admin; //This user was created by IslandoraWebTestCase, which was extended.
 
-    //Creates an admin user
-
-    
-/*
-    $user = $this->drupalCreateUser(array(
-      'view fedora repository objects',
-      'ingest fedora objects',
-      'administer site configuration',
-      'manage object properties',
-      'delete fedora objects and datastreams',
-      'create child collection',
-    ));
-*/
     //Logs them in.
-
-    //$user = $this->createAdminUser();
 
     $this->drupalLogin($user);
 
-    $path = drupal_get_path('module','islandora_lab_object_specimen'); 
+    //Get the path to the module, this will be prepended to the fixtures/DATASTREAM for each
+    //datastream that will be added to the test specimen object
 
-    $message = "";
-    $message = "Path is: $path\n";
-    file_put_contents("/tmp/test.txt", $message);
+    $path = drupal_get_path('module','islandora_lab_object_specimen'); 
 
     //Create a specimen properties array for the construction and ingestion of a specimen object.
     $specimen_properties = array();   //init the array
@@ -124,6 +111,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
       echo 'Caught exception: ',  $re->getMessage(), "\n";
     }
 
+    //Deletes the object that was ingested.
     $this->deleteObject('islandora:test_specimen', $button = NULL, $safety = FALSE);
 
   }
