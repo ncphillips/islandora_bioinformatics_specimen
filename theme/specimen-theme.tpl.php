@@ -44,11 +44,14 @@ echo "</pre>";*/
     }
 </style>
 
-<div class="specimen-info">
+<div>
   <table>
     <tbody>
-      <tr><td><img src="<?php print $variables['img_url'] ?>" width="300"></td></tr>
-      <!--<tr><td><?php if (isset($variables['islandora_thumbnail_img'])): ?><?php print $variables['islandora_thumbnail_img'] ?><?php endif; ?></td></tr>-->
+      <tr><td><img src="<?php print $variables['img_url'] ?>" width="150"></td>
+      <td><img src="<?php print $variables['img_url1'] ?>" width="150"></td>
+      <td><img src="<?php print $variables['img_url2'] ?>" width="150"></td>
+      <td><img src="<?php print $variables['img_url3'] ?>" width="150"></td>
+      <td><img src="<?php print $variables['img_url4'] ?>" width="150"></td></tr>
     </tbody>
   </table>
 </div>
