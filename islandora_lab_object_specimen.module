@@ -389,6 +389,11 @@ function islandora_lab_object_specimen_load_ingest_configuration(AbstractObject 
     $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', $collection->id);
   }
 
+  $results = $object->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $parent->id);
+  if (empty($results)) {
+    $object->relationships->add(FEDORA_RELS_EXT_URI, 'isPartOf', $parent->id);
+  }
+
   return array(
     'collection' => $collection,
     'models' => array('islandora:specimen_cmodel'),
