@@ -9,7 +9,7 @@ function islandora_lab_object_specimen_upload_form(array $form, array &$form_sta
 
   // sets the max upload size to whatever php has defined.
   $upload_size = min((int) ini_get('post_max_size'), (int) ini_get('upload_max_filesize'));
-  $extensions = array('png', 'jpg', 'jpeg');
+  $extensions = array('png jpg jpeg gif');
 
   $form = array(
     "image1" => array(
