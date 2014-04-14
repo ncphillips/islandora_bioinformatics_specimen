@@ -389,8 +389,6 @@ function islandora_lab_object_specimen_load_ingest_configuration(AbstractObject 
     $object->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', $collection->id);
   }
 
-  $policy = new CollectionPolicy($collection['COLLECTION_POLICY']->content);
-
   return array(
     'collection' => $collection,
     'models' => array('islandora:specimen_cmodel'),
