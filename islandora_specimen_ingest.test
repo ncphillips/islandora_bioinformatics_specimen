@@ -78,7 +78,7 @@ class IslandoraSpecimenIngestTestCase extends IslandoraWebTestCase {
 
     $this->drupalLogin($user);
 
-    $path = drupal_get_path('module','isladora_lab_object_specimen'); 
+    $path = drupal_get_path('module','isladora'); 
 
     $message = "Path is: $path\n";
     file_put_contents("/tmp/test.txt", $message, FILE_APPEND | LOCK_EX);
