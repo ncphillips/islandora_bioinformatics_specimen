@@ -93,6 +93,24 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     $variables['methods'] = $methods;
     $variables['temporal'] = $temporal;
   }
+
+  //get projects associated with the specimen
+  $tuque = new IslandoraTuque();
+  $project_query = "SELECT ?pid
+                    FROM <#ri>
+                    WHERE {
+                    ?pid <fedora-model:hasModel> <info:fedora/islandora:project_cmodel> .
+                    }";
+  $result = $tuque->repository->ri->sparqlQuery($project_query, 'unlimited');
+
+  $related_projects = array();
+  foreach($result as $project) {
+    $project_object = islandora_object_load($project['pid']['value']);
+    if($project_object->relationships->get(FEDORA_RELS_EXT_URI, 'hasPart', $islandora_object->id)) {
+      $related_projects[$project_object->id] = $project_object->label;
+    }
+  }
+  $variables['related_projects'] = $related_projects;
 }
 
 
