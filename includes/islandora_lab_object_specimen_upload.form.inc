@@ -111,7 +111,6 @@ function associate_image($image_files, array $form, array &$form_state){
   foreach ($image_files as $img){
     $tn_num = (!$i) ? "":$i;
     $i++;
-    print_r ($image_files);
     if (!empty($img)) {  //check if a file has been uploaded
 
       $object = $form_state['islandora']['objects'][0];
