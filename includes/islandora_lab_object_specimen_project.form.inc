@@ -51,6 +51,16 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
        '#attributes' => array('size' => 4),
        '#weight' => 8,
   );
+
+  //if this is not called by an ingest step, display a submit button.
+  if($specimen != NULL) {
+    //submit button
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Submit',
+      '#submit' => array('islandora_project_people_add_submit'),
+    );
+  }
   
   return $form;
 
