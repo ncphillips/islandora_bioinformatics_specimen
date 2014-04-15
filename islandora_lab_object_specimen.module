@@ -74,7 +74,7 @@ function islandora_lab_object_specimen_menu() {
         'access callback' => TRUE,
       ),
 
-      'islandora/object/%islandora_objects/specimen/add_specimen_to_project' => array(
+      'islandora/object/%islandora_object/specimen/add_specimen_to_project' => array(
         'page callback' => 'drupal_get_form',
         'page arguments' => array('islandora_lab_object_specimen_project_form', 2),
         'access callback' => TRUE,
