@@ -115,8 +115,7 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   $datastream->setContentFromFile("$module_path/xml/specimen_collection_policy.xml", FALSE);
   $specimen_collection->ingestDatastream($datastream);
 
-
-  $person_cm->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_isPartOf', 'islandora:project_cmodel');
+  $content_model->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_isPartOf', 'islandora:project_cmodel');
 
   return array(
     'islandora_lab_object_specimen' => array(
