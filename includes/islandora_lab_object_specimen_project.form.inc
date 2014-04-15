@@ -70,7 +70,9 @@ function islandora_lab_object_specimen_project_form_submit(array $form, array &$
   $tuque = new IslandoraTuque();
 
   if($specimen == NULL) {
-    $specimen = $form_state['islandora']['objects'][0];
+    if(!empty($form_state['islandora']['objects'][0])) {
+      $specimen = $form_state['islandora']['objects'][0];
+    }
   }
 
   $project_ids = array_filter($form_state['values']['projects']);
