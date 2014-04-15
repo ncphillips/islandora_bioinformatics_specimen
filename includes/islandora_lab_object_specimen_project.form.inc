@@ -58,7 +58,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => 'Submit',
-      '#submit' => array('islandora_project_people_add_submit'),
+      '#submit' => array('islandora_lab_object_specimen_project_form_submit'),
     );
   }
   
