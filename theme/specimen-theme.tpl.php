@@ -52,7 +52,7 @@ echo "</pre>";*/
         <td><img src="<?php print (array_key_exists('img_url1', $variables)) ? $variables['img_url1']:""?>" width="150"></td>
         <td><img src="<?php print (array_key_exists('img_url2', $variables)) ? $variables['img_url2']:""?>" width="150"></td>
         <td><img src="<?php print (array_key_exists('img_url3', $variables)) ? $variables['img_url3']:""?>" width="150"></td>
-        <td><img src="<?php print (array_key_exists('img_url4', $variables) ? $variables['img_url4']:""?>" width="150"></td>
+        <td><img src="<?php print (array_key_exists('img_url4', $variables)) ? $variables['img_url4']:""?>" width="150"></td>
       </tr>
     </tbody>
   </table>
