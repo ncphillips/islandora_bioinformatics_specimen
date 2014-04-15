@@ -35,10 +35,9 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
   $project_array = array();
   foreach ($result as $project) {
     // label should contain whatever we've selected as a label for these objects?
-    $project_object = islandora_object_load($project['pid']['value']);
-    $relations = $project_object->relationships->get(FEDORA_RELS_EXT_URI, 'hasPart', $specimen->id, NULL);
+    $relations = $specimen->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $project['pid']['value']);
     if(empty($relations))
-      $project_array[$project["pid"]["value"]] = $project_object->label;
+      $project_array[$project["pid"]["value"]] = $project["label"]["value"];
   }
 
   $form['projects'] = array(

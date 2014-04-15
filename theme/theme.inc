@@ -106,8 +106,8 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
   $related_projects = array();
   foreach($result as $project) {
     $project_object = islandora_object_load($project['pid']['value']);
-    if($project_object->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $islandora_object->id)) {
-      $related_projects[$project_object->id] = $project_object->label;
+    if($islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $project['pid']['value'])) {
+      $related_projects[$project['pid']['value']] = $project['label']['value'];
     }
   }
   $variables['related_projects'] = $related_projects;
