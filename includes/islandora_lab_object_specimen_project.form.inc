@@ -56,7 +56,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
   );
 
   //if this is not called by an ingest step, display a submit button.
-  if($specimen != NULL) {
+  if($specimen_object != NULL) {
     //submit button
     $form['submit'] = array(
       '#type' => 'submit',
