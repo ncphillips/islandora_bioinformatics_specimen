@@ -60,7 +60,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
       '#value' => 'Submit',
       '#submit' => array('islandora_lab_object_specimen_project_form_submit'),
     );
-    $form['islandora']['objects'][0] = $specimen;
+    $form_state['islandora']['objects'][0] = $specimen;
   }
   
   return $form;
