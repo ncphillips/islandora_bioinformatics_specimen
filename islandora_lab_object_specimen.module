@@ -53,6 +53,7 @@ function islandora_lab_object_specimen_forms($form_id, $args){
 function islandora_lab_object_specimen_menu() {
   /**
    * @author Brent Mitton
+   * @author Quintin Dawson
    *
    * Implements hook_menu().
    *
@@ -76,8 +77,14 @@ function islandora_lab_object_specimen_menu() {
       'islandora/objects/%islandora_objects/specimen' => array(
         'page callback' => 'drupal_get_form',
         'page arguments' => array(2),
-      )
+      ),
 
+      'islandora/objects/%islandora_objects/specimen/add_specimen_to_project' => array(
+        'page callback' => 'islandora_lab_object_specimen_project_form',
+        'page arguments' => array(2),
+        'file' => 'includes/islandora_lab_object_specimen_project.form.inc',
+        'access callback' => TRUE,
+      ),
     );
 }
 
