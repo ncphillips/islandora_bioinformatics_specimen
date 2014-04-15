@@ -1,5 +1,5 @@
 <?php
-
+include_once drupal_get_path('module', 'islandora_lab_object_specimen_project_form') . '/includes/islandora_lab_object_specimen_project.form.inc';
 ini_set('display_errors', 1);
 /**
  * @file
@@ -80,9 +80,8 @@ function islandora_lab_object_specimen_menu() {
       ),
 
       'islandora/objects/%islandora_objects/specimen/add_specimen_to_project' => array(
-        'page callback' => 'islandora_lab_object_specimen_project_form',
-        'page arguments' => array(2),
-        'file' => 'includes/islandora_lab_object_specimen_project.form.inc',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('islandora_lab_object_specimen_project_form', 2),
         'access callback' => TRUE,
       ),
     );
