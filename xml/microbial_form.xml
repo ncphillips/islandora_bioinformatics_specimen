@@ -27,7 +27,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <default_value>bacteria</default_value>
+          <default_value>microbe</default_value>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -1303,10 +1303,12 @@
                               <collapsed>FALSE</collapsed>
                               <collapsible>FALSE</collapsible>
                               <disabled>FALSE</disabled>
-                              <executes_submit_callback>FALSE</executes_submit_callback>
+                              <executes_submit_callback>FALSE
+                              </executes_submit_callback>
                               <multiple>FALSE</multiple>
                               <required>FALSE</required>
                               <resizable>FALSE</resizable>
+                              <size>10</size>
                               <title>Depth</title>
                               <tree>TRUE</tree>
                               <actions>
