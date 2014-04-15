@@ -9,12 +9,13 @@
 *
 */
 
-function islandora_lab_object_specimen_project_form(array $form, array &$form_state, $specimen) {
+function islandora_lab_object_specimen_project_form(array $form, array &$form_state) {
   
   // connect to the fedora repo. Apparently this function can be called from anywhere and it will
   // work.
   $tuque = new IslandoraTuque();
 
+  $specimen = $form_state['islandora']['objects'][0];
 
   // query to get all of the objects with a project content model
   $project_query = "SELECT ?pid
