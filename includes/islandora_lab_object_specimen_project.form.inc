@@ -60,25 +60,23 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
       '#value' => 'Submit',
       '#submit' => array('islandora_lab_object_specimen_project_form_submit'),
     );
+    $form['islandora']['objects'][0] = $specimen;
   }
   
   return $form;
 
 }
 
-function islandora_lab_object_specimen_project_form_submit(array $form, array &$form_state, $specimen = NULL) {
+function islandora_lab_object_specimen_project_form_submit(array $form, array &$form_state) {
   $tuque = new IslandoraTuque();
 
-  if($specimen == NULL) {
-    if(!empty($form_state['islandora']['objects'][0])) {
-      $specimen = $form_state['islandora']['objects'][0];
-    }
-  }
+  $specimen_object = $form_state['islandora']['objects'][0];
 
   $project_ids = array_filter($form_state['values']['projects']);
 
+
   foreach ($project_ids as $id) {
 
-    $specimen->relationships->add(FEDORA_RELS_EXT_URI, 'isPartOf', $id);
+    $specimen_object->relationships->add(FEDORA_RELS_EXT_URI, 'isPartOf', $id);
   }
 }
