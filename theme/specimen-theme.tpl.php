@@ -44,6 +44,7 @@ echo "</pre>";*/
     }
 </style>
 
+
 <div>
   <table>
     <tbody>
@@ -86,6 +87,18 @@ echo "</pre>";*/
     <table>
         <tbody>
           <tr><th class="specimen-info-heading">Methods</th></tr>
+        </tbody>
+    </table>
+</div>
+<div class="related-projects">
+    <table>
+        <tbody>
+            <tr><th class="specimen-info-heading">Related Projects</th></tr>
+            <?php if(isset($variables['related_projects'])): ?>
+                <?php foreach($variables['related_projects'] as $key => $project): ?>
+                    <tr><td class="specimen-info-label"><?php print l($project, "islandora/object/{$key}") ?> </td></tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </tbody>
     </table>
 </div>

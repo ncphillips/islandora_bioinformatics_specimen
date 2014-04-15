@@ -53,6 +53,7 @@ function islandora_lab_object_specimen_forms($form_id, $args){
 function islandora_lab_object_specimen_menu() {
   /**
    * @author Brent Mitton
+   * @author Quintin Dawson
    *
    * Implements hook_menu().
    *
@@ -76,8 +77,14 @@ function islandora_lab_object_specimen_menu() {
       'islandora/objects/%islandora_objects/specimen' => array(
         'page callback' => 'drupal_get_form',
         'page arguments' => array(2),
-      )
+      ),
 
+      'islandora/objects/%islandora_objects/specimen/add_specimen_to_project' => array(
+        'page callback' => 'islandora_lab_object_specimen_project_form',
+        'page arguments' => array(2),
+        'file' => 'includes/islandora_lab_object_specimen_project.form.inc',
+        'access callback' => TRUE,
+      ),
     );
 }
 
@@ -104,24 +111,18 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   //Create relationship with LabObject
   $content_model->relationships->add(FEDORA_MODEL_URI, 'hasModel', 'islandora:lab_object_cmodel');
 
-  // Project Collection
+  // Specimen Collection
   $specimen_collection = $connection->repository->constructObject('islandora:specimen_collection');
   $specimen_collection->owner = 'fedoraAdmin';
   $specimen_collection->label = 'Specimen Collection';
   $specimen_collection->models = 'islandora:collectionCModel';
-  $specimen_collection->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:root');
+  $specimen_collection->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:lab_object_collection');
   $datastream = $specimen_collection->constructDatastream('COLLECTION_POLICY', 'X');
   $datastream->mimetype = 'text/xml';
   $datastream->setContentFromFile("$module_path/xml/specimen_collection_policy.xml", FALSE);
   $specimen_collection->ingestDatastream($datastream);
 
-
-  // set up the relationship between projects and specimens
-  $project_cm = islandora_object_load("islandora:project_cmodel");
-
-  add_hasPart($project_cm, "islandora:specimen_cmodel");
-  add_isPartOf($content_model, "islandora:project_cmodel");
-
+  $content_model->relationships->add(FEDORA_RELS_EXT_URI, 'datarel_isPartOf', 'islandora:project_cmodel');
 
   return array(
     'islandora_lab_object_specimen' => array(
@@ -281,9 +282,9 @@ function islandora_lab_object_specimen_form_related_specimen_form_alter(&$form, 
   $object_id = $object->id;
   $specimens = $form_state['related_objects'];
 
-  $form['add'] = array(
-    '#markup' => l('Add Specimen',"islandora/object/$object_id/ingest/specimen")
-  );
+//  $form['add'] = array(
+//    '#markup' => l('Add Specimen',"islandora/object/$object_id/ingest/specimen")
+//  );
 
   $header = array(
     'lab_id' => t("Lab ID"),
