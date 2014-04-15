@@ -66,13 +66,14 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
 
 }
 
-function islandora_lab_object_specimen_project_form_submit(array $form, array &$form_state) {
+function islandora_lab_object_specimen_project_form_submit(array $form, array &$form_state, $specimen = NULL) {
   $tuque = new IslandoraTuque();
 
-  $specimen_object = $form_state['islandora']['objects'][0];
+  if(specimen == NULL) {
+    $specimen_object = $form_state['islandora']['objects'][0];
+  }
 
   $project_ids = array_filter($form_state['values']['projects']);
-  
   
   foreach ($project_ids as $id) {
 
