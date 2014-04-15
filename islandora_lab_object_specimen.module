@@ -104,12 +104,12 @@ function islandora_lab_object_specimen_islandora_required_objects(IslandoraTuque
   //Create relationship with LabObject
   $content_model->relationships->add(FEDORA_MODEL_URI, 'hasModel', 'islandora:lab_object_cmodel');
 
-  // Project Collection
+  // Specimen Collection
   $specimen_collection = $connection->repository->constructObject('islandora:specimen_collection');
   $specimen_collection->owner = 'fedoraAdmin';
   $specimen_collection->label = 'Specimen Collection';
   $specimen_collection->models = 'islandora:collectionCModel';
-  $specimen_collection->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:root');
+  $specimen_collection->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:lab_objects_collection');
   $datastream = $specimen_collection->constructDatastream('COLLECTION_POLICY', 'X');
   $datastream->mimetype = 'text/xml';
   $datastream->setContentFromFile("$module_path/xml/specimen_collection_policy.xml", FALSE);
