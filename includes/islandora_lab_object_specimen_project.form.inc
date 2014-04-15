@@ -15,7 +15,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
   // work.
   $tuque = new IslandoraTuque();
 
-  if($specimen != NULL) {
+  if($specimen == NULL) {
     $specimen = $form_state['islandora']['objects'][0];
   }
 
