@@ -46,6 +46,7 @@ echo "</pre>";*/
       position: relative;
       color: red;
       top: 1px;
+      float:left;
     }
 </style>
 
@@ -101,7 +102,6 @@ echo "</pre>";*/
 </div>
 
 <div class="related-projects">
-  <br/>
   <div class="m-btn green rel-proj-btn"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
   <table>
         <tbody>
