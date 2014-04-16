@@ -133,7 +133,7 @@ function parse_taxonomy($taxon_container) {
 
   echo "<pre><div style='background-color:green;'>";
   echo "hey";
-  var_dump($taxon_container["taxonomicClassification"]);
+  var_dump($taxon_container);
   echo "</div></pre>";
 
   $taxonomy = array();
