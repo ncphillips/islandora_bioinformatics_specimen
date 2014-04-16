@@ -93,10 +93,12 @@ echo "</pre>";*/
 <div class="related-projects">
     <table>
         <tbody>
-            <div>
-                <tr><th class="specimen-info-heading">Related Projects</th></tr></tbody>
-                <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/add_lab_object_to_project") ?></div>
-            </div>
+                <tr>
+                  <th class="specimen-info-heading">Related Projects</th>
+                  <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/add_lab_object_to_project") ?></div>
+                </tr>
+        </tbody>
+
             <?php if(isset($variables['related_projects'])): ?>
                 <?php foreach($variables['related_projects'] as $key => $project): ?>
                     <tr><td class="specimen-info-label"><?php print l($project, "islandora/object/{$key}") ?> </td></tr>
