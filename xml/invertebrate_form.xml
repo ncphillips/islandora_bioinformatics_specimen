@@ -1625,14 +1625,8 @@
                                   <path>eml:title</path>
                                   <context>parent</context>
                                 </read>
-                                <update>
-                                  <path>self::node()</path>
-                                  <context>self</context>
-                                </update>
-                                <delete>
-                                  <path>self::node()</path>
-                                  <context>self</context>
-                                </delete>
+                                <update>NULL</update>
+                                <delete>NULL</delete>
                               </actions>
                             </properties>
                             <children/>
@@ -1663,14 +1657,8 @@
                                   <path>eml:para</path>
                                   <context>parent</context>
                                 </read>
-                                <update>
-                                  <path>self::node()</path>
-                                  <context>self</context>
-                                </update>
-                                <delete>
-                                  <path>self::node()</path>
-                                  <context>self</context>
-                                </delete>
+                                <update>NULL</update>
+                                <delete>NULL</delete>
                               </actions>
                             </properties>
                             <children/>
