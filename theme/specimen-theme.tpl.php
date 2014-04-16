@@ -43,8 +43,9 @@ echo "</pre>";*/
         text-decoration:underline;
     }
 </style>
-
-
+<div class="person-info float-right m-btn green">
+  <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
+</div>
 <div>
   <table>
     <tbody>
@@ -106,6 +107,4 @@ echo "</pre>";*/
         </tbody>
     </table>
 </div>
-<div class="-info float-right m-btn green">
-  <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/EML");?>
-</div>
+
