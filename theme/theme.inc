@@ -139,7 +139,7 @@ function parse_taxonomy($taxon_container) {
 
   foreach ($taxon_container->taxonomicClassification as $taxon_item){
     echo "HIPSAIDBIPUS";
-      var_dump($taxon_item);
+      var_dump($taxon_item->taxonRankName);
 //    switch((string) $taxon_item['taxonRankName']){
 //      case "phylum":
 //        $taxonomy['phylum'] = (string) $taxon_item->taxonRankValue;
