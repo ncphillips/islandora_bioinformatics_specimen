@@ -138,31 +138,29 @@ function parse_taxonomy($taxon_container) {
   $taxonomy = array();
 
   foreach ($taxon_container->taxonomicClassification as $taxon_item){
-    echo "HIPSAIDBIPUS";
-      var_dump($taxon_item->taxonRankName);
-//    switch((string) $taxon_item['taxonRankName']){
-//      case "phylum":
-//        $taxonomy['phylum'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//      case "subphylum";
-//        $taxonomy['subphylum'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//      case "class":
-//        $taxonomy['class'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//      case "order":
-//        $taxonomy['order'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//      case "family":
-//        $taxonomy['family'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//      case "genus":
-//        $taxonomy['genus'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//      case "species":
-//        $taxonomy['species'] = (string) $taxon_item->taxonRankValue;
-//        break;
-//    }
+    switch($taxon_item->taxonRankName[0]){
+      case "phylum":
+        $taxonomy['phylum'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+      case "subphylum";
+        $taxonomy['subphylum'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+      case "class":
+        $taxonomy['class'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+      case "order":
+        $taxonomy['order'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+      case "family":
+        $taxonomy['family'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+      case "genus":
+        $taxonomy['genus'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+      case "species":
+        $taxonomy['species'] = (string) $taxon_item->taxonRankValue[0];
+        break;
+    }
   }
 
 }
