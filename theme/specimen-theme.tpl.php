@@ -93,7 +93,7 @@ echo "</pre>";*/
 <div class="related-projects">
     <table>
         <tbody>
-            <tr><th class="specimen-info-heading">Related Projects</th></tr>
+            </div><tr><th class="specimen-info-heading">Related Projects</th></tr></tbody> <div class="m-btn green"><?php l('Manage Related Projects', "islandora/object/{$variables['object_id']}") ?></div>
             <?php if(isset($variables['related_projects'])): ?>
                 <?php foreach($variables['related_projects'] as $key => $project): ?>
                     <tr><td class="specimen-info-label"><?php print l($project, "islandora/object/{$key}") ?> </td></tr>

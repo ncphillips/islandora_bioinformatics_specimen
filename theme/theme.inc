@@ -111,6 +111,8 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     }
   }
   $variables['related_projects'] = $related_projects;
+
+  $variables['object_id'] = $islandora_object->id;
 }
 
 
