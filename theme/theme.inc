@@ -130,7 +130,9 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
  * A simple array with rankNames as indices and rankValues as values
  */
 function parse_taxonomy($taxon_container) {
+
   echo "<pre><div style='background-color:green;'>";
+  echo "hey";
   var_dump($taxon_container);
   echo "</div></pre>";
 
