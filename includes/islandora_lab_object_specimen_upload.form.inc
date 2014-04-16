@@ -105,16 +105,16 @@ function islandora_lab_object_specimen_upload_form_submit(array $form, array &$f
  * @param $form_state
  *  Reference to the drupal form state
  */
-function associate_image($image_files, array $form, array &$form_state){
+function associate_image($image_files, array $form, array &$form_state) {
   $i = 0;
 
-  foreach ($image_files as $img){
+  foreach ($image_files as $img) {
     $tn_num = (!$i) ? "":$i;
     $i++;
     if (!empty($img)) {  //check if a file has been uploaded
 
       $object = $form_state['islandora']['objects'][0];
-      $ds = $object->constructDatastream('TN'. $tn_num, 'M');
+      $ds = $object->constructDatastream('TN' . $tn_num, 'M');
       $object->ingestDatastream($ds);
 
 
