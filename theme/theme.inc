@@ -85,17 +85,14 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     foreach ($obj->children($ns) as $dataset) {
       $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage);
       $geography = parse_geography($dataset->coverage->geographicCoverage);
-    //  $methods = parse_methods($dataset->methods->methodStep->description->section);
+      $methods = parse_methods($dataset->methods->methodStep->description->section);
       $temporal = parse_temporal($dataset->coverage->temporalCoverage);
 
       if (!empty($taxonomy)){
         break;
       }
     }
-    echo "<div style='background-color:red;'><pre>";
 
-    var_dump($taxonomy);
-    echo "</pre></div>";
     $variables['taxonomy'] = $taxonomy;
     $variables['geography'] = $geography; 
     $variables['methods'] = $methods;
@@ -140,9 +137,6 @@ function parse_taxonomy($taxon_container) {
 
   $taxonomy = array();
 
-  echo "<div style='background-color:blue;'><pre>";
-  var_dump($taxon_container);
-  echo "</pre></div>";
 
   foreach ($taxon_container->taxonomicClassification as $taxon_item){
 
