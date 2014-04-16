@@ -9,13 +9,18 @@
 *
 */
 
-function islandora_lab_object_specimen_project_form(array $form, array &$form_state) {
+function islandora_lab_object_specimen_project_form(array $form, array &$form_state, $specimen_object = NULL) {
   
   // connect to the fedora repo. Apparently this function can be called from anywhere and it will
   // work.
   $tuque = new IslandoraTuque();
 
-  $specimen = $form_state['islandora']['objects'][0];
+  if($specimen_object == NULL) {
+    $specimen = $form_state['islandora']['objects'][0];
+  }
+  else {
+    $specimen = $specimen_object;
+  }
 
   // query to get all of the objects with a project content model
   $project_query = "SELECT ?pid
@@ -49,6 +54,17 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
        '#attributes' => array('size' => 4),
        '#weight' => 8,
   );
+
+  //if this is not called by an ingest step, display a submit button.
+  if($specimen_object != NULL) {
+    //submit button
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => 'Submit',
+      '#submit' => array('islandora_lab_object_specimen_project_form_submit'),
+    );
+    $form_state['islandora']['objects'][0] = $specimen;
+  }
   
   return $form;
 
@@ -60,8 +76,8 @@ function islandora_lab_object_specimen_project_form_submit(array $form, array &$
   $specimen_object = $form_state['islandora']['objects'][0];
 
   $project_ids = array_filter($form_state['values']['projects']);
-  
-  
+
+
   foreach ($project_ids as $id) {
 
     $specimen_object->relationships->add(FEDORA_RELS_EXT_URI, 'isPartOf', $id);
