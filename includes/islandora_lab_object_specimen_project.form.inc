@@ -15,7 +15,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
   // work.
   $tuque = new IslandoraTuque();
 
-  if($specimen_object == NULL) {
+  if ($specimen_object == NULL) {
     $specimen = $form_state['islandora']['objects'][0];
   }
   else {
@@ -42,7 +42,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
     // label should contain whatever we've selected as a label for these objects?
     $project_object = islandora_object_load($project['pid']['value']);
     $relations = $specimen->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $project_object->id, NULL);
-    if(empty($relations))
+    if (empty($relations))
       $project_array[$project_object->id] = $project_object->label;
   }
 
@@ -56,7 +56,7 @@ function islandora_lab_object_specimen_project_form(array $form, array &$form_st
   );
 
   //if this is not called by an ingest step, display a submit button.
-  if($specimen_object != NULL) {
+  if ($specimen_object != NULL) {
     //submit button
     $form['submit'] = array(
       '#type' => 'submit',

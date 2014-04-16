@@ -104,9 +104,9 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
   $result = $tuque->repository->ri->sparqlQuery($project_query, 'unlimited');
 
   $related_projects = array();
-  foreach($result as $project) {
+  foreach ($result as $project) {
     $project_object = islandora_object_load($project['pid']['value']);
-    if($islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $project_object->id)) {
+    if ($islandora_object->relationships->get(FEDORA_RELS_EXT_URI, 'isPartOf', $project_object->id)) {
       $related_projects[$project_object->id] = $project_object->label;
     }
   }
@@ -131,7 +131,7 @@ function parse_taxonomy($taxon_container) {
 
   $taxonomy = array();
 
-  if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+  if (is_array($taxon_container) || $taxon_container instanceof Traversable) {
   foreach ($taxon_container as $key => $rank) {
     // i'd rather deal with strings than objects
     $rv = (string) $rank->taxonRankValue;
@@ -149,7 +149,7 @@ function parse_geography($taxon_container) {
 
   $geography = array();
 
-  if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+  if (is_array($taxon_container) || $taxon_container instanceof Traversable) {
   foreach ($taxon_container as $key => $rank) {
     // i'd rather deal with strings than objects
     $west = "west";
@@ -197,7 +197,7 @@ function parse_methods($taxon_container) {
 
   $methods = array();
 
-  if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+  if (is_array($taxon_container) || $taxon_container instanceof Traversable) {
   foreach ($taxon_container as $key => $rank) {
     // i'd rather deal with strings than objects
     $method_title = "title";
@@ -223,7 +223,7 @@ function parse_temporal($taxon_container) {
 
     $temporal = array();
 
-    if (is_array($taxon_container) || $taxon_container instanceof Traversable){
+    if (is_array($taxon_container) || $taxon_container instanceof Traversable) {
     foreach ($taxon_container as $key => $rank) {
         // i'd rather deal with strings than objects
         $collection_date = "date";
