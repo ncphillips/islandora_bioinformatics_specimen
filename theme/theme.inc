@@ -83,7 +83,7 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     // this is not being done the ideal way. There really should only be one child
     // so essentially it should only loop once
     foreach ($obj->children($ns) as $dataset) {
-      $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage);
+      $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage->taxonomicClassification);
       $geography = parse_geography($dataset->coverage->geographicCoverage);
     //  $methods = parse_methods($dataset->methods->methodStep->description->section);
       $temporal = parse_temporal($dataset->coverage->temporalCoverage);
