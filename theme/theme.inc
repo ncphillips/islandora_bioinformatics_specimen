@@ -132,7 +132,7 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
 function parse_taxonomy($taxon_container) {
   echo "<pre><div style='background-color:green;'>";
 
-  foreach ($taxon_container as $taxon_item){
+  foreach ($taxon_container->taxonomicClassification as $taxon_item){
     echo "hey";
     print_r($taxon_item);
     echo "ho";
