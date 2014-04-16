@@ -134,6 +134,10 @@ function parse_taxonomy($taxon_container) {
 
   $taxonomy = array();
 
+  echo "<div style='background-color:aliceblue;'><pre>";
+  var_dump($taxon_container);
+  echo "</pre></div>";
+
   foreach ($taxon_container->taxonomicClassification as $taxon_item){
 
 
