@@ -57,42 +57,43 @@ echo "</pre>";*/
     </tbody>
   </table>
 </div>
+
+<div class="">
+  <div class="specimen-info">
+    <table>
+      <tbody>
+        <tr><th class="specimen-info-heading">Taxonomic Information</th></tr>
+        <tr><td class="specimen-info-label">Phylum: </td><td><?php if (isset ($variables['taxonomy']['phylum'])):?><?php print $variables['taxonomy']['phylum'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Subphylum: </td><td><?php if (isset ($variables['taxonomy']['subphylum'])):?><?php print $variables['taxonomy']['subphylum'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Class: </td><td><?php if (isset ($variables['taxonomy']['class'])):?><?php print $variables['taxonomy']['class'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Order: </td><td><?php if (isset ($variables['taxonomy']['order'])):?><?php print $variables['taxonomy']['order'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Family: </td><td><?php if (isset ($variables['taxonomy']['family'])):?><?php print $variables['taxonomy']['family'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Genus: </td><td><?php if (isset ($variables['taxonomy']['genus'])):?><?php print $variables['taxonomy']['genus'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Species: </td><td><?php if (isset ($variables['taxonomy']['species'])):?><?php print $variables['taxonomy']['species'] ?></td></tr><?php endif; ?>
+      </tbody>
+    </table>
+  </div>
+  <div class="specimen-info">
+    <table>
+      <tbody>
+        <tr><th class="specimen-info-heading">Geographic Information</th></tr>
+        <tr><td class="specimen-info-label">Site Name: </td><td><?php if (isset ($variables['geography']['siteName'])):?><?php print $variables['geography']['siteName'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Location: </td><td><?php if (isset ($variables['geography']['north'])):?><?php print $variables['geography']['north'] ?>N, <?php print $variables['geography']['west'] ?>W</td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Depth: </td><td><?php if (isset ($variables['geography']['depth'])):?><?php print $variables['geography']['depth'] ?> <?php print $variables['geography']['unit'] ?></td></tr><?php endif; ?>
+        <tr><td class="specimen-info-label">Collection Date: </td><td><?php if (isset ($variables['temporal']['date'])):?><?php print $variables['temporal']['date'] ?></td></tr><?php endif; ?>
+      </tbody>
+    </table>
+  </div>
+  <div class="specimen-info">
+      <table>
+          <tbody>
+            <tr><th class="specimen-info-heading">Methods</th></tr>
+          </tbody>
+      </table>
+  </div>
+</div>
 <div class="person-info float:right m-btn green">
   <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
-</div>
-<div class="float:left">
-<div class="specimen-info">
-  <table>
-    <tbody>
-      <tr><th class="specimen-info-heading">Taxonomic Information</th></tr>
-      <tr><td class="specimen-info-label">Phylum: </td><td><?php if (isset ($variables['taxonomy']['phylum'])):?><?php print $variables['taxonomy']['phylum'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Subphylum: </td><td><?php if (isset ($variables['taxonomy']['subphylum'])):?><?php print $variables['taxonomy']['subphylum'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Class: </td><td><?php if (isset ($variables['taxonomy']['class'])):?><?php print $variables['taxonomy']['class'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Order: </td><td><?php if (isset ($variables['taxonomy']['order'])):?><?php print $variables['taxonomy']['order'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Family: </td><td><?php if (isset ($variables['taxonomy']['family'])):?><?php print $variables['taxonomy']['family'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Genus: </td><td><?php if (isset ($variables['taxonomy']['genus'])):?><?php print $variables['taxonomy']['genus'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Species: </td><td><?php if (isset ($variables['taxonomy']['species'])):?><?php print $variables['taxonomy']['species'] ?></td></tr><?php endif; ?>
-    </tbody>
-  </table>
-</div>
-<div class="specimen-info">
-  <table>
-    <tbody>
-      <tr><th class="specimen-info-heading">Geographic Information</th></tr>
-      <tr><td class="specimen-info-label">Site Name: </td><td><?php if (isset ($variables['geography']['siteName'])):?><?php print $variables['geography']['siteName'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Location: </td><td><?php if (isset ($variables['geography']['north'])):?><?php print $variables['geography']['north'] ?>N, <?php print $variables['geography']['west'] ?>W</td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Depth: </td><td><?php if (isset ($variables['geography']['depth'])):?><?php print $variables['geography']['depth'] ?> <?php print $variables['geography']['unit'] ?></td></tr><?php endif; ?>
-      <tr><td class="specimen-info-label">Collection Date: </td><td><?php if (isset ($variables['temporal']['date'])):?><?php print $variables['temporal']['date'] ?></td></tr><?php endif; ?>
-    </tbody>
-  </table>
-</div>
-<div class="specimen-info">
-    <table>
-        <tbody>
-          <tr><th class="specimen-info-heading">Methods</th></tr>
-        </tbody>
-    </table>
-</div>
 </div>
 <div class="related-projects">
     <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
