@@ -131,11 +131,32 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
  */
 function parse_taxonomy($taxon_container) {
   echo "<pre><div style='background-color:green;'>";
+  $taxonomy = array();
 
   foreach ($taxon_container->taxonomicClassification as $taxon_item){
-    echo "hey";
-    print_r($taxon_item);
-    echo "ho";
+    switch((string) $taxon_item->taxonRankName){
+      case "phylum":
+        $taxonomy['phylum'] = (string) $taxon_item->taxonRankValue;
+        break;
+      case "subphylum";
+        $taxonomy['subphylum'] = (string) $taxon_item->taxonRankValue;
+        break;
+      case "class":
+        $taxonomy['class'] = (string) $taxon_item->taxonRankValue;
+        break;
+      case "order":
+        $taxonomy['order'] = (string) $taxon_item->taxonRankValue;
+        break;
+      case "family":
+        $taxonomy['family'] = (string) $taxon_item->taxonRankValue;
+        break;
+      case "genus":
+        $taxonomy['genus'] = (string) $taxon_item->taxonRankValue;
+        break;
+      case "species":
+        $taxonomy['species'] = (string) $taxon_item->taxonRankValue;
+        break;
+    }
   }
   echo "</div></pre>";
 
