@@ -60,6 +60,7 @@ echo "</pre>";*/
 <div class="person-info float:right m-btn green">
   <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
 </div>
+<div>
 <div class="specimen-info">
   <table>
     <tbody>
@@ -91,6 +92,7 @@ echo "</pre>";*/
           <tr><th class="specimen-info-heading">Methods</th></tr>
         </tbody>
     </table>
+</div>
 </div>
 <div class="related-projects">
     <table>
