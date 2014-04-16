@@ -44,6 +44,7 @@ echo "</pre>";*/
     }
     .rel-proj-btn{
       position: relative;
+      color: red;
       top: 1px;
     }
 </style>
