@@ -133,12 +133,12 @@ function parse_taxonomy($taxon_container) {
 
   echo "<pre><div style='background-color:green;'>";
   echo "hey";
-  var_dump($taxon_container->taxonomicClassification[1]);
+  //var_dump($taxon_container->taxonomicClassification[1]);
   echo "</div></pre>";
 
   $taxonomy = array();
 
-  foreach ($taxon_container as $taxon_item){
+  foreach ($taxon_container->taxonomicClassification as $taxon_item){
     switch((string) $taxon_item->taxonRankName){
       case "phylum":
         $taxonomy['phylum'] = (string) $taxon_item->taxonRankValue;
