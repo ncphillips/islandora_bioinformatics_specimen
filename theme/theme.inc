@@ -89,7 +89,10 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
       $temporal = parse_temporal($dataset->coverage->temporalCoverage);
 
     }
+    echo "<div style='background-color:red;'><pre>";
 
+    var_dump($taxonomy);
+    echo "</pre></div>";
     $variables['taxonomy'] = $taxonomy;
     $variables['geography'] = $geography; 
     $variables['methods'] = $methods;
