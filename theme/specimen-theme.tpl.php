@@ -106,3 +106,6 @@ echo "</pre>";*/
         </tbody>
     </table>
 </div>
+<div class="-info float-right m-btn green">
+  <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/EML");?>
+</div>
