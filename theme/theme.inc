@@ -171,7 +171,7 @@ function parse_taxonomy($taxon_container) {
     }
   }
 
-  var_dump($taxonomy);
+  return $taxonomy;
 }
 
 function parse_geography($taxon_container) {
