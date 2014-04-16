@@ -132,13 +132,13 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
 function parse_taxonomy($taxon_container) {
 
   echo "<pre><div style='background-color:green;'>";
-  echo "hey";
   //var_dump($taxon_container->taxonomicClassification[1]);
   echo "</div></pre>";
 
   $taxonomy = array();
 
   foreach ($taxon_container->taxonomicClassification as $taxon_item){
+    echo "HIPSAIDBIPUS";
       echo $taxon_item;
 //    switch((string) $taxon_item['taxonRankName']){
 //      case "phylum":
