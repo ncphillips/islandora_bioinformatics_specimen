@@ -131,6 +131,9 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
  */
 function parse_taxonomy($taxon_container) {
   echo "<pre><div style='background-color:green;'>";
+  var_dump($taxon_container);
+  echo "</div></pre>";
+
   $taxonomy = array();
 
   foreach ($taxon_container as $taxon_item){
@@ -158,7 +161,6 @@ function parse_taxonomy($taxon_container) {
         break;
     }
   }
-  echo "</div></pre>";
 
 }
 
