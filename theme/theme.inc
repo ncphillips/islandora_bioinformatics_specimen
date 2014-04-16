@@ -168,7 +168,7 @@ function parse_taxonomy($taxon_container) {
     }
   }
 
-  var_dump($taxonomy)
+  var_dump($taxonomy);
 }
 
 function parse_geography($taxon_container) {
