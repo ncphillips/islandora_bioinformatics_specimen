@@ -84,7 +84,7 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     // so essentially it should only loop once
     foreach ($obj->children($ns) as $dataset) {
       $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage);
-      echo "<div style='background-color:blue'>"
+      echo "<div style='background-color:blue'>";
       var_dump($taxonomy);
       echo "</div>";
       $geography = parse_geography($dataset->coverage->geographicCoverage);
