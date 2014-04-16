@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3">
   <properties>
     <root_name>eml:eml</root_name>
@@ -1303,8 +1304,7 @@
                               <collapsed>FALSE</collapsed>
                               <collapsible>FALSE</collapsible>
                               <disabled>FALSE</disabled>
-                              <executes_submit_callback>FALSE
-                              </executes_submit_callback>
+                              <executes_submit_callback>FALSE</executes_submit_callback>
                               <multiple>FALSE</multiple>
                               <required>FALSE</required>
                               <resizable>FALSE</resizable>
@@ -1324,7 +1324,10 @@
                                   <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:boundingAltitudes/eml:altitudeMinimum</path>
                                   <context>document</context>
                                 </read>
-                                <update>NULL</update>
+                                <update>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </update>
                                 <delete>NULL</delete>
                               </actions>
                             </properties>
@@ -1360,7 +1363,10 @@
                                   <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:boundingAltitudes/eml:altitudeUnits</path>
                                   <context>document</context>
                                 </read>
-                                <update>NULL</update>
+                                <update>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </update>
                                 <delete>NULL</delete>
                               </actions>
                             </properties>

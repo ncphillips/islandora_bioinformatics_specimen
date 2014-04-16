@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3">
   <properties>
     <root_name>eml:eml</root_name>
@@ -1040,7 +1041,7 @@
                   </element>
                   <element name="site_description">
                     <properties>
-                      <type>textfield</type>
+                      <type>textarea</type>
                       <access>TRUE</access>
                       <collapsed>FALSE</collapsed>
                       <collapsible>FALSE</collapsible>
@@ -1323,7 +1324,10 @@
                                   <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:boundingAltitudes/eml:altitudeMinimum</path>
                                   <context>document</context>
                                 </read>
-                                <update>NULL</update>
+                                <update>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </update>
                                 <delete>NULL</delete>
                               </actions>
                             </properties>
@@ -1359,7 +1363,10 @@
                                   <path>/eml:eml/eml:dataset/eml:coverage/eml:geographicCoverage/eml:boundingCoordinates/eml:boundingAltitudes/eml:altitudeUnits</path>
                                   <context>document</context>
                                 </read>
-                                <update>NULL</update>
+                                <update>
+                                  <path>self::node()</path>
+                                  <context>self</context>
+                                </update>
                                 <delete>NULL</delete>
                               </actions>
                             </properties>
@@ -1482,6 +1489,7 @@
               <multiple>FALSE</multiple>
               <required>FALSE</required>
               <resizable>FALSE</resizable>
+              <title>Collection Methods</title>
               <tree>TRUE</tree>
               <actions>
                 <create>
