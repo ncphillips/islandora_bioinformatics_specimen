@@ -83,9 +83,6 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     // this is not being done the ideal way. There really should only be one child
     // so essentially it should only loop once
     foreach ($obj->children($ns) as $dataset) {
-      echo "<pre><div style='background-color:green;'>";
-        print_r($dataset->coverage->taxonomicCoverage->taxonomicClassification);
-      echo "</div></pre>";
       $taxonomy = parse_taxonomy($dataset->coverage->taxonomicCoverage);
       $geography = parse_geography($dataset->coverage->geographicCoverage);
     //  $methods = parse_methods($dataset->methods->methodStep->description->section);
@@ -133,21 +130,11 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
  * A simple array with rankNames as indices and rankValues as values
  */
 function parse_taxonomy($taxon_container) {
+  echo "<pre><div style='background-color:green;'>";
 
-  $taxonomy = array();
+  var_dump($taxon_container);
+  echo "</div></pre>";
 
-  if (is_array($taxon_container) || $taxon_container instanceof Traversable) {
-  foreach ($taxon_container as $key => $rank) {
-    // i'd rather deal with strings than objects
-    $rv = (string) $rank->taxonRankValue;
-    $rn = (string) $rank->taxonRankName;
-
-    // only add a val and name if the val has been filled out
-    if ($rv) {
-      $taxonomy[$rn] = $rv;
-    }
-  }}
-  return $taxonomy;
 }
 
 function parse_geography($taxon_container) {
