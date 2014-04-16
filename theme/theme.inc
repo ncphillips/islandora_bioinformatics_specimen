@@ -134,7 +134,7 @@ function parse_taxonomy($taxon_container) {
 
   $taxonomy = array();
 
-  echo "<div style='background-color:aliceblue;'><pre>";
+  echo "<div style='background-color:blue;'><pre>";
   var_dump($taxon_container);
   echo "</pre></div>";
 
