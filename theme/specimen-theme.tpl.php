@@ -101,9 +101,14 @@ echo "</pre>";*/
 </div>
 
 <div class="related-projects">
-    <div class="m-btn green rel-proj-btn"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
     <table>
+
         <tbody>
+        <tr>
+          <td>
+            <div class="m-btn green rel-proj-btn"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
+          </td>
+        </tr>
           <tr>
             <th class="specimen-info-heading">Related Projects </th>
           </tr>
