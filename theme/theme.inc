@@ -88,7 +88,7 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
     //  $methods = parse_methods($dataset->methods->methodStep->description->section);
       $temporal = parse_temporal($dataset->coverage->temporalCoverage);
 
-      if (!$taxonomy){
+      if (!empty($taxonomy)){
         break;
       }
     }
