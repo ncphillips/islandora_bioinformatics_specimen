@@ -105,7 +105,7 @@ echo "</pre>";*/
   <table>
         <tbody>
         <tr>
-          <th style="border: none;">
+          <th>
             <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
           </th>
         </tr>
