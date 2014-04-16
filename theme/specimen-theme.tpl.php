@@ -57,7 +57,9 @@ echo "</pre>";*/
     </tbody>
   </table>
 </div>
-
+<div class="m-btn green">
+  <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
+</div>
 <div class="">
   <div class="specimen-info">
     <table>
@@ -92,11 +94,9 @@ echo "</pre>";*/
       </table>
   </div>
 </div>
-<div class="m-btn green">
-  <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
-</div>
+
 <div class="related-projects">
-    <div class="m-btn green specimen-info"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
+    <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
     <table>
         <tbody>
           <tr>
