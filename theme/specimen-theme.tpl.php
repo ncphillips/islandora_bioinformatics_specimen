@@ -92,7 +92,7 @@ echo "</pre>";*/
       </table>
   </div>
 </div>
-<div class="person-info float:right m-btn green">
+<div class="m-btn green">
   <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
 </div>
 <div class="related-projects">
