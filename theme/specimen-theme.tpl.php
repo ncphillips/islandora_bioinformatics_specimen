@@ -94,7 +94,7 @@ echo "</pre>";*/
     <table>
         <tbody>
                 <tr>
-                  <th class="specimen-info-heading">Related Projects <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/add_lab_object_to_project") ?></div></th>
+                  <th class="specimen-info-heading">Related Projects <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div></th>
                 </tr>
         </tbody>
 
