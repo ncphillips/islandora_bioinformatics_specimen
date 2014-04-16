@@ -541,7 +541,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[2]/eml:taxonRankValue</path>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[3]/eml:taxonRankValue</path>
                               <context>document</context>
                             </read>
                             <update>
@@ -643,7 +643,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[3]/eml:taxonRankValue</path>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[4]/eml:taxonRankValue</path>
                               <context>document</context>
                             </read>
                             <update>
@@ -745,7 +745,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[4]/eml:taxonRankValue</path>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[5]/eml:taxonRankValue</path>
                               <context>document</context>
                             </read>
                             <update>
@@ -847,7 +847,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[5]/eml:taxonRankValue</path>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[6]/eml:taxonRankValue</path>
                               <context>document</context>
                             </read>
                             <update>
@@ -950,7 +950,7 @@
                               <value>taxonRankValue</value>
                             </create>
                             <read>
-                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[6]/eml:taxonRankValue</path>
+                              <path>/eml:eml/eml:dataset/eml:coverage/eml:taxonomicCoverage/eml:taxonomicClassification[7]/eml:taxonRankValue</path>
                               <context>document</context>
                             </read>
                             <update>
