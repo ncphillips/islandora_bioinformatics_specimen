@@ -60,7 +60,7 @@ echo "</pre>";*/
 <div class="person-info float:right m-btn green">
   <?php print l('Edit', "islandora/edit_form/{$variables['islandora_object']->id}/MADS");?>
 </div>
-<div>
+<div class="float:left">
 <div class="specimen-info">
   <table>
     <tbody>
@@ -95,13 +95,13 @@ echo "</pre>";*/
 </div>
 </div>
 <div class="related-projects">
+    <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
     <table>
         <tbody>
           <tr>
             <th class="specimen-info-heading">Related Projects </th>
           </tr>
         </tbody>
-      <div class="m-btn green"><?php print l('Manage Related Projects', "islandora/object/{$variables['object_id']}/manage_lab_object_projects") ?></div>
             <?php if(isset($variables['related_projects'])): ?>
                 <?php foreach($variables['related_projects'] as $key => $project): ?>
                     <tr><td class="specimen-info-label"><?php print l($project, "islandora/object/{$key}") ?> </td></tr>
