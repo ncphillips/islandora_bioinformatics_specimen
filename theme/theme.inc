@@ -87,6 +87,10 @@ function islandora_lab_object_specimen_preprocess_islandora_lab_object_specimen(
       $geography = parse_geography($dataset->coverage->geographicCoverage);
       $methods = parse_methods($dataset->methods->methodStep->description->section);
       $temporal = parse_temporal($dataset->coverage->temporalCoverage);
+
+      echo "<pre>";
+      print_r($dataset);
+      echo "</pre>";
     }
 
     $variables['taxonomy'] = $taxonomy;
